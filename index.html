@@ -1,0 +1,1157 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="เว็บไซต์แคมเปญรณรงค์ 10 ส่วน: ปัญหา หลักฐาน ผลกระทบ ผู้มีส่วนเกี่ยวข้อง SDGs แคมเปญ และการร่วมลงมือทำ">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>แม่แบบเว็บแคมเปญ 10 ส่วน</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
+<style>
+/* Layout: หน้าเดียวเลื่อนดู แบ่งเป็น 10 ส่วนตามโจทย์ · แถบเมนูติดด้านบน · หน้าแรกและ "Take Action" ใช้สีแคมเปญเต็มแถบ ส่วนอื่นสลับพื้นขาว/เทา · คอลัมน์กว้างสุด 1160px */
+:root{
+  /* สีหลักของแคมเปญ: เปลี่ยน --brand และ --hero-bg ตรงนี้ที่เดียว ทั้งเว็บจะเปลี่ยนตาม */
+  --brand:#2340c8;
+  --brand-ink:#ffffff;
+  --hero-bg:#2340c8;
+  --hero-ink:#ffffff;
+  --hero-soft:rgba(255,255,255,.78);
+  --hero-line:rgba(255,255,255,.34);
+  --hero-wash:rgba(8,14,48,.22);
+
+  --bg:#f4f5f8;
+  --surface:#ffffff;
+  --band:#e8ebf3;
+  --ink:#131826;
+  --muted:#596174;
+  --line:#d3d8e5;
+
+  /* สีไฮไลต์เหลือง = ข้อความที่กลุ่มต้องแก้ */
+  --mark:#ffe14d;
+  --mark-ink:#131826;
+  --guide-bg:#fff8d4;
+  --guide-line:#d4ae00;
+
+  --slot-a:#e2e6f0;
+  --slot-b:#d5dae7;
+  --slot-ink:#4a5266;
+  --focus:#2340c8;
+
+  --font-display:"Bai Jamjuree","IBM Plex Sans Thai","Leelawadee UI","Noto Sans Thai",system-ui,sans-serif;
+  --font-body:"IBM Plex Sans Thai","Leelawadee UI","Noto Sans Thai",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+
+  --fs-small:.875rem;
+  --fs-body:1.0625rem;
+  --fs-lede:clamp(1.1rem,1.5vw,1.28rem);
+  --fs-h3:1.3rem;
+  --fs-h2:clamp(2rem,4.4vw,3.3rem);
+  --fs-h1:clamp(2.75rem,7.6vw,5.75rem);
+  --gutter:16px;
+  --head-h:60px;
+}
+@media (min-width:720px){ :root{ --gutter:32px } }
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --brand:#8d9dff; --brand-ink:#0c1024; --hero-bg:#1a2984; --hero-wash:rgba(0,0,0,.24);
+    --bg:#0f121a; --surface:#161a25; --band:#1b2030; --ink:#e8ebf2; --muted:#9ba3b6; --line:#2b3245;
+    --mark:#f5d63d; --mark-ink:#131826; --guide-bg:#25220f; --guide-line:#8a7620;
+    --slot-a:#1c2232; --slot-b:#222a3d; --slot-ink:#a4acc0; --focus:#8d9dff;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --brand:#8d9dff; --brand-ink:#0c1024; --hero-bg:#1a2984; --hero-wash:rgba(0,0,0,.24);
+  --bg:#0f121a; --surface:#161a25; --band:#1b2030; --ink:#e8ebf2; --muted:#9ba3b6; --line:#2b3245;
+  --mark:#f5d63d; --mark-ink:#131826; --guide-bg:#25220f; --guide-line:#8a7620;
+  --slot-a:#1c2232; --slot-b:#222a3d; --slot-ink:#a4acc0; --focus:#8d9dff;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:var(--fs-body);line-height:1.75;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--surface)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.25;margin:0;text-wrap:balance}
+p,figure,blockquote{margin:0}
+ul,ol{margin:0;padding:0}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:1160px;margin-inline:auto;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
+.skip{position:absolute;left:12px;top:-80px;z-index:100;background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:6px;text-decoration:none}
+.skip:focus{top:12px}
+.en{font-family:var(--font-mono);font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- ข้อความที่ต้องแก้ + กล่องคำแนะนำ ---------- */
+.ph{background:var(--mark);color:var(--mark-ink);padding:0 .2em;border-radius:.15em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.clean .ph{background:none;color:inherit;padding:0}
+.guide{display:grid;gap:4px;max-width:72ch;padding:12px 16px;border:1.5px dashed var(--guide-line);border-radius:10px;background:var(--guide-bg);color:var(--ink);font-size:var(--fs-small);line-height:1.65}
+.guide-k{font-weight:600}
+.clean .guide{display:none}
+.hero .guide,.on-brand .guide{background:var(--hero-wash);border-color:var(--hero-line);color:var(--hero-ink)}
+
+/* ---------- แถบเมนูด้านบน ---------- */
+.masthead{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--surface);border-bottom:1px solid var(--line)}
+.masthead-in{display:flex;align-items:center;gap:14px;min-height:var(--head-h)}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;margin-right:auto;text-decoration:none}
+.brand-logo{flex:none;display:grid;place-items:center;width:34px;height:34px;border:1.5px dashed var(--muted);border-radius:50%;font-family:var(--font-mono);font-size:.5rem;letter-spacing:.06em;color:var(--muted)}
+.brand-name{font-family:var(--font-display);font-weight:700;font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav{display:none}
+.nav ol{list-style:none;display:flex;gap:2px}
+.nav a{display:block;padding:6px 9px;border-radius:6px;font-size:.92rem;color:var(--muted);text-decoration:none;white-space:nowrap}
+.nav a:hover{color:var(--ink);background:var(--band)}
+.nav a[aria-current]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--brand);border-radius:6px 6px 0 0}
+.guide-toggle{display:none;align-items:center;gap:8px;padding:5px 12px 5px 6px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);font:500 .85rem/1.2 var(--font-body);cursor:pointer;white-space:nowrap}
+.guide-toggle .sw{position:relative;flex:none;width:32px;height:18px;border-radius:999px;background:var(--line);transition:background .2s}
+.guide-toggle .sw::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--surface);box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .2s}
+.guide-toggle[aria-pressed="true"] .sw{background:var(--mark)}
+.guide-toggle[aria-pressed="true"] .sw::after{transform:translateX(14px);background:var(--mark-ink)}
+.drawer .guide-toggle{display:inline-flex;justify-self:start}
+.menu-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font:600 .9rem/1 var(--font-body);cursor:pointer}
+.menu-btn .bars{position:relative;width:16px;height:10px;border-block:2px solid currentColor}
+.menu-btn .bars::after{content:"";position:absolute;left:0;right:0;top:2px;border-top:2px solid currentColor}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px}
+.progress span{display:block;height:100%;background:var(--brand);transform-origin:left center;transform:scaleX(0)}
+.drawer{border-top:1px solid var(--line);max-height:calc(100vh - var(--head-h));max-height:calc(100dvh - var(--head-h) - env(safe-area-inset-top,0px));overflow-y:auto;overscroll-behavior:contain}
+.drawer-in{display:grid;gap:12px;padding-block:14px 22px}
+.drawer ol{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:2px 16px}
+.drawer a{display:grid;grid-template-columns:2.2em minmax(0,1fr);align-items:baseline;gap:8px;padding:9px 8px;border-radius:8px;text-decoration:none}
+.drawer a:hover,.drawer a[aria-current]{background:var(--band)}
+.drawer .n{font-family:var(--font-mono);font-size:.8rem;color:var(--brand)}
+.drawer .t{font-weight:600;line-height:1.35}
+.drawer .t small{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+@media (min-width:640px){ .masthead .guide-toggle{display:inline-flex} .drawer .guide-toggle{display:none} }
+@media (min-width:1180px){ .nav{display:block} .menu-btn{display:none} .drawer{display:none!important} }
+
+/* ---------- โครงของแต่ละส่วน ---------- */
+main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0px))}
+.sec{padding-block:clamp(56px,8vw,104px)}
+.sec-inner{display:grid;gap:clamp(28px,4vw,48px)}
+.tint{background:var(--band)}
+.sec-head{display:grid;gap:12px;max-width:62rem}
+.sec-tag{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec-num{font-size:1rem;font-weight:500;color:var(--brand)}
+.sec-head h2{font-size:var(--fs-h2)}
+.lede{max-width:60ch;font-size:var(--fs-lede);line-height:1.7;color:var(--muted)}
+.block{display:grid;gap:18px}
+.block-h{font-size:var(--fs-h3)}
+.slot{display:grid;place-items:center;width:100%;max-width:100%;padding:16px;border-radius:14px;background:repeating-linear-gradient(135deg,var(--slot-a) 0 12px,var(--slot-b) 12px 24px);color:var(--slot-ink);text-align:center;font-size:.9rem;line-height:1.5}
+.slot strong{display:block;font-family:var(--font-display);font-size:1.05rem}
+.slot small{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.03em}
+.r-3-2{aspect-ratio:3/2}
+.r-4-3{aspect-ratio:4/3}
+.card{padding:22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.cite{display:inline-block;padding:0 5px;border:1px solid currentColor;border-radius:4px;font-family:var(--font-mono);font-size:.76rem;line-height:1.5;color:var(--brand);text-decoration:none;vertical-align:.1em}
+.cite:hover{background:var(--brand);color:var(--brand-ink)}
+.chip{display:inline-block;justify-self:start;padding:2px 10px;border:1px solid var(--line);border-radius:999px;font-size:.8rem;font-weight:600;color:var(--muted)}
+
+/* ---------- ปุ่ม ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 22px;border:2px solid transparent;border-radius:999px;font:600 1rem/1.2 var(--font-body);text-decoration:none;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-solid{background:var(--brand);color:var(--brand-ink)}
+.btn-line{border-color:currentColor;background:transparent;color:inherit}
+.hero .btn-solid{background:var(--hero-ink);color:var(--hero-bg)}
+
+/* ---------- 01 หน้าแรก ---------- */
+.hero{background:var(--hero-bg);color:var(--hero-ink);--focus:#ffffff}
+.hero-grid{display:grid;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(36px,6vw,80px)}
+.hero-copy{display:grid;gap:18px;justify-items:start;min-width:0}
+.hero .sec-tag{color:var(--hero-soft)}
+.hero .sec-num{color:var(--hero-ink)}
+.logo-slot{display:grid;place-items:center;width:76px;height:76px;border:2px dashed var(--hero-line);border-radius:50%;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;color:var(--hero-soft)}
+.eyebrow{font-weight:500;color:var(--hero-soft)}
+.hero h1{font-size:var(--fs-h1);line-height:1.12;letter-spacing:-.01em}
+.slogan{font-family:var(--font-display);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.4}
+.hero-lede{max-width:52ch;font-size:var(--fs-lede);color:var(--hero-soft)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;padding-top:4px}
+.hero-cover{display:grid;gap:8px;min-width:0}
+.hero-cover .slot{--slot-a:rgba(255,255,255,.12);--slot-b:rgba(255,255,255,.05);aspect-ratio:4/3;border:1.5px dashed var(--hero-line);color:var(--hero-ink)}
+.hero-cover figcaption{font-size:.8rem;color:var(--hero-soft)}
+@media (min-width:880px){
+  .hero-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+  .hero-cover .slot{aspect-ratio:4/5}
+}
+.ticker{overflow:hidden;background:var(--ink);color:var(--bg)}
+.ticker-track{display:flex;width:max-content;animation:tick 48s linear infinite}
+.ticker-track > span{padding:12px 20px;font-family:var(--font-display);font-weight:600;font-size:1.05rem;white-space:nowrap}
+.ticker .sep{color:var(--mark);padding-inline:0}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- 02 ทำความรู้จักกับปัญหา ---------- */
+.issue-grid{display:grid;gap:clamp(24px,4vw,56px)}
+.issue-intro{display:grid;gap:18px;align-content:start;min-width:0}
+.issue-intro > p{font-size:var(--fs-lede);line-height:1.7}
+.qa{display:grid;margin:0;border-top:2px solid var(--ink)}
+.qa > div{display:grid;gap:4px 24px;padding-block:18px;border-bottom:1px solid var(--line)}
+.qa dt{display:grid;gap:2px;align-content:start}
+.qa dt .en{color:var(--brand)}
+.qa dt .q{font-family:var(--font-display);font-weight:600;font-size:1.15rem;line-height:1.35}
+.qa dd{margin:0;min-width:0}
+.dots{list-style:none;display:grid;gap:8px}
+.dots li{display:grid;grid-template-columns:8px minmax(0,1fr);gap:12px}
+.dots li::before{content:"";width:8px;height:8px;margin-top:.72em;border-radius:2px;background:var(--brand)}
+@media (min-width:620px){ .qa > div{grid-template-columns:11rem minmax(0,1fr)} }
+@media (min-width:900px){ .issue-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:start} }
+
+/* ---------- 03 ข้อมูลและหลักฐาน ---------- */
+.stats,.sources{display:grid;gap:16px}
+.stat{display:grid;gap:8px;align-content:start}
+.stat-num{font-family:var(--font-display);font-weight:700;font-size:clamp(2.6rem,6vw,3.9rem);line-height:1.05;letter-spacing:-.02em;color:var(--brand);font-variant-numeric:tabular-nums}
+.stat-num small{margin-left:4px;font-size:.42em;letter-spacing:0}
+.stat .cite{justify-self:start}
+.ev-grid{display:grid;gap:16px}
+.chart{display:grid;gap:16px;align-content:start;min-width:0}
+.chart-head{display:grid;gap:4px}
+.chart-head h3{font-size:1.15rem}
+.chart-unit{font-size:.85rem;color:var(--muted)}
+.bars{display:grid;gap:10px}
+.bar-row{display:grid;grid-template-columns:3.2rem minmax(0,1fr) 3.4rem;align-items:center;gap:12px;font-variant-numeric:tabular-nums}
+.bar-label,.bar-val{font-family:var(--font-mono);font-size:.85rem;color:var(--muted)}
+.bar-val{text-align:right}
+.bar-track{height:22px;border-radius:4px;background:var(--band);overflow:hidden}
+.bar-fill{display:block;height:100%;border-radius:4px;background:var(--brand);opacity:.45}
+.bar-row.is-latest .bar-fill{opacity:1}
+.bar-row.is-latest .bar-val{color:var(--ink);font-weight:500}
+.chart figcaption{font-size:.82rem;color:var(--muted)}
+.ev-side{display:grid;gap:8px;min-width:0}
+.ev-side .slot{min-height:220px;height:100%}
+.ev-side p{font-size:.82rem;color:var(--muted)}
+.source{display:grid;gap:10px;align-content:start;padding-top:16px;border-top:3px solid var(--ink)}
+.source h3{font-size:1.1rem}
+.source-meta{font-size:.85rem;color:var(--muted)}
+@media (min-width:760px){ .stats,.sources{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (min-width:900px){ .ev-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr)} }
+
+/* ---------- 04 ผลกระทบ ---------- */
+.affected{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.affected-k{margin-right:6px;font-weight:600}
+.pill{padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.92rem;line-height:1.5}
+.impact-grid{display:grid;gap:16px}
+.impact{display:grid;gap:14px;align-content:start}
+.impact-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px}
+.impact-head h3{font-size:var(--fs-h3)}
+.term{display:grid;grid-template-columns:5.2rem minmax(0,1fr);gap:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.term-k{font-size:.85rem;font-weight:600;color:var(--brand)}
+@media (min-width:760px){ .impact-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+
+/* ---------- 05 ผู้มีส่วนเกี่ยวข้อง ---------- */
+.stakes{display:grid;border-top:2px solid var(--ink)}
+.stake{display:grid;gap:10px 28px;padding-block:20px;border-bottom:1px solid var(--line)}
+.stake-who{display:grid;gap:2px;align-content:start}
+.stake-who h3{font-size:1.25rem}
+.stake-who p{font-size:.9rem;color:var(--muted)}
+.lbl{display:block;margin-bottom:2px;font-size:.78rem;font-weight:600;color:var(--muted)}
+.collab{max-width:62ch;font-family:var(--font-display);font-weight:600;font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.5}
+@media (min-width:860px){ .stake{grid-template-columns:minmax(0,3.4fr) minmax(0,4fr) minmax(0,4fr)} }
+
+/* ---------- 06 SDGs ---------- */
+.sdg-strip{list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.sdg-tile{display:flex;align-items:flex-start;width:100%;max-width:100%;aspect-ratio:1;padding:6px 7px;border:0;border-radius:6px;background:var(--c);color:var(--c-ink);font:700 clamp(1rem,2.2vw,1.3rem)/1 var(--font-display);cursor:pointer;opacity:.3;filter:saturate(.55);transition:opacity .2s,filter .2s}
+.sdg-tile.on{opacity:1;filter:none;box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--c)}
+.sdg-tile:hover,.sdg-tile:focus-visible{opacity:1;filter:none}
+.sdg-caption{min-height:1.75em;font-size:.92rem;color:var(--muted)}
+.sdg-cards{display:grid;gap:16px}
+.sdg-card{display:grid;grid-template-rows:auto 1fr;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.sdg-card-head{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:16px;padding:20px 22px;background:var(--c,var(--brand));color:var(--c-ink,var(--brand-ink))}
+.sdg-no{font:700 3.2rem/1 var(--font-display)}
+.sdg-no small{display:block;margin-bottom:6px;font:500 .7rem/1 var(--font-mono);letter-spacing:.14em}
+.sdg-name{font-size:1.2rem;line-height:1.35}
+.sdg-en{font:400 .76rem/1.4 var(--font-mono);opacity:.85}
+.sdg-card-body{display:grid;gap:14px;align-content:start;padding:20px 22px}
+.sdg-card-body .lbl{font-size:.82rem}
+@media (min-width:620px){ .sdg-strip{grid-template-columns:repeat(9,minmax(0,1fr))} }
+@media (min-width:820px){ .sdg-cards{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:1000px){ .sdg-strip{grid-template-columns:repeat(17,minmax(0,1fr))} }
+
+/* ---------- 07 แคมเปญของเรา ---------- */
+.identity{display:grid;gap:24px;align-items:center}
+.identity .slot{aspect-ratio:1;max-width:200px;border-radius:50%}
+.identity-text{display:grid;gap:8px;min-width:0}
+.identity-text .name{font-size:clamp(1.9rem,4vw,2.7rem)}
+.identity-text .slogan{color:var(--brand)}
+.identity-text p:last-child{color:var(--muted)}
+.brief{display:grid;gap:24px}
+.brief-block{display:grid;gap:10px;align-content:start;padding-top:16px;border-top:2px solid var(--ink)}
+.brief-block h3{font-size:1.2rem}
+.keymsg{display:grid;gap:14px;padding:clamp(28px,5vw,56px);border-radius:18px;background:var(--hero-bg);color:var(--hero-ink);--focus:#ffffff}
+.keymsg .en{color:var(--hero-soft)}
+.keymsg p{font:700 clamp(1.55rem,3.8vw,2.7rem)/1.32 var(--font-display);text-wrap:balance}
+.channels{list-style:none;display:grid;gap:12px}
+.channel{display:grid;gap:6px;align-content:start;padding:18px}
+.channel h4{font-size:1.1rem}
+.channel p{font-size:.92rem}
+.phases{list-style:none;display:grid;gap:20px}
+.phase{display:grid;gap:8px;align-content:start;padding-top:14px;border-top:3px solid var(--brand)}
+.phase-when{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.04em;color:var(--muted)}
+.phase h4{font-size:1.2rem}
+.kpi{font-size:.9rem;color:var(--muted)}
+@media (min-width:620px){ .channels{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:760px){ .identity{grid-template-columns:200px minmax(0,1fr)} .brief{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:900px){ .phases{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (min-width:1000px){ .channels{grid-template-columns:repeat(4,minmax(0,1fr))} }
+
+/* ---------- 08 ร่วมเป็นส่วนหนึ่ง ---------- */
+.on-brand{background:var(--hero-bg);color:var(--hero-ink);--focus:#ffffff}
+.on-brand .sec-tag,.on-brand .lede{color:var(--hero-soft)}
+.on-brand .sec-num{color:var(--hero-ink)}
+.actions{display:grid;gap:16px}
+.action,.pledge{display:grid;gap:12px;align-content:start;padding:24px;border-radius:16px;background:var(--surface);color:var(--ink);--focus:var(--brand)}
+.action h3{font-size:1.35rem}
+.action .en{color:var(--brand)}
+.action .btn{justify-self:start}
+.action > p:not(.en){color:var(--muted)}
+.hashtag{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.hashtag code{padding:6px 12px;border-radius:8px;background:var(--band);font-family:var(--font-display);font-weight:700;font-size:1.2rem;overflow-wrap:anywhere}
+.btn-small{min-height:40px;padding:6px 16px;font-size:.92rem}
+.pledge{gap:16px}
+.pledge-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px}
+.pledge-head h3{font-size:1.35rem}
+.pledge-count{font-family:var(--font-mono);font-size:.85rem;color:var(--muted)}
+.meter{height:6px;border-radius:99px;background:var(--band);overflow:hidden}
+.meter span{display:block;width:0;height:100%;background:var(--brand);transition:width .3s}
+.pledge-list{list-style:none;display:grid;gap:2px}
+.pledge-list label{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;padding:10px;border-radius:10px;cursor:pointer}
+.pledge-list label:hover{background:var(--band)}
+.pledge-list input{width:20px;height:20px;margin:.3em 0 0;accent-color:var(--brand)}
+@media (min-width:760px){ .actions{grid-template-columns:repeat(2,minmax(0,1fr))} }
+
+/* ---------- 09 แหล่งอ้างอิง ---------- */
+.refs{list-style:none;display:grid;border-top:2px solid var(--ink)}
+.refs li{display:grid;grid-template-columns:2.6rem minmax(0,1fr);gap:4px 14px;padding:16px 8px 16px 0;border-bottom:1px solid var(--line);scroll-margin-top:calc(var(--head-h) + 24px)}
+.refs li:target{background:var(--guide-bg)}
+.ref-n{font-family:var(--font-mono);font-weight:500;color:var(--brand)}
+.ref-body{display:grid;gap:6px;min-width:0;overflow-wrap:anywhere}
+.ref-meta{font-size:.82rem;color:var(--muted)}
+
+/* ---------- 10 เครดิต ---------- */
+.team{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.member{display:grid;gap:2px;padding:16px}
+.member .nm{font-weight:600}
+.member .id{font-family:var(--font-mono);font-size:.82rem;color:var(--muted)}
+.member .role{font-size:.88rem;color:var(--muted)}
+.course{display:flex;flex-wrap:wrap;gap:4px 24px;font-size:.92rem;color:var(--muted)}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;min-width:680px;border-collapse:collapse;font-size:.92rem;line-height:1.6}
+th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--band);font-size:.82rem;font-weight:600;color:var(--muted)}
+tbody tr:last-child td{border-bottom:0}
+.statement{max-width:68ch;padding:18px 20px;border:2px solid var(--ink);border-radius:12px;font-weight:500}
+
+/* ---------- ท้ายเว็บ ---------- */
+.site-foot{padding-block:48px;background:var(--ink);color:var(--bg);--focus:var(--bg)}
+.foot-grid{display:grid;gap:20px}
+.foot-name{font:700 1.6rem/1.25 var(--font-display)}
+.foot-meta{font-size:.88rem;opacity:.75}
+.to-top{justify-self:start;font-weight:600}
+@media (min-width:760px){ .foot-grid{grid-template-columns:minmax(0,1fr) auto;align-items:end} }
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:80;max-width:calc(100% - 32px);padding:10px 16px;border-radius:10px;background:var(--ink);color:var(--bg);font-size:.92rem;transform:translateX(-50%);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">ข้ามไปที่เนื้อหา</a>
+
+<header class="masthead">
+  <div class="wrap masthead-in">
+    <a class="brand" href="#home">
+      <span class="brand-logo" aria-hidden="true">LOGO</span>
+      <span class="brand-name"><span class="ph">ชื่อแคมเปญ</span></span>
+    </a>
+    <nav class="nav" aria-label="ส่วนต่าง ๆ ของเว็บไซต์">
+      <ol>
+        <li><a href="#home">หน้าแรก</a></li>
+        <li><a href="#issue">ปัญหา</a></li>
+        <li><a href="#evidence">หลักฐาน</a></li>
+        <li><a href="#impacts">ผลกระทบ</a></li>
+        <li><a href="#stakeholders">ผู้เกี่ยวข้อง</a></li>
+        <li><a href="#sdgs">SDGs</a></li>
+        <li><a href="#campaign">แคมเปญ</a></li>
+        <li><a href="#action">ร่วมมือ</a></li>
+        <li><a href="#references">อ้างอิง</a></li>
+        <li><a href="#credits">เครดิต</a></li>
+      </ol>
+    </nav>
+    <button type="button" class="guide-toggle js-guide-toggle" aria-pressed="true"><span class="sw" aria-hidden="true"></span>จุดที่ต้องแก้</button>
+    <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer"><span class="bars" aria-hidden="true"></span><span class="menu-label">เมนู</span></button>
+  </div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <div class="drawer" id="drawer" hidden>
+    <div class="wrap drawer-in">
+      <button type="button" class="guide-toggle js-guide-toggle" aria-pressed="true"><span class="sw" aria-hidden="true"></span>แสดงจุดที่ต้องแก้</button>
+      <ol>
+        <li><a href="#home"><span class="n">01</span><span class="t">หน้าแรก<small>Home</small></span></a></li>
+        <li><a href="#issue"><span class="n">02</span><span class="t">ทำความรู้จักกับปัญหา<small>About the Issue</small></span></a></li>
+        <li><a href="#evidence"><span class="n">03</span><span class="t">ข้อมูลและหลักฐาน<small>Evidence &amp; Facts</small></span></a></li>
+        <li><a href="#impacts"><span class="n">04</span><span class="t">ผลกระทบ<small>Impacts</small></span></a></li>
+        <li><a href="#stakeholders"><span class="n">05</span><span class="t">ผู้มีส่วนเกี่ยวข้อง<small>Stakeholders</small></span></a></li>
+        <li><a href="#sdgs"><span class="n">06</span><span class="t">ความเชื่อมโยงกับ SDGs<small>SDGs</small></span></a></li>
+        <li><a href="#campaign"><span class="n">07</span><span class="t">แคมเปญของเรา<small>Our Campaign</small></span></a></li>
+        <li><a href="#action"><span class="n">08</span><span class="t">ร่วมเป็นส่วนหนึ่งของการเปลี่ยนแปลง<small>Take Action</small></span></a></li>
+        <li><a href="#references"><span class="n">09</span><span class="t">แหล่งอ้างอิง<small>References</small></span></a></li>
+        <li><a href="#credits"><span class="n">10</span><span class="t">เครดิตและการใช้ Generative AI<small>Credits &amp; AI Disclosure</small></span></a></li>
+      </ol>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 01 HOME -->
+  <section id="home" class="hero" aria-labelledby="home-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="sec-tag"><span class="sec-num">01</span><span>/ 10</span><span>Home</span></p>
+        <div class="logo-slot" aria-label="ที่วางโลโก้">LOGO</div>
+        <p class="eyebrow">แคมเปญรณรงค์เรื่อง <span class="ph">[ประเด็นปัญหาที่กลุ่มเลือก]</span></p>
+        <h1 id="home-title"><span class="ph">ชื่อแคมเปญ</span></h1>
+        <p class="slogan">“<span class="ph">สโลแกนสั้น ๆ ที่จำได้ในครั้งเดียว</span>”</p>
+        <p class="hero-lede"><span class="ph">สรุปปัญหาใน 2–3 ประโยค ว่าปัญหาคืออะไร ใครได้รับผลกระทบ และทำไมทุกคนควรสนใจตอนนี้</span></p>
+        <div class="cta-row">
+          <a class="btn btn-solid" href="#issue">ทำความรู้จักปัญหา</a>
+          <a class="btn btn-line" href="#action">ร่วมเป็นส่วนหนึ่ง</a>
+        </div>
+        <aside class="guide">
+          <span class="guide-k">ส่วนนี้ต้องมี</span>
+          <span>ชื่อแคมเปญ โลโก้ สโลแกน ภาพหน้าปก ข้อความสั้น ๆ ว่าปัญหาคืออะไร และปุ่มชวนให้เรียนรู้เพิ่มหรือร่วมแคมเปญ · ข้อความไฮไลต์สีเหลืองทั้งหน้าคือส่วนที่กลุ่มต้องแก้ ปิดสวิตช์ “จุดที่ต้องแก้” ด้านบนเพื่อดูหน้าตาจริง</span>
+        </aside>
+      </div>
+      <figure class="hero-cover">
+        <div class="slot"><span><strong>ภาพหน้าปกแคมเปญ</strong><small>แนวตั้ง 1200 × 1500 px</small></span></div>
+        <figcaption>ภาพ: <span class="ph">[ที่มาของภาพ]</span></figcaption>
+      </figure>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span><span class="ph">#แฮชแท็กแคมเปญ</span></span><span class="sep">●</span>
+        <span><span class="ph">สโลแกนแคมเปญ</span></span><span class="sep">●</span>
+        <span><span class="ph">#แฮชแท็กแคมเปญ</span></span><span class="sep">●</span>
+        <span><span class="ph">สโลแกนแคมเปญ</span></span><span class="sep">●</span>
+        <span><span class="ph">#แฮชแท็กแคมเปญ</span></span><span class="sep">●</span>
+        <span><span class="ph">สโลแกนแคมเปญ</span></span><span class="sep">●</span>
+        <span><span class="ph">#แฮชแท็กแคมเปญ</span></span><span class="sep">●</span>
+        <span><span class="ph">สโลแกนแคมเปญ</span></span><span class="sep">●</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 ABOUT THE ISSUE -->
+  <section id="issue" class="sec" aria-labelledby="issue-title">
+    <div class="wrap sec-inner">
+      <header class="sec-head">
+        <p class="sec-tag"><span class="sec-num">02</span><span>/ 10</span><span>About the Issue</span></p>
+        <h2 id="issue-title">ทำความรู้จักกับปัญหา</h2>
+        <p class="lede">ปูพื้นให้คนที่ไม่เคยรู้เรื่องนี้เข้าใจได้ภายในหนึ่งนาที</p>
+      </header>
+      <aside class="guide">
+        <span class="guide-k">ส่วนนี้ต้องตอบให้ครบ</span>
+        <span>ปัญหาคืออะไร เกิดขึ้นที่ไหน เกิดขึ้นเมื่อใด มีสาเหตุจากอะไร และทำไมปัญหานี้จึงสำคัญต่อสังคมไทยหรือประชาคมโลก</span>
+      </aside>
+      <div class="issue-grid">
+        <div class="issue-intro">
+          <p><span class="ph">ย่อหน้าเปิดเรื่อง เล่าสถานการณ์จริงหรือตัวอย่างที่คนอ่านนึกภาพออก เช่น ข่าวที่เพิ่งเกิด หรือเหตุการณ์ใกล้ตัว</span></p>
+          <figure class="block" style="gap:8px">
+            <div class="slot r-3-2"><span><strong>ภาพสถานการณ์จริง</strong><small>แนวนอน 3:2</small></span></div>
+            <figcaption class="ref-meta">ภาพ: <span class="ph">[ที่มาของภาพ]</span></figcaption>
+          </figure>
+        </div>
+        <dl class="qa">
+          <div>
+            <dt><span class="en">What</span><span class="q">ปัญหาคืออะไร</span></dt>
+            <dd><span class="ph">นิยามปัญหาด้วยภาษาง่าย ๆ 2–3 ประโยค</span></dd>
+          </div>
+          <div>
+            <dt><span class="en">Where</span><span class="q">เกิดขึ้นที่ไหน</span></dt>
+            <dd><span class="ph">พื้นที่ที่เกิดปัญหา เช่น จังหวัด ภูมิภาค ทั้งประเทศ หรือระดับโลก</span></dd>
+          </div>
+          <div>
+            <dt><span class="en">When</span><span class="q">เกิดขึ้นเมื่อใด</span></dt>
+            <dd><span class="ph">ช่วงเวลาที่เริ่มเกิดหรือรุนแรงขึ้น เช่น ตั้งแต่ปี พ.ศ. ... หรือทุกช่วงฤดู ...</span></dd>
+          </div>
+          <div>
+            <dt><span class="en">Cause</span><span class="q">มีสาเหตุจากอะไร</span></dt>
+            <dd>
+              <ul class="dots">
+                <li><span><span class="ph">สาเหตุที่ 1</span></span></li>
+                <li><span><span class="ph">สาเหตุที่ 2</span></span></li>
+                <li><span><span class="ph">สาเหตุที่ 3</span></span></li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt><span class="en">Why it matters</span><span class="q">ทำไมจึงสำคัญ</span></dt>
+            <dd><span class="ph">ความสำคัญต่อสังคมไทยหรือประชาคมโลก ถ้าไม่แก้ตอนนี้จะเกิดอะไรขึ้น</span></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 EVIDENCE & FACTS -->
+  <section id="evidence" class="sec tint" aria-labelledby="evidence-title">
+    <div class="wrap sec-inner">
+      <header class="sec-head">
+        <p class="sec-tag"><span class="sec-num">03</span><span>/ 10</span><span>Evidence &amp; Facts</span></p>
+        <h2 id="evidence-title">ข้อมูลและหลักฐาน</h2>
+        <p class="lede">ตัวเลขและแหล่งข้อมูลที่ยืนยันว่าปัญหานี้มีอยู่จริง และรุนแรงแค่ไหน</p>
+      </header>
+      <aside class="guide">
+        <span class="guide-k">ส่วนนี้ต้องมี</span>
+        <span>ข้อมูลที่น่าเชื่อถือ เช่น ข่าว งานวิจัย รายงานของหน่วยงาน หรือสถิติ พร้อมภาพ กราฟ หรืออินโฟกราฟิก และต้องอ้างอิงอย่างน้อย 3 แหล่ง · ปุ่ม [1] [2] [3] จะพาไปยังรายการในส่วนที่ 09</span>
+      </aside>
+      <div class="stats">
+        <div class="stat card">
+          <p class="stat-num"><span class="ph">00</span><small>%</small></p>
+          <p><span class="ph">ตัวเลขนี้หมายถึงอะไร เช่น สัดส่วนของคนที่ได้รับผลกระทบ</span></p>
+          <a class="cite" href="#ref-1">[1]</a>
+        </div>
+        <div class="stat card">
+          <p class="stat-num"><span class="ph">0,000</span><small><span class="ph">หน่วย</span></small></p>
+          <p><span class="ph">ตัวเลขสำคัญตัวที่ 2 เช่น จำนวนผู้ป่วย มูลค่าความเสียหาย หรือปริมาณ</span></p>
+          <a class="cite" href="#ref-2">[2]</a>
+        </div>
+        <div class="stat card">
+          <p class="stat-num"><span class="ph">0</span><small><span class="ph">เท่า</span></small></p>
+          <p><span class="ph">ตัวเลขที่แสดงการเปลี่ยนแปลง เช่น เพิ่มขึ้นกี่เท่าในรอบ 5 ปี</span></p>
+          <a class="cite" href="#ref-3">[3]</a>
+        </div>
+      </div>
+      <div class="ev-grid">
+        <figure class="chart card">
+          <div class="chart-head">
+            <h3><span class="ph">ชื่อกราฟ เช่น จำนวนผู้ได้รับผลกระทบรายปี</span></h3>
+            <p class="chart-unit">หน่วย: <span class="ph">[คน / ตัน / ร้อยละ]</span></p>
+          </div>
+          <div class="bars" id="trendChart"></div>
+          <figcaption>ที่มา: <span class="ph">[หน่วยงานเจ้าของข้อมูล]</span> <a class="cite" href="#ref-4">[4]</a><span class="ph" style="margin-left:6px">ตัวเลขในกราฟตอนนี้เป็นข้อมูลสมมุติ แก้ได้ที่ TREND ในสคริปต์ท้ายไฟล์</span></figcaption>
+        </figure>
+        <div class="ev-side">
+          <div class="slot"><span><strong>อินโฟกราฟิก</strong><small>สรุปข้อมูลเป็นภาพ แนวตั้งหรือจัตุรัส</small></span></div>
+          <p>อินโฟกราฟิก: <span class="ph">[ผู้ออกแบบ / ที่มา]</span></p>
+        </div>
+      </div>
+      <div class="sources">
+        <article class="source">
+          <span class="chip">ข่าว</span>
+          <h3><span class="ph">หัวข้อข่าว</span></h3>
+          <p class="source-meta"><span class="ph">สำนักข่าว</span> · <span class="ph">วัน เดือน ปี</span></p>
+          <p><span class="ph">ประเด็นสำคัญจากข่าวนี้ใน 1–2 ประโยค</span> <a class="cite" href="#ref-1">[1]</a></p>
+        </article>
+        <article class="source">
+          <span class="chip">งานวิจัย</span>
+          <h3><span class="ph">ชื่องานวิจัย / บทความวิชาการ</span></h3>
+          <p class="source-meta"><span class="ph">ผู้วิจัย</span> · <span class="ph">ปีที่ตีพิมพ์</span></p>
+          <p><span class="ph">ผลการวิจัยที่สนับสนุนการวิเคราะห์ของกลุ่ม</span> <a class="cite" href="#ref-2">[2]</a></p>
+        </article>
+        <article class="source">
+          <span class="chip">รายงานหน่วยงาน</span>
+          <h3><span class="ph">ชื่อรายงาน</span></h3>
+          <p class="source-meta"><span class="ph">ชื่อหน่วยงาน</span> · <span class="ph">ปี</span></p>
+          <p><span class="ph">ข้อค้นพบหรือสถิติจากรายงานนี้</span> <a class="cite" href="#ref-3">[3]</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 IMPACTS -->
+  <section id="impacts" class="sec" aria-labelledby="impacts-title">
+    <div class="wrap sec-inner">
+      <header class="sec-head">
+        <p class="sec-tag"><span class="sec-num">04</span><span>/ 10</span><span>Impacts</span></p>
+        <h2 id="impacts-title">ผลกระทบ</h2>
+        <p class="lede">ผลของปัญหานี้ไม่ได้หยุดอยู่ที่คนกลุ่มเดียว แต่ส่งต่อไปถึงผู้คน สังคม เศรษฐกิจ และสิ่งแวดล้อม</p>
+      </header>
+      <aside class="guide">
+        <span class="guide-k">ส่วนนี้ต้องอธิบาย</span>
+        <span>ผลกระทบทั้งระยะสั้นและระยะยาว ใครเป็นผู้ได้รับผลกระทบ และปัญหาส่งผลต่อผู้คน สังคม เศรษฐกิจ หรือสิ่งแวดล้อมอย่างไร</span>
+      </aside>
+      <div class="affected">
+        <span class="affected-k">ผู้ได้รับผลกระทบ</span>
+        <span class="pill"><span class="ph">กลุ่มที่ได้รับผลโดยตรง</span></span>
+        <span class="pill"><span class="ph">กลุ่มเปราะบาง เช่น เด็ก ผู้สูงอายุ</span></span>
+        <span class="pill"><span class="ph">กลุ่มที่ได้รับผลทางอ้อม</span></span>
+        <span class="pill"><span class="ph">ชุมชน / พื้นที่</span></span>
+      </div>
+      <div class="impact-grid">
+        <article class="impact card">
+          <div class="impact-head"><h3>ผู้คนและสุขภาพ</h3><span class="en">People</span></div>
+          <div class="term"><span class="term-k">ระยะสั้น</span><p><span class="ph">ผลที่เห็นได้ทันที เช่น เจ็บป่วย เครียด เสียโอกาส</span></p></div>
+          <div class="term"><span class="term-k">ระยะยาว</span><p><span class="ph">ผลที่สะสมในอีกหลายปีข้างหน้า</span></p></div>
+        </article>
+        <article class="impact card">
+          <div class="impact-head"><h3>สังคม</h3><span class="en">Society</span></div>
+          <div class="term"><span class="term-k">ระยะสั้น</span><p><span class="ph">ผลต่อความเป็นอยู่ ครอบครัว หรือชุมชน</span></p></div>
+          <div class="term"><span class="term-k">ระยะยาว</span><p><span class="ph">เช่น ความเหลื่อมล้ำ คุณภาพชีวิตของคนรุ่นต่อไป</span></p></div>
+        </article>
+        <article class="impact card">
+          <div class="impact-head"><h3>เศรษฐกิจ</h3><span class="en">Economy</span></div>
+          <div class="term"><span class="term-k">ระยะสั้น</span><p><span class="ph">ค่าใช้จ่ายหรือรายได้ที่หายไป ใส่ตัวเลขถ้ามี</span> <a class="cite" href="#ref-5">[5]</a></p></div>
+          <div class="term"><span class="term-k">ระยะยาว</span><p><span class="ph">ผลต่อการท่องเที่ยว การลงทุน หรือระบบสาธารณสุข</span></p></div>
+        </article>
+        <article class="impact card">
+          <div class="impact-head"><h3>สิ่งแวดล้อม</h3><span class="en">Environment</span></div>
+          <div class="term"><span class="term-k">ระยะสั้น</span><p><span class="ph">ผลต่ออากาศ น้ำ ดิน หรือสัตว์ในพื้นที่</span></p></div>
+          <div class="term"><span class="term-k">ระยะยาว</span><p><span class="ph">ผลต่อระบบนิเวศและสภาพภูมิอากาศ</span></p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 STAKEHOLDERS -->
+  <section id="stakeholders" class="sec tint" aria-labelledby="stake-title">
+    <div class="wrap sec-inner">
+      <header class="sec-head">
+        <p class="sec-tag"><span class="sec-num">05</span><span>/ 10</span><span>Stakeholders</span></p>
+        <h2 id="stake-title">ผู้มีส่วนเกี่ยวข้อง</h2>
+        <p class="lede">ปัญหานี้แก้ได้อย่างยั่งยืนเมื่อทุกฝ่ายทำหน้าที่ของตัวเอง</p>
+      </header>
+      <aside class="guide">
+        <span class="guide-k">ส่วนนี้ต้องแสดง</span>
+        <span>ปัญหาเกี่ยวข้องกับใครบ้าง เช่น ภาครัฐ ภาคเอกชน ภาคประชาสังคม องค์กรระหว่างประเทศ นักวิชาการ ประชาชน พร้อมบทบาทหรือความเกี่ยวข้องของแต่ละฝ่าย เพื่อร่วมกันแก้ปัญหาอย่างยั่งยืน · ฝ่ายไหนไม่เกี่ยวข้องลบแถวนั้นออกได้</span>
+      </aside>
+      <div class="stakes">
+        <article class="stake">
+          <div class="stake-who"><h3>ภาครัฐ</h3><p><span class="ph">เช่น กระทรวง กรม หรือหน่วยงานท้องถิ่นที่ดูแลเรื่องนี้</span></p></div>
+          <p><span class="lbl">เกี่ยวข้องอย่างไร</span><span class="ph">อำนาจหรือหน้าที่ตามกฎหมายที่มีต่อปัญหานี้</span></p>
+          <p><span class="lbl">ทำอะไรได้</span><span class="ph">นโยบาย กฎหมาย หรือมาตรการที่ควรทำ</span></p>
+        </article>
+        <article class="stake">
+          <div class="stake-who"><h3>ภาคเอกชน</h3><p><span class="ph">เช่น บริษัท ผู้ประกอบการ อุตสาหกรรมที่เกี่ยวข้อง</span></p></div>
+          <p><span class="lbl">เกี่ยวข้องอย่างไร</span><span class="ph">เป็นต้นเหตุ ผู้ได้รับผล หรือผู้ที่มีทรัพยากรช่วยแก้</span></p>
+          <p><span class="lbl">ทำอะไรได้</span><span class="ph">เช่น ปรับกระบวนการผลิต CSR สนับสนุนทุน</span></p>
+        </article>
+        <article class="stake">
+          <div class="stake-who"><h3>ภาคประชาสังคม</h3><p><span class="ph">เช่น มูลนิธิ NGO เครือข่ายชุมชน</span></p></div>
+          <p><span class="lbl">เกี่ยวข้องอย่างไร</span><span class="ph">ทำงานกับพื้นที่หรือผู้ได้รับผลกระทบโดยตรง</span></p>
+          <p><span class="lbl">ทำอะไรได้</span><span class="ph">รณรงค์ ให้ความรู้ ผลักดันนโยบาย</span></p>
+        </article>
+        <article class="stake">
+          <div class="stake-who"><h3>องค์กรระหว่างประเทศ</h3><p><span class="ph">เช่น หน่วยงานในเครือสหประชาชาติ</span></p></div>
+          <p><span class="lbl">เกี่ยวข้องอย่างไร</span><span class="ph">กำหนดมาตรฐาน เก็บข้อมูล หรือให้ทุน</span></p>
+          <p><span class="lbl">ทำอะไรได้</span><span class="ph">ความร่วมมือระหว่างประเทศ การสนับสนุนทางวิชาการ</span></p>
+        </article>
+        <article class="stake">
+          <div class="stake-who"><h3>นักวิชาการ</h3><p><span class="ph">เช่น มหาวิทยาลัย สถาบันวิจัย</span></p></div>
+          <p><span class="lbl">เกี่ยวข้องอย่างไร</span><span class="ph">ศึกษาสาเหตุและวัดขนาดของปัญหา</span></p>
+          <p><span class="lbl">ทำอะไรได้</span><span class="ph">งานวิจัย ข้อเสนอเชิงนโยบาย นวัตกรรม</span></p>
+        </article>
+        <article class="stake">
+          <div class="stake-who"><h3>ประชาชน</h3><p><span class="ph">เช่น ประชาชนทั่วไป นักศึกษา คนในพื้นที่</span></p></div>
+          <p><span class="lbl">เกี่ยวข้องอย่างไร</span><span class="ph">เป็นทั้งผู้ได้รับผลและผู้มีส่วนทำให้เกิดปัญหา</span></p>
+          <p><span class="lbl">ทำอะไรได้</span><span class="ph">ปรับพฤติกรรม ส่งเสียง ติดตามการแก้ปัญหา</span></p>
+        </article>
+      </div>
+      <p class="collab"><span class="ph">ประโยคสรุปว่าทุกฝ่ายต้องร่วมมือกันอย่างไร ปัญหาจึงจะแก้ได้อย่างยั่งยืน</span></p>
+    </div>
+  </section>
+
+  <!-- 06 SDGs -->
+  <section id="sdgs" class="sec" aria-labelledby="sdgs-title">
+    <div class="wrap sec-inner">
+      <header class="sec-head">
+        <p class="sec-tag"><span class="sec-num">06</span><span>/ 10</span><span>Sustainable Development Goals</span></p>
+        <h2 id="sdgs-title">ความเชื่อมโยงกับ SDGs</h2>
+        <p class="lede">เป้าหมายการพัฒนาที่ยั่งยืน 17 ข้อของสหประชาชาติ ช่องที่สีเข้มคือเป้าหมายที่แคมเปญนี้เกี่ยวข้องโดยตรง</p>
+      </header>
+      <aside class="guide">
+        <span class="guide-k">ส่วนนี้ต้องมี</span>
+        <span>อย่างน้อย 2 เป้าหมาย พร้อมเหตุผลว่าทำไมจึงเกี่ยวข้อง และแคมเปญช่วยสนับสนุนเป้าหมายนั้นอย่างไร · ตอนนี้ใส่ SDG 3 และ 13 เป็นตัวอย่าง เปลี่ยนเลขใน data-goal ของการ์ดเป็นเป้าหมายที่กลุ่มเลือก แถบสีจะไฮไลต์ให้เอง</span>
+      </aside>
+      <div class="block" style="gap:10px">
+        <ol class="sdg-strip" id="sdgStrip" aria-label="SDGs ทั้ง 17 เป้าหมาย"></ol>
+        <p class="sdg-caption" id="sdgCaption" aria-live="polite"></p>
+      </div>
+      <div class="sdg-cards">
+        <article class="sdg-card" data-goal="3">
+          <header class="sdg-card-head">
+            <p class="sdg-no"><small>SDG</small><b>3</b></p>
+            <div><h3 class="sdg-name">การมีสุขภาวะที่ดี</h3><p class="sdg-en">Good Health and Well-being</p></div>
+          </header>
+          <div class="sdg-card-body">
+            <p><span class="lbl">เป้าหมายย่อยที่เกี่ยวข้อง (Target)</span><span class="ph">เลขและชื่อเป้าหมายย่อยที่ตรงกับปัญหา เช่น 3.x</span></p>
+            <p><span class="lbl">ทำไมจึงเกี่ยวข้อง</span><span class="ph">เชื่อมปัญหาของกลุ่มเข้ากับเป้าหมายนี้ด้วยเหตุผลและข้อมูล</span></p>
+            <p><span class="lbl">แคมเปญช่วยอย่างไร</span><span class="ph">กิจกรรมของแคมเปญที่ช่วยให้บรรลุเป้าหมายนี้</span></p>
+          </div>
+        </article>
+        <article class="sdg-card" data-goal="13">
+          <header class="sdg-card-head">
+            <p class="sdg-no"><small>SDG</small><b>13</b></p>
+            <div><h3 class="sdg-name">การรับมือการเปลี่ยนแปลงสภาพภูมิอากาศ</h3><p class="sdg-en">Climate Action</p></div>
+          </header>
+          <div class="sdg-card-body">
+            <p><span class="lbl">เป้าหมายย่อยที่เกี่ยวข้อง (Target)</span><span class="ph">เลขและชื่อเป้าหมายย่อยที่ตรงกับปัญหา เช่น 13.x</span></p>
+            <p><span class="lbl">ทำไมจึงเกี่ยวข้อง</span><span class="ph">เชื่อมปัญหาของกลุ่มเข้ากับเป้าหมายนี้ด้วยเหตุผลและข้อมูล</span></p>
+            <p><span class="lbl">แคมเปญช่วยอย่างไร</span><span class="ph">กิจกรรมของแคมเปญที่ช่วยให้บรรลุเป้าหมายนี้</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 OUR CAMPAIGN -->
+  <section id="campaign" class="sec tint" aria-labelledby="campaign-title">
+    <div class="wrap sec-inner">
+      <header class="sec-head">
+        <p class="sec-tag"><span class="sec-num">07</span><span>/ 10</span><span>Our Campaign</span></p>
+        <h2 id="campaign-title">แคมเปญของเรา</h2>
+        <p class="lede">เราจะสื่อสารเรื่องนี้กับใคร ด้วยข้อความอะไร และลงมือทำอย่างไร</p>
+      </header>
+      <aside class="guide">
+        <span class="guide-k">ส่วนนี้ต้องมี</span>
+        <span>ชื่อแคมเปญ โลโก้ สโลแกน กลุ่มเป้าหมาย วัตถุประสงค์ ข้อความหลัก (Key Message) วิธีการสื่อสาร และกิจกรรมรณรงค์ที่ทำได้จริง</span>
+      </aside>
+      <div class="identity">
+        <div class="slot"><span><strong>โลโก้</strong><small>PNG พื้นใส</small></span></div>
+        <div class="identity-text">
+          <h3 class="name"><span class="ph">ชื่อแคมเปญ</span></h3>
+          <p class="slogan">“<span class="ph">สโลแกน</span>”</p>
+          <p><span class="ph">ความหมายของชื่อ โลโก้ และสีที่เลือกใช้</span></p>
+        </div>
+      </div>
+      <div class="brief">
+        <div class="brief-block">
+          <h3>กลุ่มเป้าหมาย</h3>
+          <p><span class="lbl">กลุ่มหลัก</span><span class="ph">ระบุให้ชัด เช่น นักศึกษาอายุ 18–24 ปี ที่ใช้โซเชียลทุกวัน</span></p>
+          <p><span class="lbl">กลุ่มรอง</span><span class="ph">เช่น ผู้ปกครอง อาจารย์ ผู้ประกอบการในพื้นที่</span></p>
+        </div>
+        <div class="brief-block">
+          <h3>วัตถุประสงค์</h3>
+          <ul class="dots">
+            <li><span><span class="ph">เพื่อให้กลุ่มเป้าหมายรู้และเข้าใจ ...</span></span></li>
+            <li><span><span class="ph">เพื่อให้กลุ่มเป้าหมายเปลี่ยนพฤติกรรม ...</span></span></li>
+            <li><span><span class="ph">เพื่อผลักดันให้ ... (วัดผลได้)</span></span></li>
+          </ul>
+        </div>
+      </div>
+      <blockquote class="keymsg">
+        <span class="en">Key Message · ข้อความหลัก</span>
+        <p><span class="ph">ประโยคเดียวที่อยากให้ทุกคนจำได้หลังเห็นแคมเปญ</span></p>
+      </blockquote>
+      <div class="block">
+        <h3 class="block-h">วิธีการสื่อสาร</h3>
+        <ul class="channels">
+          <li class="channel card"><span class="en">Instagram</span><h4><span class="ph">รูปแบบคอนเทนต์</span></h4><p><span class="ph">เช่น อินโฟกราฟิกแบบปัด 3 โพสต์ต่อสัปดาห์</span></p></li>
+          <li class="channel card"><span class="en">TikTok</span><h4><span class="ph">รูปแบบคอนเทนต์</span></h4><p><span class="ph">เช่น คลิปสั้น 30–60 วินาที</span></p></li>
+          <li class="channel card"><span class="en">Facebook</span><h4><span class="ph">รูปแบบคอนเทนต์</span></h4><p><span class="ph">เช่น บทความสั้นพร้อมลิงก์มาที่เว็บไซต์</span></p></li>
+          <li class="channel card"><span class="en">On-ground</span><h4><span class="ph">กิจกรรมในพื้นที่</span></h4><p><span class="ph">เช่น บูธในมหาวิทยาลัย โปสเตอร์ QR code</span></p></li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3 class="block-h">กิจกรรมรณรงค์</h3>
+        <ol class="phases">
+          <li class="phase">
+            <span class="phase-when">ระยะที่ 1 · สัปดาห์ที่ <span class="ph">1–2</span></span>
+            <h4>สร้างการรับรู้</h4>
+            <p><span class="ph">เช่น เปิดตัวแคมเปญด้วยโปสเตอร์และคลิปสั้น</span></p>
+            <p class="kpi">ตัวชี้วัด: <span class="ph">ยอดเข้าถึง 2,000 คน</span></p>
+          </li>
+          <li class="phase">
+            <span class="phase-when">ระยะที่ 2 · สัปดาห์ที่ <span class="ph">3–4</span></span>
+            <h4>สร้างการมีส่วนร่วม</h4>
+            <p><span class="ph">เช่น ชาเลนจ์ติดแฮชแท็ก ตอบคำถามชิงรางวัล</span></p>
+            <p class="kpi">ตัวชี้วัด: <span class="ph">ผู้ร่วมกิจกรรม 100 คน</span></p>
+          </li>
+          <li class="phase">
+            <span class="phase-when">ระยะที่ 3 · สัปดาห์ที่ <span class="ph">5–6</span></span>
+            <h4>ขยายผลและวัดผล</h4>
+            <p><span class="ph">เช่น เวทีเสวนา ส่งข้อเสนอถึงหน่วยงาน แบบสอบถามก่อน–หลัง</span></p>
+            <p class="kpi">ตัวชี้วัด: <span class="ph">ผู้ลงชื่อสนับสนุน 300 รายชื่อ</span></p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 TAKE ACTION -->
+  <section id="action" class="sec on-brand" aria-labelledby="action-title">
+    <div class="wrap sec-inner">
+      <header class="sec-head">
+        <p class="sec-tag"><span class="sec-num">08</span><span>/ 10</span><span>Take Action</span></p>
+        <h2 id="action-title">ร่วมเป็นส่วนหนึ่งของการเปลี่ยนแปลง</h2>
+        <p class="lede">เลือกสิ่งที่คุณทำได้ตั้งแต่วันนี้ ทีละเล็กละน้อยก็มีความหมาย</p>
+      </header>
+      <aside class="guide">
+        <span class="guide-k">ส่วนนี้ต้องชวนให้ลงมือทำ</span>
+        <span>เช่น เข้าร่วมกิจกรรม แชร์ข้อมูลบนโซเชียล ดาวน์โหลดสื่อประชาสัมพันธ์ ลงชื่อสนับสนุน หรือปรับพฤติกรรมในชีวิตประจำวัน · ปุ่มที่ยังไม่มีลิงก์จริงจะขึ้นข้อความเตือนเมื่อกด</span>
+      </aside>
+      <div class="actions">
+        <article class="action">
+          <span class="en">Join</span>
+          <h3>เข้าร่วมกิจกรรม</h3>
+          <p><span class="ph">ชื่อกิจกรรม</span> · <span class="ph">วันที่</span> · <span class="ph">สถานที่</span></p>
+          <a class="btn btn-solid" href="#" data-todo="ลิงก์ลงทะเบียนกิจกรรม">ลงทะเบียน</a>
+        </article>
+        <article class="action">
+          <span class="en">Share</span>
+          <h3>แชร์ต่อบนโซเชียล</h3>
+          <p>ติดแฮชแท็กนี้ทุกครั้งที่โพสต์เรื่องนี้ เพื่อให้เสียงของเราไปถึงคนมากขึ้น</p>
+          <div class="hashtag">
+            <code id="hashtag">#แฮชแท็กแคมเปญ</code>
+            <button type="button" class="btn btn-line btn-small" data-copy="hashtag">คัดลอก</button>
+          </div>
+        </article>
+        <article class="action">
+          <span class="en">Download</span>
+          <h3>ดาวน์โหลดสื่อ</h3>
+          <p>โปสเตอร์ อินโฟกราฟิก และภาพสำหรับโพสต์ <span class="ph">ใส่ลิงก์โฟลเดอร์ Google Drive</span></p>
+          <a class="btn btn-solid" href="#" data-todo="ลิงก์โฟลเดอร์สื่อ (Google Drive)">เปิดโฟลเดอร์สื่อ</a>
+        </article>
+        <article class="action">
+          <span class="en">Sign</span>
+          <h3>ลงชื่อสนับสนุน</h3>
+          <p>ร่วมลงชื่อเพื่อส่งข้อเสนอถึง <span class="ph">ชื่อหน่วยงาน</span></p>
+          <a class="btn btn-solid" href="#" data-todo="ลิงก์ฟอร์มลงชื่อ (Google Form)">ลงชื่อ</a>
+        </article>
+      </div>
+      <div class="pledge">
+        <div class="pledge-head">
+          <h3>5 สิ่งที่เริ่มได้ในชีวิตประจำวัน</h3>
+          <span class="pledge-count" id="pledgeCount">ทำแล้ว 0 จาก 5</span>
+        </div>
+        <div class="meter" aria-hidden="true"><span id="pledgeMeter"></span></div>
+        <ul class="pledge-list">
+          <li><label for="pl1"><input type="checkbox" id="pl1"><span><span class="ph">สิ่งที่ทำได้ทุกวัน</span></span></label></li>
+          <li><label for="pl2"><input type="checkbox" id="pl2"><span><span class="ph">สิ่งที่ทำได้ที่บ้าน</span></span></label></li>
+          <li><label for="pl3"><input type="checkbox" id="pl3"><span><span class="ph">สิ่งที่ทำได้ที่มหาวิทยาลัยหรือที่ทำงาน</span></span></label></li>
+          <li><label for="pl4"><input type="checkbox" id="pl4"><span><span class="ph">สิ่งที่ทำได้บนโซเชียลมีเดีย</span></span></label></li>
+          <li><label for="pl5"><input type="checkbox" id="pl5"><span><span class="ph">ชวนคนรอบตัวอย่างน้อย 1 คนมาทำด้วยกัน</span></span></label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 REFERENCES -->
+  <section id="references" class="sec" aria-labelledby="refs-title">
+    <div class="wrap sec-inner">
+      <header class="sec-head">
+        <p class="sec-tag"><span class="sec-num">09</span><span>/ 10</span><span>References</span></p>
+        <h2 id="refs-title">แหล่งอ้างอิง</h2>
+        <p class="lede">แหล่งข้อมูลทั้งหมดที่ใช้ในเว็บไซต์นี้ เพื่อให้ผู้อ่านตรวจสอบและศึกษาต่อได้</p>
+      </header>
+      <aside class="guide">
+        <span class="guide-k">ส่วนนี้ต้องรวบรวม</span>
+        <span>แหล่งข้อมูลทั้งหมดที่ใช้ เช่น ข่าว เว็บไซต์ งานวิจัย รายงานของหน่วยงาน หรือเอกสารวิชาการ · รูปแบบด้านล่างเป็นแบบ APA 7 และเลขลำดับต้องตรงกับปุ่ม [1] [2] ในเนื้อหา</span>
+      </aside>
+      <ol class="refs">
+        <li id="ref-1">
+          <span class="ref-n">[1]</span>
+          <div class="ref-body">
+            <span class="chip">ข่าว</span>
+            <p><span class="ph">ชื่อผู้เขียน</span>. (<span class="ph">ปี, วัน เดือน</span>). <span class="ph">ชื่อข่าว</span>. <i><span class="ph">ชื่อสำนักข่าว</span></i>. <span class="ph">URL</span></p>
+            <p class="ref-meta">สืบค้นเมื่อ <span class="ph">วัน เดือน ปี</span></p>
+          </div>
+        </li>
+        <li id="ref-2">
+          <span class="ref-n">[2]</span>
+          <div class="ref-body">
+            <span class="chip">งานวิจัย</span>
+            <p><span class="ph">ชื่อผู้แต่ง</span>. (<span class="ph">ปี</span>). <span class="ph">ชื่อบทความ</span>. <i><span class="ph">ชื่อวารสาร</span></i>, <i><span class="ph">ปีที่</span></i>(<span class="ph">ฉบับที่</span>), <span class="ph">เลขหน้า</span>. <span class="ph">DOI หรือ URL</span></p>
+            <p class="ref-meta">สืบค้นเมื่อ <span class="ph">วัน เดือน ปี</span></p>
+          </div>
+        </li>
+        <li id="ref-3">
+          <span class="ref-n">[3]</span>
+          <div class="ref-body">
+            <span class="chip">รายงานหน่วยงาน</span>
+            <p><span class="ph">ชื่อหน่วยงาน</span>. (<span class="ph">ปี</span>). <i><span class="ph">ชื่อรายงาน</span></i>. <span class="ph">URL</span></p>
+            <p class="ref-meta">สืบค้นเมื่อ <span class="ph">วัน เดือน ปี</span></p>
+          </div>
+        </li>
+        <li id="ref-4">
+          <span class="ref-n">[4]</span>
+          <div class="ref-body">
+            <span class="chip">ข้อมูลสถิติ</span>
+            <p><span class="ph">ชื่อหน่วยงาน</span>. (<span class="ph">ปี</span>). <i><span class="ph">ชื่อชุดข้อมูล</span></i> [ชุดข้อมูล]. <span class="ph">URL</span></p>
+            <p class="ref-meta">สืบค้นเมื่อ <span class="ph">วัน เดือน ปี</span></p>
+          </div>
+        </li>
+        <li id="ref-5">
+          <span class="ref-n">[5]</span>
+          <div class="ref-body">
+            <span class="chip">เว็บไซต์</span>
+            <p><span class="ph">ชื่อผู้แต่งหรือหน่วยงาน</span>. (<span class="ph">ปี</span>). <i><span class="ph">ชื่อหน้าเว็บ</span></i>. <span class="ph">ชื่อเว็บไซต์</span>. <span class="ph">URL</span></p>
+            <p class="ref-meta">สืบค้นเมื่อ <span class="ph">วัน เดือน ปี</span></p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 10 CREDITS & AI DISCLOSURE -->
+  <section id="credits" class="sec tint" aria-labelledby="credits-title">
+    <div class="wrap sec-inner">
+      <header class="sec-head">
+        <p class="sec-tag"><span class="sec-num">10</span><span>/ 10</span><span>Credits &amp; AI Disclosure</span></p>
+        <h2 id="credits-title">เครดิตและการใช้ Generative AI</h2>
+        <p class="lede">ที่มาของสื่อทุกชิ้น และเครื่องมือ AI ที่กลุ่มใช้ในการทำเว็บไซต์นี้</p>
+      </header>
+      <aside class="guide">
+        <span class="guide-k">ส่วนนี้ต้องระบุ</span>
+        <span>เครดิตของภาพ กราฟิก วิดีโอ เสียง หรือสื่อที่นำมาใช้ ถ้าใช้ Generative AI ให้ระบุชื่อเครื่องมือ จุดประสงค์ที่ใช้ และวิธีที่กลุ่มตรวจสอบหรือปรับแก้ผลลัพธ์ · แถว Claude ใส่ไว้แล้วเพราะเทมเพลตนี้ทำด้วย Claude ให้กลุ่มเติมช่องวิธีตรวจสอบเอง</span>
+      </aside>
+      <div class="block">
+        <h3 class="block-h">ผู้จัดทำ</h3>
+        <ul class="team">
+          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">หน้าที่ เช่น หัวหน้ากลุ่ม</span></span></li>
+          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">หน้าที่ เช่น ค้นข้อมูล</span></span></li>
+          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">หน้าที่ เช่น ออกแบบกราฟิก</span></span></li>
+          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">หน้าที่ เช่น เขียนเนื้อหา</span></span></li>
+          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">หน้าที่ เช่น ทำเว็บไซต์</span></span></li>
+        </ul>
+        <p class="course"><span><span class="ph">รหัสวิชา ชื่อวิชา</span></span><span>อาจารย์ผู้สอน <span class="ph">ชื่ออาจารย์</span></span><span><span class="ph">คณะ มหาวิทยาลัย</span></span><span>ภาคการศึกษา <span class="ph">1/2569</span></span></p>
+      </div>
+      <div class="block">
+        <h3 class="block-h">เครดิตสื่อ</h3>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th scope="col">สื่อ</th><th scope="col">ใช้ในส่วน</th><th scope="col">ที่มา / ผู้สร้าง</th><th scope="col">สิทธิ์การใช้งาน</th></tr></thead>
+            <tbody>
+              <tr><td>ภาพหน้าปก</td><td>01 หน้าแรก</td><td><span class="ph">ชื่อผู้ถ่าย หรือ “กลุ่มถ่ายเอง”</span></td><td><span class="ph">เช่น CC BY 4.0 / ได้รับอนุญาต</span></td></tr>
+              <tr><td>ภาพสถานการณ์จริง</td><td>02 ปัญหา</td><td><span class="ph">ที่มา</span></td><td><span class="ph">สิทธิ์</span></td></tr>
+              <tr><td>อินโฟกราฟิก</td><td>03 หลักฐาน</td><td><span class="ph">ผู้ออกแบบ / เครื่องมือ</span></td><td><span class="ph">สิทธิ์</span></td></tr>
+              <tr><td>โลโก้แคมเปญ</td><td>07 แคมเปญ</td><td><span class="ph">ออกแบบโดยกลุ่ม</span></td><td><span class="ph">สิทธิ์</span></td></tr>
+              <tr><td>ฟอนต์</td><td>ทั้งเว็บไซต์</td><td>Bai Jamjuree, IBM Plex Sans Thai, IBM Plex Mono (Google Fonts)</td><td>SIL Open Font License 1.1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="block">
+        <h3 class="block-h">การใช้ Generative AI</h3>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th scope="col">เครื่องมือ</th><th scope="col">ใช้ทำอะไร</th><th scope="col">ใช้ในส่วน</th><th scope="col">กลุ่มตรวจสอบ / แก้ไขอย่างไร</th></tr></thead>
+            <tbody>
+              <tr><td>Claude (Anthropic)</td><td>ออกแบบเลย์เอาต์และเขียนโค้ด HTML, CSS, JavaScript ของเว็บไซต์</td><td>โครงเว็บไซต์ทั้ง 10 ส่วน</td><td><span class="ph">เช่น ทดสอบบนมือถือและคอมพิวเตอร์ เขียนเนื้อหาทั้งหมดเอง ตรวจลิงก์ทุกจุด</span></td></tr>
+              <tr><td><span class="ph">ชื่อเครื่องมือ</span></td><td><span class="ph">เช่น ร่างคำบรรยาย สรุปงานวิจัย สร้างภาพประกอบ</span></td><td><span class="ph">ส่วนที่ใช้</span></td><td><span class="ph">เช่น เทียบกับแหล่งข้อมูลต้นฉบับ แก้ข้อความใหม่</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="statement">ข้อมูล ตัวเลข และข้อความทั้งหมดในเว็บไซต์นี้ กลุ่มได้ตรวจสอบกับแหล่งอ้างอิงในส่วนที่ 09 แล้ว และกลุ่มรับผิดชอบต่อความถูกต้องของเนื้อหาทั้งหมด</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="foot-name"><span class="ph">ชื่อแคมเปญ</span></p>
+      <p class="foot-meta"><span class="ph">#แฮชแท็กแคมเปญ</span> · จัดทำเพื่อการศึกษา โดย <span class="ph">ชื่อกลุ่ม</span> · พ.ศ. 2569</p>
+    </div>
+    <a class="to-top" href="#home">กลับขึ้นด้านบน ↑</a>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  root.lang = 'th';
+
+  /* ===== กราฟแนวโน้ม (ส่วนที่ 03): แก้ป้ายและตัวเลขตรงนี้ ตอนนี้เป็นข้อมูลสมมุติ ===== */
+  var TREND = [
+    { label: '2564', value: 38 },
+    { label: '2565', value: 45 },
+    { label: '2566', value: 52 },
+    { label: '2567', value: 61 },
+    { label: '2568', value: 74 }
+  ];
+
+  /* ===== ข้อมูล SDGs ทั้ง 17 เป้าหมาย (สีตามคู่มือของสหประชาชาติ) ===== */
+  var SDG = {
+    1:['#E5243B','ขจัดความยากจน','No Poverty'],
+    2:['#DDA63A','ขจัดความหิวโหย','Zero Hunger'],
+    3:['#4C9F38','การมีสุขภาวะที่ดี','Good Health and Well-being'],
+    4:['#C5192D','การศึกษาที่มีคุณภาพ','Quality Education'],
+    5:['#FF3A21','ความเท่าเทียมทางเพศ','Gender Equality'],
+    6:['#26BDE2','น้ำสะอาดและการสุขาภิบาล','Clean Water and Sanitation'],
+    7:['#FCC30B','พลังงานสะอาดที่เข้าถึงได้','Affordable and Clean Energy'],
+    8:['#A21942','งานที่มีคุณค่าและการเติบโตทางเศรษฐกิจ','Decent Work and Economic Growth'],
+    9:['#FD6925','อุตสาหกรรม นวัตกรรม และโครงสร้างพื้นฐาน','Industry, Innovation and Infrastructure'],
+    10:['#DD1367','ลดความเหลื่อมล้ำ','Reduced Inequalities'],
+    11:['#FD9D24','เมืองและชุมชนที่ยั่งยืน','Sustainable Cities and Communities'],
+    12:['#BF8B2E','แผนการบริโภคและการผลิตที่ยั่งยืน','Responsible Consumption and Production'],
+    13:['#3F7E44','การรับมือการเปลี่ยนแปลงสภาพภูมิอากาศ','Climate Action'],
+    14:['#0A97D9','ทรัพยากรทางทะเล','Life Below Water'],
+    15:['#56C02B','ระบบนิเวศบนบก','Life on Land'],
+    16:['#00689D','สังคมสงบสุข ยุติธรรม และไม่แบ่งแยก','Peace, Justice and Strong Institutions'],
+    17:['#19486A','ความร่วมมือเพื่อการพัฒนาที่ยั่งยืน','Partnerships for the Goals']
+  };
+
+  /* ----- สวิตช์แสดง/ซ่อนจุดที่ต้องแก้ ----- */
+  var GUIDE_KEY = 'campaign-template:show-guides';
+  var showGuides = true;
+  try { var savedGuides = localStorage.getItem(GUIDE_KEY); if (savedGuides !== null) showGuides = savedGuides === '1'; } catch (e) {}
+  var toggles = [].slice.call(document.querySelectorAll('.js-guide-toggle'));
+  function applyGuides(){
+    root.classList.toggle('clean', !showGuides);
+    toggles.forEach(function(b){ b.setAttribute('aria-pressed', String(showGuides)); });
+  }
+  toggles.forEach(function(b){
+    b.addEventListener('click', function(){
+      showGuides = !showGuides;
+      applyGuides();
+      try { localStorage.setItem(GUIDE_KEY, showGuides ? '1' : '0'); } catch (e) {}
+    });
+  });
+  applyGuides();
+
+  /* ----- เมนูบนมือถือ ----- */
+  var menuBtn = document.getElementById('menuBtn');
+  var drawer = document.getElementById('drawer');
+  function setMenu(open){
+    drawer.hidden = !open;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.querySelector('.menu-label').textContent = open ? 'ปิด' : 'เมนู';
+  }
+  menuBtn.addEventListener('click', function(){ setMenu(drawer.hidden); });
+  drawer.addEventListener('click', function(e){ if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !drawer.hidden) { setMenu(false); menuBtn.focus(); }
+  });
+
+  /* ----- แถบความคืบหน้า + ไฮไลต์เมนูตามส่วนที่กำลังอ่าน ----- */
+  var sections = [].slice.call(document.querySelectorAll('main > section[id]'));
+  var navLinks = [].slice.call(document.querySelectorAll('.nav a, .drawer a'));
+  var bar = document.getElementById('progressBar');
+  var ticking = false;
+  function onScroll(){
+    ticking = false;
+    var doc = document.documentElement;
+    var y = window.scrollY || doc.scrollTop;
+    var max = doc.scrollHeight - window.innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+    var current = sections[0].id;
+    sections.forEach(function(s){ if (s.getBoundingClientRect().top <= 140) current = s.id; });
+    if (max > 0 && y >= max - 4) current = sections[sections.length - 1].id;
+    navLinks.forEach(function(a){
+      if (a.getAttribute('href') === '#' + current) a.setAttribute('aria-current', 'location');
+      else a.removeAttribute('aria-current');
+    });
+  }
+  window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  /* ----- วาดกราฟ ----- */
+  var chart = document.getElementById('trendChart');
+  if (chart && TREND.length) {
+    var top = Math.max.apply(null, TREND.map(function(d){ return d.value; }));
+    chart.innerHTML = TREND.map(function(d, i){
+      var w = top > 0 ? (d.value / top * 100).toFixed(1) : 0;
+      return '<div class="bar-row' + (i === TREND.length - 1 ? ' is-latest' : '') + '">' +
+        '<span class="bar-label">' + d.label + '</span>' +
+        '<span class="bar-track"><span class="bar-fill" style="width:' + w + '%"></span></span>' +
+        '<span class="bar-val">' + d.value.toLocaleString('th-TH') + '</span></div>';
+    }).join('');
+  }
+
+  /* ----- SDGs: แถบ 17 ช่อง + การ์ดที่เลือก ----- */
+  function textOn(hex){
+    var c = [1, 3, 5].map(function(i){
+      var v = parseInt(hex.substr(i, 2), 16) / 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    var L = 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+    return (1.05 / (L + 0.05)) >= ((L + 0.05) / 0.0593) ? '#ffffff' : '#131826';
+  }
+  var cards = [].slice.call(document.querySelectorAll('.sdg-card[data-goal]'));
+  var chosen = [];
+  cards.forEach(function(card){
+    var g = parseInt(card.getAttribute('data-goal'), 10), d = SDG[g];
+    if (!d) return;
+    chosen.push(g);
+    card.style.setProperty('--c', d[0]);
+    card.style.setProperty('--c-ink', textOn(d[0]));
+    card.querySelector('.sdg-no b').textContent = g;
+    card.querySelector('.sdg-name').textContent = d[1];
+    card.querySelector('.sdg-en').textContent = d[2];
+  });
+  var strip = document.getElementById('sdgStrip');
+  var cap = document.getElementById('sdgCaption');
+  var defaultCap = chosen.length
+    ? 'แคมเปญนี้เกี่ยวข้องกับ ' + chosen.map(function(g){ return 'SDG ' + g; }).join(' และ ') + ' · แตะช่องสีเพื่อดูชื่อเป้าหมาย'
+    : 'แตะช่องสีเพื่อดูชื่อเป้าหมาย';
+  strip.innerHTML = Object.keys(SDG).map(function(k){
+    var d = SDG[k], on = chosen.indexOf(+k) > -1;
+    return '<li><button type="button" class="sdg-tile' + (on ? ' on' : '') + '" data-goal="' + k + '"' +
+      ' style="--c:' + d[0] + ';--c-ink:' + textOn(d[0]) + '"' +
+      ' aria-label="SDG ' + k + ' ' + d[1] + (on ? ' (เกี่ยวข้องกับแคมเปญ)' : '') + '">' + k + '</button></li>';
+  }).join('');
+  cap.textContent = defaultCap;
+  function showGoal(btn){
+    var k = btn.getAttribute('data-goal'), d = SDG[k];
+    cap.textContent = 'SDG ' + k + ' · ' + d[1] + ' (' + d[2] + ')' + (chosen.indexOf(+k) > -1 ? ' · เกี่ยวข้องกับแคมเปญนี้' : '');
+  }
+  strip.addEventListener('mouseover', function(e){ var b = e.target.closest('.sdg-tile'); if (b) showGoal(b); });
+  strip.addEventListener('focusin', function(e){ var b = e.target.closest('.sdg-tile'); if (b) showGoal(b); });
+  strip.addEventListener('click', function(e){ var b = e.target.closest('.sdg-tile'); if (b) showGoal(b); });
+  strip.addEventListener('mouseleave', function(){ cap.textContent = defaultCap; });
+
+  /* ----- แจ้งเตือนสั้น ๆ ----- */
+  var toastEl = document.getElementById('toast');
+  var toastTimer;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.hidden = true; }, 2800);
+  }
+
+  /* ----- ปุ่มคัดลอกแฮชแท็ก ----- */
+  [].slice.call(document.querySelectorAll('[data-copy]')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var el = document.getElementById(btn.getAttribute('data-copy'));
+      var text = el.textContent.trim();
+      function fallback(){
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        toast('เลือกข้อความให้แล้ว กดคัดลอกจากเมนูของเครื่องได้เลย');
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function(){ toast('คัดลอก ' + text + ' แล้ว'); }, fallback);
+      } catch (e) { fallback(); }
+    });
+  });
+
+  /* ----- ปุ่มที่ยังไม่ได้ใส่ลิงก์จริง ----- */
+  [].slice.call(document.querySelectorAll('a[data-todo]')).forEach(function(a){
+    a.addEventListener('click', function(e){
+      if (a.getAttribute('href') !== '#') return;
+      e.preventDefault();
+      toast('ยังไม่ได้ใส่ ' + a.getAttribute('data-todo'));
+    });
+  });
+
+  /* ----- เช็กลิสต์ 5 สิ่งที่ทำได้ (จำไว้ในเครื่องของผู้ชม) ----- */
+  var PLEDGE_KEY = 'campaign-template:pledge';
+  var boxes = [].slice.call(document.querySelectorAll('.pledge-list input'));
+  var countEl = document.getElementById('pledgeCount');
+  var meterEl = document.getElementById('pledgeMeter');
+  var savedPledge = [];
+  try { savedPledge = JSON.parse(localStorage.getItem(PLEDGE_KEY) || '[]'); } catch (e) {}
+  function updatePledge(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    countEl.textContent = 'ทำแล้ว ' + done + ' จาก ' + boxes.length;
+    meterEl.style.width = (done / boxes.length * 100) + '%';
+    try { localStorage.setItem(PLEDGE_KEY, JSON.stringify(boxes.map(function(b){ return b.checked ? b.id : null; }).filter(Boolean))); } catch (e) {}
+  }
+  boxes.forEach(function(b){
+    b.checked = Array.isArray(savedPledge) && savedPledge.indexOf(b.id) > -1;
+    b.addEventListener('change', updatePledge);
+  });
+  updatePledge();
+})();
+</script>
+</body>
+</html>
