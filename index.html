@@ -4,41 +4,81 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="เว็บไซต์แคมเปญรณรงค์ 10 ส่วน: ปัญหา หลักฐาน ผลกระทบ ผู้มีส่วนเกี่ยวข้อง SDGs แคมเปญ และการร่วมลงมือทำ">
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14202f" media="(prefers-color-scheme: dark)">
 <title>แม่แบบเว็บแคมเปญ 10 ส่วน</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
 <style>
-/* Layout: หน้าเดียวเลื่อนดู แบ่งเป็น 10 ส่วนตามโจทย์ · แถบเมนูติดด้านบน · หน้าแรกและ "Take Action" ใช้สีแคมเปญเต็มแถบ ส่วนอื่นสลับพื้นขาว/เทา · คอลัมน์กว้างสุด 1160px */
+/* Layout: หน้าเดียวเลื่อนดู 10 ส่วนตามโจทย์ · แต่ละส่วนมี "สีประจำบท" ตามเนื้อเรื่อง
+   ปัญหา (แดง) → ข้อเท็จจริง (เหลือง) → ทางออก (เขียว) → แคมเปญ (ฟ้า)
+   สัดส่วนสี 60-30-10: พื้นขาวอมฟ้า ~60% · ฟ้า (สีหลัก) ~30% · แดง/เหลือง/เขียว รวม ~10% */
 :root{
-  /* สีหลักของแคมเปญ: เปลี่ยน --brand และ --hero-bg ตรงนี้ที่เดียว ทั้งเว็บจะเปลี่ยนตาม */
-  --brand:#2340c8;
-  --brand-ink:#ffffff;
-  --hero-bg:#2340c8;
-  --hero-ink:#ffffff;
-  --hero-soft:rgba(255,255,255,.78);
-  --hero-line:rgba(255,255,255,.34);
-  --hero-wash:rgba(8,14,48,.22);
+  /* ชุดสีแคมเปญ: แต่ละสีมี 4 ระดับ
+     -    = สีเต็ม ใช้เป็นพื้นหรือแถบสี (ห้ามใช้เป็นตัวหนังสือบนพื้นขาว)
+     -ink = สีเข้ม ใช้เป็นตัวหนังสือ ผ่านเกณฑ์ความคมชัด WCAG AA
+     -tint = สีอ่อน ใช้เป็นพื้นหลังป้าย
+     -strong = พื้นปุ่ม */
+  --sky:#4db3ec;    --sky-ink:#0a6fa8;    --sky-tint:#e4f3fc;    --sky-strong:#0a6fa8;
+  --red:#e5484d;    --red-ink:#c42f35;    --red-tint:#fde9e9;    --red-strong:#c42f35;
+  --yellow:#ffc933; --yellow-ink:#8a6200; --yellow-tint:#fff5d1; --yellow-strong:#8a6200;
+  --green:#2ba866;  --green-ink:#147a45;  --green-tint:#e1f4e9;  --green-strong:#147a45;
+  --on-strong:#ffffff;
 
-  --bg:#f4f5f8;
+  /* สีกลาง อมฟ้าเล็กน้อยให้กลมกลืนกับสีหลัก */
+  --bg:#f5f7fa;
   --surface:#ffffff;
-  --band:#e8ebf3;
-  --ink:#131826;
-  --muted:#596174;
-  --line:#d3d8e5;
+  --band:#eaeff5;
+  --ink:#12233a;
+  --muted:#566476;
+  --line:#d5dde7;
+  --bar:#b4c0ce;
+  --hl:#ffc933;
 
-  /* สีไฮไลต์เหลือง = ข้อความที่กลุ่มต้องแก้ */
-  --mark:#ffe14d;
-  --mark-ink:#131826;
-  --guide-bg:#fff8d4;
-  --guide-line:#d4ae00;
+  /* พื้นสีฟ้า (หน้าแรก, Key Message) */
+  --hero-bg:#4db3ec;
+  --hero-ink:#0f2238;
+  --hero-soft:rgba(15,34,56,.76);
+  --hero-line:rgba(15,34,56,.3);
+  --hero-wash:rgba(255,255,255,.4);
+  --hero-btn:#12233a;
+  --hero-btn-ink:#ffffff;
+  --hero-ph-bg:rgba(255,255,255,.55);
+  --hero-ph-line:#5b21b6;
 
-  --slot-a:#e2e6f0;
-  --slot-b:#d5dae7;
-  --slot-ink:#4a5266;
-  --focus:#2340c8;
+  /* พื้นสีเขียว (Take Action) */
+  --act-bg:#17794a;
+  --act-ink:#ffffff;
+  --act-soft:rgba(255,255,255,.82);
+  --act-line:rgba(255,255,255,.34);
+  --act-wash:rgba(0,0,0,.16);
+  --act-ph-bg:rgba(255,255,255,.16);
+  --act-ph-line:#e4d6ff;
+
+  /* แถบวิ่งและท้ายเว็บ: กรมท่าเข้มทั้งโหมดสว่างและมืด */
+  --foot-bg:#0f1c2e;
+  --foot-ink:#ffffff;
+
+  /* เครื่องหมาย "ต้องแก้" เป็นสีม่วง ซึ่งจงใจอยู่นอกชุดสีแคมเปญ และหายไปเมื่อปิดสวิตช์ */
+  --ph-bg-base:rgba(124,58,237,.09);
+  --ph-line-base:#7c3aed;
+  --ph-bg:var(--ph-bg-base);
+  --ph-line:var(--ph-line-base);
+  --guide-bg:#f4efff;
+  --guide-line:#a78bfa;
+  --toggle-on:#7c3aed;
+
+  --slot-a:#e4eaf2;
+  --slot-b:#d8e0ea;
+  --slot-ink:#4a586b;
+  --focus:#0a6fa8;
+
+  /* สีประจำบทเริ่มต้น = ฟ้า */
+  --accent:var(--sky);
+  --accent-ink:var(--sky-ink);
+  --accent-tint:var(--sky-tint);
+  --accent-strong:var(--sky-strong);
 
   --font-display:"Bai Jamjuree","IBM Plex Sans Thai","Leelawadee UI","Noto Sans Thai",system-ui,sans-serif;
   --font-body:"IBM Plex Sans Thai","Leelawadee UI","Noto Sans Thai",system-ui,sans-serif;
@@ -52,24 +92,44 @@
   --fs-h1:clamp(2.75rem,7.6vw,5.75rem);
   --gutter:16px;
   --head-h:60px;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (min-width:720px){ :root{ --gutter:32px } }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --brand:#8d9dff; --brand-ink:#0c1024; --hero-bg:#1a2984; --hero-wash:rgba(0,0,0,.24);
-    --bg:#0f121a; --surface:#161a25; --band:#1b2030; --ink:#e8ebf2; --muted:#9ba3b6; --line:#2b3245;
-    --mark:#f5d63d; --mark-ink:#131826; --guide-bg:#25220f; --guide-line:#8a7620;
-    --slot-a:#1c2232; --slot-b:#222a3d; --slot-ink:#a4acc0; --focus:#8d9dff;
+    --sky:#5bbdf2;    --sky-ink:#7ccbf5;    --sky-tint:#132c3e;    --sky-strong:#5bbdf2;
+    --red:#f0646a;    --red-ink:#ff8f92;    --red-tint:#3a1b1f;    --red-strong:#f0646a;
+    --yellow:#ffd24d; --yellow-ink:#ffd666; --yellow-tint:#33290f; --yellow-strong:#ffd24d;
+    --green:#3cc07a;  --green-ink:#64d79a;  --green-tint:#12301f;  --green-strong:#3cc07a;
+    --on-strong:#0d1520;
+    --bg:#0d1520; --surface:#14202f; --band:#182637; --ink:#e7edf5; --muted:#9aa8b9; --line:#26364a; --bar:#3e5068; --hl:rgba(255,210,77,.38);
+    --hero-bg:#175e8c; --hero-ink:#ffffff; --hero-soft:rgba(255,255,255,.8); --hero-line:rgba(255,255,255,.32); --hero-wash:rgba(0,0,0,.2); --hero-btn:#ffffff; --hero-btn-ink:#0f2238; --hero-ph-bg:rgba(255,255,255,.14); --hero-ph-line:#d8c4ff;
+    --act-bg:#136a40;
+    --ph-bg-base:rgba(196,167,255,.14); --ph-line-base:#c4a7ff; --guide-bg:#211a33; --guide-line:#6d55b0; --toggle-on:#a78bfa;
+    --slot-a:#172333; --slot-b:#1d2b3e; --slot-ink:#9fb0c4; --focus:#7ccbf5;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --brand:#8d9dff; --brand-ink:#0c1024; --hero-bg:#1a2984; --hero-wash:rgba(0,0,0,.24);
-  --bg:#0f121a; --surface:#161a25; --band:#1b2030; --ink:#e8ebf2; --muted:#9ba3b6; --line:#2b3245;
-  --mark:#f5d63d; --mark-ink:#131826; --guide-bg:#25220f; --guide-line:#8a7620;
-  --slot-a:#1c2232; --slot-b:#222a3d; --slot-ink:#a4acc0; --focus:#8d9dff;
+  --sky:#5bbdf2;    --sky-ink:#7ccbf5;    --sky-tint:#132c3e;    --sky-strong:#5bbdf2;
+  --red:#f0646a;    --red-ink:#ff8f92;    --red-tint:#3a1b1f;    --red-strong:#f0646a;
+  --yellow:#ffd24d; --yellow-ink:#ffd666; --yellow-tint:#33290f; --yellow-strong:#ffd24d;
+  --green:#3cc07a;  --green-ink:#64d79a;  --green-tint:#12301f;  --green-strong:#3cc07a;
+  --on-strong:#0d1520;
+  --bg:#0d1520; --surface:#14202f; --band:#182637; --ink:#e7edf5; --muted:#9aa8b9; --line:#26364a; --bar:#3e5068; --hl:rgba(255,210,77,.38);
+  --hero-bg:#175e8c; --hero-ink:#ffffff; --hero-soft:rgba(255,255,255,.8); --hero-line:rgba(255,255,255,.32); --hero-wash:rgba(0,0,0,.2); --hero-btn:#ffffff; --hero-btn-ink:#0f2238; --hero-ph-bg:rgba(255,255,255,.14); --hero-ph-line:#d8c4ff;
+  --act-bg:#136a40;
+  --ph-bg-base:rgba(196,167,255,.14); --ph-line-base:#c4a7ff; --guide-bg:#211a33; --guide-line:#6d55b0; --toggle-on:#a78bfa;
+  --slot-a:#172333; --slot-b:#1d2b3e; --slot-ink:#9fb0c4; --focus:#7ccbf5;
   color-scheme:dark;
 }
+
+/* สีประจำบท */
+.c-sky{--accent:var(--sky);--accent-ink:var(--sky-ink);--accent-tint:var(--sky-tint);--accent-strong:var(--sky-strong)}
+.c-red{--accent:var(--red);--accent-ink:var(--red-ink);--accent-tint:var(--red-tint);--accent-strong:var(--red-strong)}
+.c-yellow{--accent:var(--yellow);--accent-ink:var(--yellow-ink);--accent-tint:var(--yellow-tint);--accent-strong:var(--yellow-strong)}
+.c-green{--accent:var(--green);--accent-ink:var(--green-ink);--accent-tint:var(--green-tint);--accent-strong:var(--green-strong)}
 
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -93,12 +153,17 @@ ul,ol{margin:0;padding:0}
 .en{font-family:var(--font-mono);font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 
 /* ---------- ข้อความที่ต้องแก้ + กล่องคำแนะนำ ---------- */
-.ph{background:var(--mark);color:var(--mark-ink);padding:0 .2em;border-radius:.15em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.clean .ph{background:none;color:inherit;padding:0}
+.ph{background:var(--ph-bg);text-decoration:underline wavy var(--ph-line);text-decoration-thickness:max(1.5px,.05em);text-underline-offset:.3em;text-decoration-skip-ink:none;padding:0 .15em;border-radius:.2em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.clean .ph{background:none;text-decoration:none;padding:0}
 .guide{display:grid;gap:4px;max-width:72ch;padding:12px 16px;border:1.5px dashed var(--guide-line);border-radius:10px;background:var(--guide-bg);color:var(--ink);font-size:var(--fs-small);line-height:1.65}
 .guide-k{font-weight:600}
 .clean .guide{display:none}
-.hero .guide,.on-brand .guide{background:var(--hero-wash);border-color:var(--hero-line);color:var(--hero-ink)}
+
+/* ---------- พื้นสี ---------- */
+.on-sky{background:var(--hero-bg);color:var(--hero-ink);--ph-bg:var(--hero-ph-bg);--ph-line:var(--hero-ph-line);--focus:var(--hero-ink)}
+.on-green{background:var(--act-bg);color:var(--act-ink);--ph-bg:var(--act-ph-bg);--ph-line:var(--act-ph-line);--focus:#ffffff}
+.on-sky .guide{background:var(--hero-wash);border-color:var(--hero-line);color:inherit}
+.on-green .guide{background:var(--act-wash);border-color:var(--act-line);color:inherit}
 
 /* ---------- แถบเมนูด้านบน ---------- */
 .masthead{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--surface);border-bottom:1px solid var(--line)}
@@ -108,26 +173,30 @@ ul,ol{margin:0;padding:0}
 .brand-name{font-family:var(--font-display);font-weight:700;font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nav{display:none}
 .nav ol{list-style:none;display:flex;gap:2px}
-.nav a{display:block;padding:6px 9px;border-radius:6px;font-size:.92rem;color:var(--muted);text-decoration:none;white-space:nowrap}
+.nav a{display:block;padding:6px 9px;border-radius:6px 6px 0 0;font-size:.92rem;color:var(--muted);text-decoration:none;white-space:nowrap}
 .nav a:hover{color:var(--ink);background:var(--band)}
-.nav a[aria-current]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--brand);border-radius:6px 6px 0 0}
+.nav a[aria-current]{color:var(--ink);box-shadow:inset 0 -3px 0 var(--accent)}
 .guide-toggle{display:none;align-items:center;gap:8px;padding:5px 12px 5px 6px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);font:500 .85rem/1.2 var(--font-body);cursor:pointer;white-space:nowrap}
 .guide-toggle .sw{position:relative;flex:none;width:32px;height:18px;border-radius:999px;background:var(--line);transition:background .2s}
 .guide-toggle .sw::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--surface);box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .2s}
-.guide-toggle[aria-pressed="true"] .sw{background:var(--mark)}
-.guide-toggle[aria-pressed="true"] .sw::after{transform:translateX(14px);background:var(--mark-ink)}
+.guide-toggle[aria-pressed="true"] .sw{background:var(--toggle-on)}
+.guide-toggle[aria-pressed="true"] .sw::after{transform:translateX(14px);background:#ffffff}
 .drawer .guide-toggle{display:inline-flex;justify-self:start}
 .menu-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font:600 .9rem/1 var(--font-body);cursor:pointer}
 .menu-btn .bars{position:relative;width:16px;height:10px;border-block:2px solid currentColor}
 .menu-btn .bars::after{content:"";position:absolute;left:0;right:0;top:2px;border-top:2px solid currentColor}
-.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px}
-.progress span{display:block;height:100%;background:var(--brand);transform-origin:left center;transform:scaleX(0)}
+/* แถบเรื่องราว: 10 ช่องตาม 10 ส่วน ระบายสีประจำบท และเติมเต็มเมื่ออ่านผ่าน */
+.story{position:absolute;left:0;right:0;bottom:-1px;display:flex;gap:2px;height:4px}
+.story a{flex:1;background:var(--accent);opacity:.22;transition:opacity .25s}
+.story a:hover{opacity:.6}
+.story a.on{opacity:1}
 .drawer{border-top:1px solid var(--line);max-height:calc(100vh - var(--head-h));max-height:calc(100dvh - var(--head-h) - env(safe-area-inset-top,0px));overflow-y:auto;overscroll-behavior:contain}
 .drawer-in{display:grid;gap:12px;padding-block:14px 22px}
 .drawer ol{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:2px 16px}
-.drawer a{display:grid;grid-template-columns:2.2em minmax(0,1fr);align-items:baseline;gap:8px;padding:9px 8px;border-radius:8px;text-decoration:none}
+.drawer a{display:grid;grid-template-columns:2.4em minmax(0,1fr);align-items:baseline;gap:8px;padding:9px 8px;border-radius:8px;text-decoration:none}
 .drawer a:hover,.drawer a[aria-current]{background:var(--band)}
-.drawer .n{font-family:var(--font-mono);font-size:.8rem;color:var(--brand)}
+.drawer .n{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.8rem;color:var(--accent-ink)}
+.drawer .n::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--accent)}
 .drawer .t{font-weight:600;line-height:1.35}
 .drawer .t small{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
 @media (min-width:640px){ .masthead .guide-toggle{display:inline-flex} .drawer .guide-toggle{display:none} }
@@ -139,75 +208,92 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 .sec-inner{display:grid;gap:clamp(28px,4vw,48px)}
 .tint{background:var(--band)}
 .sec-head{display:grid;gap:12px;max-width:62rem}
-.sec-tag{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.sec-num{font-size:1rem;font-weight:500;color:var(--brand)}
+.sec-tag{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec-dot{width:10px;height:10px;border-radius:2px;background:var(--accent)}
+.sec-num{font-size:1rem;font-weight:500;color:var(--accent-ink)}
+.sec-kind{padding:1px 9px;border-radius:999px;background:var(--accent-tint);color:var(--accent-ink);font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:0;text-transform:none}
+.on-sky .sec-tag{color:var(--hero-soft)}
+.on-green .sec-tag{color:var(--act-soft)}
+.on-sky .sec-num,.on-green .sec-num{color:inherit}
+.on-sky .sec-kind{background:var(--hero-wash);color:var(--hero-ink)}
+.on-green .sec-kind{background:var(--act-wash);color:var(--act-ink)}
+.on-sky .sec-dot,.on-green .sec-dot{box-shadow:0 0 0 1.5px currentColor}
 .sec-head h2{font-size:var(--fs-h2)}
 .lede{max-width:60ch;font-size:var(--fs-lede);line-height:1.7;color:var(--muted)}
+.on-green .lede{color:var(--act-soft)}
 .block{display:grid;gap:18px}
 .block-h{font-size:var(--fs-h3)}
 .slot{display:grid;place-items:center;width:100%;max-width:100%;padding:16px;border-radius:14px;background:repeating-linear-gradient(135deg,var(--slot-a) 0 12px,var(--slot-b) 12px 24px);color:var(--slot-ink);text-align:center;font-size:.9rem;line-height:1.5}
 .slot strong{display:block;font-family:var(--font-display);font-size:1.05rem}
 .slot small{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.03em}
 .r-3-2{aspect-ratio:3/2}
-.r-4-3{aspect-ratio:4/3}
 .card{padding:22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
-.cite{display:inline-block;padding:0 5px;border:1px solid currentColor;border-radius:4px;font-family:var(--font-mono);font-size:.76rem;line-height:1.5;color:var(--brand);text-decoration:none;vertical-align:.1em}
-.cite:hover{background:var(--brand);color:var(--brand-ink)}
-.chip{display:inline-block;justify-self:start;padding:2px 10px;border:1px solid var(--line);border-radius:999px;font-size:.8rem;font-weight:600;color:var(--muted)}
+/* ปุ่มอ้างอิง [1] ใช้สีเหลือง (ข้อเท็จจริง) ทุกที่ เพราะพาไปยังแหล่งข้อมูล */
+.cite{display:inline-block;padding:0 6px;border:1px solid var(--yellow);border-radius:4px;background:var(--yellow-tint);font-family:var(--font-mono);font-size:.76rem;line-height:1.55;color:var(--yellow-ink);text-decoration:none;vertical-align:.1em}
+.cite:hover{background:var(--yellow);color:#12233a}
+.chip{display:inline-block;justify-self:start;padding:2px 10px;border-radius:999px;background:var(--accent-tint);font-size:.8rem;font-weight:600;color:var(--accent-ink)}
 
 /* ---------- ปุ่ม ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 22px;border:2px solid transparent;border-radius:999px;font:600 1rem/1.2 var(--font-body);text-decoration:none;cursor:pointer;transition:transform .15s}
 .btn:hover{transform:translateY(-1px)}
-.btn-solid{background:var(--brand);color:var(--brand-ink)}
+.btn-solid{background:var(--accent-strong);color:var(--on-strong)}
 .btn-line{border-color:currentColor;background:transparent;color:inherit}
-.hero .btn-solid{background:var(--hero-ink);color:var(--hero-bg)}
+.on-sky .btn-solid{background:var(--hero-btn);color:var(--hero-btn-ink)}
 
 /* ---------- 01 หน้าแรก ---------- */
-.hero{background:var(--hero-bg);color:var(--hero-ink);--focus:#ffffff}
 .hero-grid{display:grid;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(36px,6vw,80px)}
 .hero-copy{display:grid;gap:18px;justify-items:start;min-width:0}
-.hero .sec-tag{color:var(--hero-soft)}
-.hero .sec-num{color:var(--hero-ink)}
 .logo-slot{display:grid;place-items:center;width:76px;height:76px;border:2px dashed var(--hero-line);border-radius:50%;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;color:var(--hero-soft)}
 .eyebrow{font-weight:500;color:var(--hero-soft)}
-.hero h1{font-size:var(--fs-h1);line-height:1.12;letter-spacing:-.01em}
+.hero h1{font-size:var(--fs-h1);line-height:1.14;letter-spacing:-.01em}
 .slogan{font-family:var(--font-display);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.4}
 .hero-lede{max-width:52ch;font-size:var(--fs-lede);color:var(--hero-soft)}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;padding-top:4px}
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-size:.88rem}
+.legend-k{color:var(--hero-soft)}
+.legend ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 16px}
+.legend li{display:inline-flex;align-items:center;gap:7px;font-weight:600}
+.legend i{width:12px;height:12px;border-radius:3px;background:var(--accent);box-shadow:0 0 0 1.5px var(--hero-ink)}
 .hero-cover{display:grid;gap:8px;min-width:0}
-.hero-cover .slot{--slot-a:rgba(255,255,255,.12);--slot-b:rgba(255,255,255,.05);aspect-ratio:4/3;border:1.5px dashed var(--hero-line);color:var(--hero-ink)}
+.hero-cover .slot{--slot-a:rgba(255,255,255,.3);--slot-b:rgba(255,255,255,.12);aspect-ratio:4/3;border:1.5px dashed var(--hero-line);color:var(--hero-ink)}
 .hero-cover figcaption{font-size:.8rem;color:var(--hero-soft)}
 @media (min-width:880px){
   .hero-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
   .hero-cover .slot{aspect-ratio:4/5}
 }
-.ticker{overflow:hidden;background:var(--ink);color:var(--bg)}
+.ticker{overflow:hidden;background:var(--foot-bg);color:var(--foot-ink);--ph-bg:var(--act-ph-bg);--ph-line:var(--act-ph-line)}
 .ticker-track{display:flex;width:max-content;animation:tick 48s linear infinite}
 .ticker-track > span{padding:12px 20px;font-family:var(--font-display);font-weight:600;font-size:1.05rem;white-space:nowrap}
-.ticker .sep{color:var(--mark);padding-inline:0}
+.ticker .sep{padding-inline:0}
+.ticker .s-red{color:var(--red)}
+.ticker .s-yellow{color:var(--yellow)}
+.ticker .s-green{color:var(--green)}
+.ticker .s-sky{color:var(--sky)}
 @keyframes tick{to{transform:translateX(-50%)}}
 
 /* ---------- 02 ทำความรู้จักกับปัญหา ---------- */
 .issue-grid{display:grid;gap:clamp(24px,4vw,56px)}
 .issue-intro{display:grid;gap:18px;align-content:start;min-width:0}
 .issue-intro > p{font-size:var(--fs-lede);line-height:1.7}
-.qa{display:grid;margin:0;border-top:2px solid var(--ink)}
+.qa{display:grid;margin:0;border-top:3px solid var(--accent)}
 .qa > div{display:grid;gap:4px 24px;padding-block:18px;border-bottom:1px solid var(--line)}
 .qa dt{display:grid;gap:2px;align-content:start}
-.qa dt .en{color:var(--brand)}
+.qa dt .en{color:var(--accent-ink)}
 .qa dt .q{font-family:var(--font-display);font-weight:600;font-size:1.15rem;line-height:1.35}
 .qa dd{margin:0;min-width:0}
 .dots{list-style:none;display:grid;gap:8px}
 .dots li{display:grid;grid-template-columns:8px minmax(0,1fr);gap:12px}
-.dots li::before{content:"";width:8px;height:8px;margin-top:.72em;border-radius:2px;background:var(--brand)}
+.dots li::before{content:"";width:8px;height:8px;margin-top:.72em;border-radius:2px;background:var(--accent)}
 @media (min-width:620px){ .qa > div{grid-template-columns:11rem minmax(0,1fr)} }
 @media (min-width:900px){ .issue-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:start} }
 
 /* ---------- 03 ข้อมูลและหลักฐาน ---------- */
 .stats,.sources{display:grid;gap:16px}
 .stat{display:grid;gap:8px;align-content:start}
-.stat-num{font-family:var(--font-display);font-weight:700;font-size:clamp(2.6rem,6vw,3.9rem);line-height:1.05;letter-spacing:-.02em;color:var(--brand);font-variant-numeric:tabular-nums}
+.stat-num{font-family:var(--font-display);font-weight:700;font-size:clamp(2.6rem,6vw,3.9rem);line-height:1.1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .stat-num small{margin-left:4px;font-size:.42em;letter-spacing:0}
+/* ปากกาเน้นข้อความสีเหลือง = ตัวเลขที่เป็นข้อเท็จจริง */
+.hl{display:inline-block;line-height:1;padding-inline:.06em;background:linear-gradient(to top,transparent 8%,var(--hl) 8%,var(--hl) 40%,transparent 40%)}
 .stat .cite{justify-self:start}
 .ev-grid{display:grid;gap:16px}
 .chart{display:grid;gap:16px;align-content:start;min-width:0}
@@ -219,14 +305,15 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 .bar-label,.bar-val{font-family:var(--font-mono);font-size:.85rem;color:var(--muted)}
 .bar-val{text-align:right}
 .bar-track{height:22px;border-radius:4px;background:var(--band);overflow:hidden}
-.bar-fill{display:block;height:100%;border-radius:4px;background:var(--brand);opacity:.45}
-.bar-row.is-latest .bar-fill{opacity:1}
+.bar-fill{display:block;height:100%;border-radius:4px;background:var(--bar)}
+.bar-row.is-latest .bar-fill{background:var(--ink)}
 .bar-row.is-latest .bar-val{color:var(--ink);font-weight:500}
+.bar-row.is-latest .bar-val span{background:var(--hl);padding:0 4px;border-radius:3px}
 .chart figcaption{font-size:.82rem;color:var(--muted)}
 .ev-side{display:grid;gap:8px;min-width:0}
 .ev-side .slot{min-height:220px;height:100%}
 .ev-side p{font-size:.82rem;color:var(--muted)}
-.source{display:grid;gap:10px;align-content:start;padding-top:16px;border-top:3px solid var(--ink)}
+.source{display:grid;gap:10px;align-content:start;padding-top:16px;border-top:3px solid var(--accent)}
 .source h3{font-size:1.1rem}
 .source-meta{font-size:.85rem;color:var(--muted)}
 @media (min-width:760px){ .stats,.sources{grid-template-columns:repeat(3,minmax(0,1fr))} }
@@ -235,26 +322,28 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 /* ---------- 04 ผลกระทบ ---------- */
 .affected{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
 .affected-k{margin-right:6px;font-weight:600}
-.pill{padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.92rem;line-height:1.5}
+.pill{padding:6px 14px;border-radius:999px;background:var(--accent-tint);color:var(--accent-ink);font-size:.92rem;font-weight:500;line-height:1.5}
 .impact-grid{display:grid;gap:16px}
 .impact{display:grid;gap:14px;align-content:start}
 .impact-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px}
 .impact-head h3{font-size:var(--fs-h3)}
+.impact-head h3::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.45em;border-radius:2px;background:var(--accent);vertical-align:.1em}
 .term{display:grid;grid-template-columns:5.2rem minmax(0,1fr);gap:12px;padding-top:12px;border-top:1px dashed var(--line)}
-.term-k{font-size:.85rem;font-weight:600;color:var(--brand)}
+.term-k{font-size:.85rem;font-weight:600;color:var(--accent-ink)}
 @media (min-width:760px){ .impact-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
 
 /* ---------- 05 ผู้มีส่วนเกี่ยวข้อง ---------- */
-.stakes{display:grid;border-top:2px solid var(--ink)}
+.stakes{display:grid;border-top:3px solid var(--accent)}
 .stake{display:grid;gap:10px 28px;padding-block:20px;border-bottom:1px solid var(--line)}
 .stake-who{display:grid;gap:2px;align-content:start}
 .stake-who h3{font-size:1.25rem}
 .stake-who p{font-size:.9rem;color:var(--muted)}
 .lbl{display:block;margin-bottom:2px;font-size:.78rem;font-weight:600;color:var(--muted)}
+.lbl.go{color:var(--accent-ink)}
 .collab{max-width:62ch;font-family:var(--font-display);font-weight:600;font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.5}
 @media (min-width:860px){ .stake{grid-template-columns:minmax(0,3.4fr) minmax(0,4fr) minmax(0,4fr)} }
 
-/* ---------- 06 SDGs ---------- */
+/* ---------- 06 SDGs (ใช้สีทางการของสหประชาชาติ) ---------- */
 .sdg-strip{list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
 .sdg-tile{display:flex;align-items:flex-start;width:100%;max-width:100%;aspect-ratio:1;padding:6px 7px;border:0;border-radius:6px;background:var(--c);color:var(--c-ink);font:700 clamp(1rem,2.2vw,1.3rem)/1 var(--font-display);cursor:pointer;opacity:.3;filter:saturate(.55);transition:opacity .2s,filter .2s}
 .sdg-tile.on{opacity:1;filter:none;box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--c)}
@@ -262,7 +351,7 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 .sdg-caption{min-height:1.75em;font-size:.92rem;color:var(--muted)}
 .sdg-cards{display:grid;gap:16px}
 .sdg-card{display:grid;grid-template-rows:auto 1fr;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
-.sdg-card-head{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:16px;padding:20px 22px;background:var(--c,var(--brand));color:var(--c-ink,var(--brand-ink))}
+.sdg-card-head{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:16px;padding:20px 22px;background:var(--c,var(--accent-strong));color:var(--c-ink,var(--on-strong))}
 .sdg-no{font:700 3.2rem/1 var(--font-display)}
 .sdg-no small{display:block;margin-bottom:6px;font:500 .7rem/1 var(--font-mono);letter-spacing:.14em}
 .sdg-name{font-size:1.2rem;line-height:1.35}
@@ -278,20 +367,21 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 .identity .slot{aspect-ratio:1;max-width:200px;border-radius:50%}
 .identity-text{display:grid;gap:8px;min-width:0}
 .identity-text .name{font-size:clamp(1.9rem,4vw,2.7rem)}
-.identity-text .slogan{color:var(--brand)}
+.identity-text .slogan{color:var(--accent-ink)}
 .identity-text p:last-child{color:var(--muted)}
 .brief{display:grid;gap:24px}
-.brief-block{display:grid;gap:10px;align-content:start;padding-top:16px;border-top:2px solid var(--ink)}
+.brief-block{display:grid;gap:10px;align-content:start;padding-top:16px;border-top:3px solid var(--accent)}
 .brief-block h3{font-size:1.2rem}
-.keymsg{display:grid;gap:14px;padding:clamp(28px,5vw,56px);border-radius:18px;background:var(--hero-bg);color:var(--hero-ink);--focus:#ffffff}
+.keymsg{display:grid;gap:14px;padding:clamp(28px,5vw,56px);border-radius:18px}
 .keymsg .en{color:var(--hero-soft)}
 .keymsg p{font:700 clamp(1.55rem,3.8vw,2.7rem)/1.32 var(--font-display);text-wrap:balance}
 .channels{list-style:none;display:grid;gap:12px}
 .channel{display:grid;gap:6px;align-content:start;padding:18px}
+.channel .en{color:var(--accent-ink)}
 .channel h4{font-size:1.1rem}
 .channel p{font-size:.92rem}
 .phases{list-style:none;display:grid;gap:20px}
-.phase{display:grid;gap:8px;align-content:start;padding-top:14px;border-top:3px solid var(--brand)}
+.phase{display:grid;gap:8px;align-content:start;padding-top:14px;border-top:3px solid var(--accent)}
 .phase-when{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.04em;color:var(--muted)}
 .phase h4{font-size:1.2rem}
 .kpi{font-size:.9rem;color:var(--muted)}
@@ -301,35 +391,32 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 @media (min-width:1000px){ .channels{grid-template-columns:repeat(4,minmax(0,1fr))} }
 
 /* ---------- 08 ร่วมเป็นส่วนหนึ่ง ---------- */
-.on-brand{background:var(--hero-bg);color:var(--hero-ink);--focus:#ffffff}
-.on-brand .sec-tag,.on-brand .lede{color:var(--hero-soft)}
-.on-brand .sec-num{color:var(--hero-ink)}
 .actions{display:grid;gap:16px}
-.action,.pledge{display:grid;gap:12px;align-content:start;padding:24px;border-radius:16px;background:var(--surface);color:var(--ink);--focus:var(--brand)}
+.action,.pledge{display:grid;gap:12px;align-content:start;padding:24px;border-radius:16px;background:var(--surface);color:var(--ink);--ph-bg:var(--ph-bg-base);--ph-line:var(--ph-line-base);--focus:var(--accent-ink)}
 .action h3{font-size:1.35rem}
-.action .en{color:var(--brand)}
+.action .en{color:var(--accent-ink)}
 .action .btn{justify-self:start}
 .action > p:not(.en){color:var(--muted)}
 .hashtag{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-.hashtag code{padding:6px 12px;border-radius:8px;background:var(--band);font-family:var(--font-display);font-weight:700;font-size:1.2rem;overflow-wrap:anywhere}
+.hashtag code{padding:6px 12px;border-radius:8px;background:var(--accent-tint);color:var(--accent-ink);font-family:var(--font-display);font-weight:700;font-size:1.2rem;overflow-wrap:anywhere}
 .btn-small{min-height:40px;padding:6px 16px;font-size:.92rem}
 .pledge{gap:16px}
 .pledge-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px}
 .pledge-head h3{font-size:1.35rem}
 .pledge-count{font-family:var(--font-mono);font-size:.85rem;color:var(--muted)}
 .meter{height:6px;border-radius:99px;background:var(--band);overflow:hidden}
-.meter span{display:block;width:0;height:100%;background:var(--brand);transition:width .3s}
+.meter span{display:block;width:0;height:100%;background:var(--accent);transition:width .3s}
 .pledge-list{list-style:none;display:grid;gap:2px}
 .pledge-list label{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;padding:10px;border-radius:10px;cursor:pointer}
 .pledge-list label:hover{background:var(--band)}
-.pledge-list input{width:20px;height:20px;margin:.3em 0 0;accent-color:var(--brand)}
+.pledge-list input{width:20px;height:20px;margin:.3em 0 0;accent-color:var(--accent-strong)}
 @media (min-width:760px){ .actions{grid-template-columns:repeat(2,minmax(0,1fr))} }
 
 /* ---------- 09 แหล่งอ้างอิง ---------- */
-.refs{list-style:none;display:grid;border-top:2px solid var(--ink)}
+.refs{list-style:none;display:grid;border-top:3px solid var(--accent)}
 .refs li{display:grid;grid-template-columns:2.6rem minmax(0,1fr);gap:4px 14px;padding:16px 8px 16px 0;border-bottom:1px solid var(--line);scroll-margin-top:calc(var(--head-h) + 24px)}
-.refs li:target{background:var(--guide-bg)}
-.ref-n{font-family:var(--font-mono);font-weight:500;color:var(--brand)}
+.refs li:target{background:var(--accent-tint)}
+.ref-n{font-family:var(--font-mono);font-weight:500;color:var(--accent-ink)}
 .ref-body{display:grid;gap:6px;min-width:0;overflow-wrap:anywhere}
 .ref-meta{font-size:.82rem;color:var(--muted)}
 
@@ -345,13 +432,15 @@ table{width:100%;min-width:680px;border-collapse:collapse;font-size:.92rem;line-
 th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 th{background:var(--band);font-size:.82rem;font-weight:600;color:var(--muted)}
 tbody tr:last-child td{border-bottom:0}
-.statement{max-width:68ch;padding:18px 20px;border:2px solid var(--ink);border-radius:12px;font-weight:500}
+.statement{max-width:68ch;padding:18px 20px;border:2px solid var(--accent);border-radius:12px;background:var(--surface);font-weight:500}
 
 /* ---------- ท้ายเว็บ ---------- */
-.site-foot{padding-block:48px;background:var(--ink);color:var(--bg);--focus:var(--bg)}
+.site-foot{position:relative;padding-block:54px 44px;background:var(--foot-bg);color:var(--foot-ink);--focus:var(--foot-ink);--ph-bg:var(--act-ph-bg);--ph-line:var(--act-ph-line)}
+/* แถบ 4 สีเรียงตามเนื้อเรื่อง: ปัญหา → ข้อเท็จจริง → ทางออก → แคมเปญ */
+.site-foot::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,var(--red) 0 25%,var(--yellow) 25% 50%,var(--green) 50% 75%,var(--sky) 75% 100%)}
 .foot-grid{display:grid;gap:20px}
 .foot-name{font:700 1.6rem/1.25 var(--font-display)}
-.foot-meta{font-size:.88rem;opacity:.75}
+.foot-meta{font-size:.88rem;opacity:.78}
 .to-top{justify-self:start;font-weight:600}
 @media (min-width:760px){ .foot-grid{grid-template-columns:minmax(0,1fr) auto;align-items:end} }
 
@@ -369,36 +458,47 @@ tbody tr:last-child td{border-bottom:0}
     </a>
     <nav class="nav" aria-label="ส่วนต่าง ๆ ของเว็บไซต์">
       <ol>
-        <li><a href="#home">หน้าแรก</a></li>
-        <li><a href="#issue">ปัญหา</a></li>
-        <li><a href="#evidence">หลักฐาน</a></li>
-        <li><a href="#impacts">ผลกระทบ</a></li>
-        <li><a href="#stakeholders">ผู้เกี่ยวข้อง</a></li>
-        <li><a href="#sdgs">SDGs</a></li>
-        <li><a href="#campaign">แคมเปญ</a></li>
-        <li><a href="#action">ร่วมมือ</a></li>
-        <li><a href="#references">อ้างอิง</a></li>
-        <li><a href="#credits">เครดิต</a></li>
+        <li class="c-sky"><a href="#home">หน้าแรก</a></li>
+        <li class="c-red"><a href="#issue">ปัญหา</a></li>
+        <li class="c-yellow"><a href="#evidence">หลักฐาน</a></li>
+        <li class="c-red"><a href="#impacts">ผลกระทบ</a></li>
+        <li class="c-green"><a href="#stakeholders">ผู้เกี่ยวข้อง</a></li>
+        <li class="c-green"><a href="#sdgs">SDGs</a></li>
+        <li class="c-sky"><a href="#campaign">แคมเปญ</a></li>
+        <li class="c-green"><a href="#action">ร่วมมือ</a></li>
+        <li class="c-yellow"><a href="#references">อ้างอิง</a></li>
+        <li class="c-sky"><a href="#credits">เครดิต</a></li>
       </ol>
     </nav>
     <button type="button" class="guide-toggle js-guide-toggle" aria-pressed="true"><span class="sw" aria-hidden="true"></span>จุดที่ต้องแก้</button>
     <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer"><span class="bars" aria-hidden="true"></span><span class="menu-label">เมนู</span></button>
   </div>
-  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <div class="story" aria-hidden="true">
+    <a class="c-sky" href="#home" tabindex="-1"></a>
+    <a class="c-red" href="#issue" tabindex="-1"></a>
+    <a class="c-yellow" href="#evidence" tabindex="-1"></a>
+    <a class="c-red" href="#impacts" tabindex="-1"></a>
+    <a class="c-green" href="#stakeholders" tabindex="-1"></a>
+    <a class="c-green" href="#sdgs" tabindex="-1"></a>
+    <a class="c-sky" href="#campaign" tabindex="-1"></a>
+    <a class="c-green" href="#action" tabindex="-1"></a>
+    <a class="c-yellow" href="#references" tabindex="-1"></a>
+    <a class="c-sky" href="#credits" tabindex="-1"></a>
+  </div>
   <div class="drawer" id="drawer" hidden>
     <div class="wrap drawer-in">
       <button type="button" class="guide-toggle js-guide-toggle" aria-pressed="true"><span class="sw" aria-hidden="true"></span>แสดงจุดที่ต้องแก้</button>
       <ol>
-        <li><a href="#home"><span class="n">01</span><span class="t">หน้าแรก<small>Home</small></span></a></li>
-        <li><a href="#issue"><span class="n">02</span><span class="t">ทำความรู้จักกับปัญหา<small>About the Issue</small></span></a></li>
-        <li><a href="#evidence"><span class="n">03</span><span class="t">ข้อมูลและหลักฐาน<small>Evidence &amp; Facts</small></span></a></li>
-        <li><a href="#impacts"><span class="n">04</span><span class="t">ผลกระทบ<small>Impacts</small></span></a></li>
-        <li><a href="#stakeholders"><span class="n">05</span><span class="t">ผู้มีส่วนเกี่ยวข้อง<small>Stakeholders</small></span></a></li>
-        <li><a href="#sdgs"><span class="n">06</span><span class="t">ความเชื่อมโยงกับ SDGs<small>SDGs</small></span></a></li>
-        <li><a href="#campaign"><span class="n">07</span><span class="t">แคมเปญของเรา<small>Our Campaign</small></span></a></li>
-        <li><a href="#action"><span class="n">08</span><span class="t">ร่วมเป็นส่วนหนึ่งของการเปลี่ยนแปลง<small>Take Action</small></span></a></li>
-        <li><a href="#references"><span class="n">09</span><span class="t">แหล่งอ้างอิง<small>References</small></span></a></li>
-        <li><a href="#credits"><span class="n">10</span><span class="t">เครดิตและการใช้ Generative AI<small>Credits &amp; AI Disclosure</small></span></a></li>
+        <li class="c-sky"><a href="#home"><span class="n">01</span><span class="t">หน้าแรก<small>Home</small></span></a></li>
+        <li class="c-red"><a href="#issue"><span class="n">02</span><span class="t">ทำความรู้จักกับปัญหา<small>About the Issue</small></span></a></li>
+        <li class="c-yellow"><a href="#evidence"><span class="n">03</span><span class="t">ข้อมูลและหลักฐาน<small>Evidence &amp; Facts</small></span></a></li>
+        <li class="c-red"><a href="#impacts"><span class="n">04</span><span class="t">ผลกระทบ<small>Impacts</small></span></a></li>
+        <li class="c-green"><a href="#stakeholders"><span class="n">05</span><span class="t">ผู้มีส่วนเกี่ยวข้อง<small>Stakeholders</small></span></a></li>
+        <li class="c-green"><a href="#sdgs"><span class="n">06</span><span class="t">ความเชื่อมโยงกับ SDGs<small>SDGs</small></span></a></li>
+        <li class="c-sky"><a href="#campaign"><span class="n">07</span><span class="t">แคมเปญของเรา<small>Our Campaign</small></span></a></li>
+        <li class="c-green"><a href="#action"><span class="n">08</span><span class="t">ร่วมเป็นส่วนหนึ่งของการเปลี่ยนแปลง<small>Take Action</small></span></a></li>
+        <li class="c-yellow"><a href="#references"><span class="n">09</span><span class="t">แหล่งอ้างอิง<small>References</small></span></a></li>
+        <li class="c-sky"><a href="#credits"><span class="n">10</span><span class="t">เครดิตและการใช้ Generative AI<small>Credits &amp; AI Disclosure</small></span></a></li>
       </ol>
     </div>
   </div>
@@ -407,10 +507,10 @@ tbody tr:last-child td{border-bottom:0}
 <main id="main">
 
   <!-- 01 HOME -->
-  <section id="home" class="hero" aria-labelledby="home-title">
+  <section id="home" class="hero on-sky c-sky" aria-labelledby="home-title">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="sec-tag"><span class="sec-num">01</span><span>/ 10</span><span>Home</span></p>
+        <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">01</span><span>/ 10</span><span class="sec-kind">แคมเปญ</span><span>Home</span></p>
         <div class="logo-slot" aria-label="ที่วางโลโก้">LOGO</div>
         <p class="eyebrow">แคมเปญรณรงค์เรื่อง <span class="ph">[ประเด็นปัญหาที่กลุ่มเลือก]</span></p>
         <h1 id="home-title"><span class="ph">ชื่อแคมเปญ</span></h1>
@@ -420,9 +520,18 @@ tbody tr:last-child td{border-bottom:0}
           <a class="btn btn-solid" href="#issue">ทำความรู้จักปัญหา</a>
           <a class="btn btn-line" href="#action">ร่วมเป็นส่วนหนึ่ง</a>
         </div>
+        <div class="legend">
+          <span class="legend-k">อ่านตามสี</span>
+          <ul>
+            <li class="c-red"><i aria-hidden="true"></i>ปัญหา</li>
+            <li class="c-yellow"><i aria-hidden="true"></i>ข้อเท็จจริง</li>
+            <li class="c-green"><i aria-hidden="true"></i>ทางออก</li>
+            <li class="c-sky"><i aria-hidden="true"></i>แคมเปญ</li>
+          </ul>
+        </div>
         <aside class="guide">
           <span class="guide-k">ส่วนนี้ต้องมี</span>
-          <span>ชื่อแคมเปญ โลโก้ สโลแกน ภาพหน้าปก ข้อความสั้น ๆ ว่าปัญหาคืออะไร และปุ่มชวนให้เรียนรู้เพิ่มหรือร่วมแคมเปญ · ข้อความไฮไลต์สีเหลืองทั้งหน้าคือส่วนที่กลุ่มต้องแก้ ปิดสวิตช์ “จุดที่ต้องแก้” ด้านบนเพื่อดูหน้าตาจริง</span>
+          <span>ชื่อแคมเปญ โลโก้ สโลแกน ภาพหน้าปก ข้อความสั้น ๆ ว่าปัญหาคืออะไร และปุ่มชวนให้เรียนรู้เพิ่มหรือร่วมแคมเปญ · ข้อความที่มีเส้นหยักสีม่วงทั้งหน้าคือส่วนที่กลุ่มต้องแก้ ปิดสวิตช์ “จุดที่ต้องแก้” ด้านบนเพื่อดูหน้าตาจริง</span>
         </aside>
       </div>
       <figure class="hero-cover">
@@ -432,23 +541,23 @@ tbody tr:last-child td{border-bottom:0}
     </div>
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
-        <span><span class="ph">#แฮชแท็กแคมเปญ</span></span><span class="sep">●</span>
-        <span><span class="ph">สโลแกนแคมเปญ</span></span><span class="sep">●</span>
-        <span><span class="ph">#แฮชแท็กแคมเปญ</span></span><span class="sep">●</span>
-        <span><span class="ph">สโลแกนแคมเปญ</span></span><span class="sep">●</span>
-        <span><span class="ph">#แฮชแท็กแคมเปญ</span></span><span class="sep">●</span>
-        <span><span class="ph">สโลแกนแคมเปญ</span></span><span class="sep">●</span>
-        <span><span class="ph">#แฮชแท็กแคมเปญ</span></span><span class="sep">●</span>
-        <span><span class="ph">สโลแกนแคมเปญ</span></span><span class="sep">●</span>
+        <span><span class="ph">#แฮชแท็กแคมเปญ</span></span><span class="sep s-red">●</span>
+        <span><span class="ph">สโลแกนแคมเปญ</span></span><span class="sep s-yellow">●</span>
+        <span><span class="ph">#แฮชแท็กแคมเปญ</span></span><span class="sep s-green">●</span>
+        <span><span class="ph">สโลแกนแคมเปญ</span></span><span class="sep s-sky">●</span>
+        <span><span class="ph">#แฮชแท็กแคมเปญ</span></span><span class="sep s-red">●</span>
+        <span><span class="ph">สโลแกนแคมเปญ</span></span><span class="sep s-yellow">●</span>
+        <span><span class="ph">#แฮชแท็กแคมเปญ</span></span><span class="sep s-green">●</span>
+        <span><span class="ph">สโลแกนแคมเปญ</span></span><span class="sep s-sky">●</span>
       </div>
     </div>
   </section>
 
   <!-- 02 ABOUT THE ISSUE -->
-  <section id="issue" class="sec" aria-labelledby="issue-title">
+  <section id="issue" class="sec c-red" aria-labelledby="issue-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
-        <p class="sec-tag"><span class="sec-num">02</span><span>/ 10</span><span>About the Issue</span></p>
+        <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">02</span><span>/ 10</span><span class="sec-kind">ปัญหา</span><span>About the Issue</span></p>
         <h2 id="issue-title">ทำความรู้จักกับปัญหา</h2>
         <p class="lede">ปูพื้นให้คนที่ไม่เคยรู้เรื่องนี้เข้าใจได้ภายในหนึ่งนาที</p>
       </header>
@@ -497,30 +606,30 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 03 EVIDENCE & FACTS -->
-  <section id="evidence" class="sec tint" aria-labelledby="evidence-title">
+  <section id="evidence" class="sec tint c-yellow" aria-labelledby="evidence-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
-        <p class="sec-tag"><span class="sec-num">03</span><span>/ 10</span><span>Evidence &amp; Facts</span></p>
+        <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">03</span><span>/ 10</span><span class="sec-kind">ข้อเท็จจริง</span><span>Evidence &amp; Facts</span></p>
         <h2 id="evidence-title">ข้อมูลและหลักฐาน</h2>
         <p class="lede">ตัวเลขและแหล่งข้อมูลที่ยืนยันว่าปัญหานี้มีอยู่จริง และรุนแรงแค่ไหน</p>
       </header>
       <aside class="guide">
         <span class="guide-k">ส่วนนี้ต้องมี</span>
-        <span>ข้อมูลที่น่าเชื่อถือ เช่น ข่าว งานวิจัย รายงานของหน่วยงาน หรือสถิติ พร้อมภาพ กราฟ หรืออินโฟกราฟิก และต้องอ้างอิงอย่างน้อย 3 แหล่ง · ปุ่ม [1] [2] [3] จะพาไปยังรายการในส่วนที่ 09</span>
+        <span>ข้อมูลที่น่าเชื่อถือ เช่น ข่าว งานวิจัย รายงานของหน่วยงาน หรือสถิติ พร้อมภาพ กราฟ หรืออินโฟกราฟิก และต้องอ้างอิงอย่างน้อย 3 แหล่ง · ปุ่มสีเหลือง [1] [2] [3] จะพาไปยังรายการในส่วนที่ 09</span>
       </aside>
       <div class="stats">
         <div class="stat card">
-          <p class="stat-num"><span class="ph">00</span><small>%</small></p>
+          <p class="stat-num"><span class="hl"><span class="ph">00</span><small>%</small></span></p>
           <p><span class="ph">ตัวเลขนี้หมายถึงอะไร เช่น สัดส่วนของคนที่ได้รับผลกระทบ</span></p>
           <a class="cite" href="#ref-1">[1]</a>
         </div>
         <div class="stat card">
-          <p class="stat-num"><span class="ph">0,000</span><small><span class="ph">หน่วย</span></small></p>
+          <p class="stat-num"><span class="hl"><span class="ph">0,000</span><small><span class="ph">หน่วย</span></small></span></p>
           <p><span class="ph">ตัวเลขสำคัญตัวที่ 2 เช่น จำนวนผู้ป่วย มูลค่าความเสียหาย หรือปริมาณ</span></p>
           <a class="cite" href="#ref-2">[2]</a>
         </div>
         <div class="stat card">
-          <p class="stat-num"><span class="ph">0</span><small><span class="ph">เท่า</span></small></p>
+          <p class="stat-num"><span class="hl"><span class="ph">0</span><small><span class="ph">เท่า</span></small></span></p>
           <p><span class="ph">ตัวเลขที่แสดงการเปลี่ยนแปลง เช่น เพิ่มขึ้นกี่เท่าในรอบ 5 ปี</span></p>
           <a class="cite" href="#ref-3">[3]</a>
         </div>
@@ -563,10 +672,10 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 04 IMPACTS -->
-  <section id="impacts" class="sec" aria-labelledby="impacts-title">
+  <section id="impacts" class="sec c-red" aria-labelledby="impacts-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
-        <p class="sec-tag"><span class="sec-num">04</span><span>/ 10</span><span>Impacts</span></p>
+        <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">04</span><span>/ 10</span><span class="sec-kind">ปัญหา</span><span>Impacts</span></p>
         <h2 id="impacts-title">ผลกระทบ</h2>
         <p class="lede">ผลของปัญหานี้ไม่ได้หยุดอยู่ที่คนกลุ่มเดียว แต่ส่งต่อไปถึงผู้คน สังคม เศรษฐกิจ และสิ่งแวดล้อม</p>
       </header>
@@ -607,10 +716,10 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 05 STAKEHOLDERS -->
-  <section id="stakeholders" class="sec tint" aria-labelledby="stake-title">
+  <section id="stakeholders" class="sec tint c-green" aria-labelledby="stake-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
-        <p class="sec-tag"><span class="sec-num">05</span><span>/ 10</span><span>Stakeholders</span></p>
+        <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">05</span><span>/ 10</span><span class="sec-kind">ทางออก</span><span>Stakeholders</span></p>
         <h2 id="stake-title">ผู้มีส่วนเกี่ยวข้อง</h2>
         <p class="lede">ปัญหานี้แก้ได้อย่างยั่งยืนเมื่อทุกฝ่ายทำหน้าที่ของตัวเอง</p>
       </header>
@@ -622,32 +731,32 @@ tbody tr:last-child td{border-bottom:0}
         <article class="stake">
           <div class="stake-who"><h3>ภาครัฐ</h3><p><span class="ph">เช่น กระทรวง กรม หรือหน่วยงานท้องถิ่นที่ดูแลเรื่องนี้</span></p></div>
           <p><span class="lbl">เกี่ยวข้องอย่างไร</span><span class="ph">อำนาจหรือหน้าที่ตามกฎหมายที่มีต่อปัญหานี้</span></p>
-          <p><span class="lbl">ทำอะไรได้</span><span class="ph">นโยบาย กฎหมาย หรือมาตรการที่ควรทำ</span></p>
+          <p><span class="lbl go">ทำอะไรได้</span><span class="ph">นโยบาย กฎหมาย หรือมาตรการที่ควรทำ</span></p>
         </article>
         <article class="stake">
           <div class="stake-who"><h3>ภาคเอกชน</h3><p><span class="ph">เช่น บริษัท ผู้ประกอบการ อุตสาหกรรมที่เกี่ยวข้อง</span></p></div>
           <p><span class="lbl">เกี่ยวข้องอย่างไร</span><span class="ph">เป็นต้นเหตุ ผู้ได้รับผล หรือผู้ที่มีทรัพยากรช่วยแก้</span></p>
-          <p><span class="lbl">ทำอะไรได้</span><span class="ph">เช่น ปรับกระบวนการผลิต CSR สนับสนุนทุน</span></p>
+          <p><span class="lbl go">ทำอะไรได้</span><span class="ph">เช่น ปรับกระบวนการผลิต CSR สนับสนุนทุน</span></p>
         </article>
         <article class="stake">
           <div class="stake-who"><h3>ภาคประชาสังคม</h3><p><span class="ph">เช่น มูลนิธิ NGO เครือข่ายชุมชน</span></p></div>
           <p><span class="lbl">เกี่ยวข้องอย่างไร</span><span class="ph">ทำงานกับพื้นที่หรือผู้ได้รับผลกระทบโดยตรง</span></p>
-          <p><span class="lbl">ทำอะไรได้</span><span class="ph">รณรงค์ ให้ความรู้ ผลักดันนโยบาย</span></p>
+          <p><span class="lbl go">ทำอะไรได้</span><span class="ph">รณรงค์ ให้ความรู้ ผลักดันนโยบาย</span></p>
         </article>
         <article class="stake">
           <div class="stake-who"><h3>องค์กรระหว่างประเทศ</h3><p><span class="ph">เช่น หน่วยงานในเครือสหประชาชาติ</span></p></div>
           <p><span class="lbl">เกี่ยวข้องอย่างไร</span><span class="ph">กำหนดมาตรฐาน เก็บข้อมูล หรือให้ทุน</span></p>
-          <p><span class="lbl">ทำอะไรได้</span><span class="ph">ความร่วมมือระหว่างประเทศ การสนับสนุนทางวิชาการ</span></p>
+          <p><span class="lbl go">ทำอะไรได้</span><span class="ph">ความร่วมมือระหว่างประเทศ การสนับสนุนทางวิชาการ</span></p>
         </article>
         <article class="stake">
           <div class="stake-who"><h3>นักวิชาการ</h3><p><span class="ph">เช่น มหาวิทยาลัย สถาบันวิจัย</span></p></div>
           <p><span class="lbl">เกี่ยวข้องอย่างไร</span><span class="ph">ศึกษาสาเหตุและวัดขนาดของปัญหา</span></p>
-          <p><span class="lbl">ทำอะไรได้</span><span class="ph">งานวิจัย ข้อเสนอเชิงนโยบาย นวัตกรรม</span></p>
+          <p><span class="lbl go">ทำอะไรได้</span><span class="ph">งานวิจัย ข้อเสนอเชิงนโยบาย นวัตกรรม</span></p>
         </article>
         <article class="stake">
           <div class="stake-who"><h3>ประชาชน</h3><p><span class="ph">เช่น ประชาชนทั่วไป นักศึกษา คนในพื้นที่</span></p></div>
           <p><span class="lbl">เกี่ยวข้องอย่างไร</span><span class="ph">เป็นทั้งผู้ได้รับผลและผู้มีส่วนทำให้เกิดปัญหา</span></p>
-          <p><span class="lbl">ทำอะไรได้</span><span class="ph">ปรับพฤติกรรม ส่งเสียง ติดตามการแก้ปัญหา</span></p>
+          <p><span class="lbl go">ทำอะไรได้</span><span class="ph">ปรับพฤติกรรม ส่งเสียง ติดตามการแก้ปัญหา</span></p>
         </article>
       </div>
       <p class="collab"><span class="ph">ประโยคสรุปว่าทุกฝ่ายต้องร่วมมือกันอย่างไร ปัญหาจึงจะแก้ได้อย่างยั่งยืน</span></p>
@@ -655,10 +764,10 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 06 SDGs -->
-  <section id="sdgs" class="sec" aria-labelledby="sdgs-title">
+  <section id="sdgs" class="sec c-green" aria-labelledby="sdgs-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
-        <p class="sec-tag"><span class="sec-num">06</span><span>/ 10</span><span>Sustainable Development Goals</span></p>
+        <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">06</span><span>/ 10</span><span class="sec-kind">ทางออก</span><span>Sustainable Development Goals</span></p>
         <h2 id="sdgs-title">ความเชื่อมโยงกับ SDGs</h2>
         <p class="lede">เป้าหมายการพัฒนาที่ยั่งยืน 17 ข้อของสหประชาชาติ ช่องที่สีเข้มคือเป้าหมายที่แคมเปญนี้เกี่ยวข้องโดยตรง</p>
       </header>
@@ -679,7 +788,7 @@ tbody tr:last-child td{border-bottom:0}
           <div class="sdg-card-body">
             <p><span class="lbl">เป้าหมายย่อยที่เกี่ยวข้อง (Target)</span><span class="ph">เลขและชื่อเป้าหมายย่อยที่ตรงกับปัญหา เช่น 3.x</span></p>
             <p><span class="lbl">ทำไมจึงเกี่ยวข้อง</span><span class="ph">เชื่อมปัญหาของกลุ่มเข้ากับเป้าหมายนี้ด้วยเหตุผลและข้อมูล</span></p>
-            <p><span class="lbl">แคมเปญช่วยอย่างไร</span><span class="ph">กิจกรรมของแคมเปญที่ช่วยให้บรรลุเป้าหมายนี้</span></p>
+            <p><span class="lbl go">แคมเปญช่วยอย่างไร</span><span class="ph">กิจกรรมของแคมเปญที่ช่วยให้บรรลุเป้าหมายนี้</span></p>
           </div>
         </article>
         <article class="sdg-card" data-goal="13">
@@ -690,7 +799,7 @@ tbody tr:last-child td{border-bottom:0}
           <div class="sdg-card-body">
             <p><span class="lbl">เป้าหมายย่อยที่เกี่ยวข้อง (Target)</span><span class="ph">เลขและชื่อเป้าหมายย่อยที่ตรงกับปัญหา เช่น 13.x</span></p>
             <p><span class="lbl">ทำไมจึงเกี่ยวข้อง</span><span class="ph">เชื่อมปัญหาของกลุ่มเข้ากับเป้าหมายนี้ด้วยเหตุผลและข้อมูล</span></p>
-            <p><span class="lbl">แคมเปญช่วยอย่างไร</span><span class="ph">กิจกรรมของแคมเปญที่ช่วยให้บรรลุเป้าหมายนี้</span></p>
+            <p><span class="lbl go">แคมเปญช่วยอย่างไร</span><span class="ph">กิจกรรมของแคมเปญที่ช่วยให้บรรลุเป้าหมายนี้</span></p>
           </div>
         </article>
       </div>
@@ -698,10 +807,10 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 07 OUR CAMPAIGN -->
-  <section id="campaign" class="sec tint" aria-labelledby="campaign-title">
+  <section id="campaign" class="sec tint c-sky" aria-labelledby="campaign-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
-        <p class="sec-tag"><span class="sec-num">07</span><span>/ 10</span><span>Our Campaign</span></p>
+        <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">07</span><span>/ 10</span><span class="sec-kind">แคมเปญ</span><span>Our Campaign</span></p>
         <h2 id="campaign-title">แคมเปญของเรา</h2>
         <p class="lede">เราจะสื่อสารเรื่องนี้กับใคร ด้วยข้อความอะไร และลงมือทำอย่างไร</p>
       </header>
@@ -732,7 +841,7 @@ tbody tr:last-child td{border-bottom:0}
           </ul>
         </div>
       </div>
-      <blockquote class="keymsg">
+      <blockquote class="keymsg on-sky">
         <span class="en">Key Message · ข้อความหลัก</span>
         <p><span class="ph">ประโยคเดียวที่อยากให้ทุกคนจำได้หลังเห็นแคมเปญ</span></p>
       </blockquote>
@@ -772,10 +881,10 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 08 TAKE ACTION -->
-  <section id="action" class="sec on-brand" aria-labelledby="action-title">
+  <section id="action" class="sec on-green c-green" aria-labelledby="action-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
-        <p class="sec-tag"><span class="sec-num">08</span><span>/ 10</span><span>Take Action</span></p>
+        <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">08</span><span>/ 10</span><span class="sec-kind">ทางออก</span><span>Take Action</span></p>
         <h2 id="action-title">ร่วมเป็นส่วนหนึ่งของการเปลี่ยนแปลง</h2>
         <p class="lede">เลือกสิ่งที่คุณทำได้ตั้งแต่วันนี้ ทีละเล็กละน้อยก็มีความหมาย</p>
       </header>
@@ -830,10 +939,10 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 09 REFERENCES -->
-  <section id="references" class="sec" aria-labelledby="refs-title">
+  <section id="references" class="sec c-yellow" aria-labelledby="refs-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
-        <p class="sec-tag"><span class="sec-num">09</span><span>/ 10</span><span>References</span></p>
+        <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">09</span><span>/ 10</span><span class="sec-kind">ข้อเท็จจริง</span><span>References</span></p>
         <h2 id="refs-title">แหล่งอ้างอิง</h2>
         <p class="lede">แหล่งข้อมูลทั้งหมดที่ใช้ในเว็บไซต์นี้ เพื่อให้ผู้อ่านตรวจสอบและศึกษาต่อได้</p>
       </header>
@@ -887,10 +996,10 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 10 CREDITS & AI DISCLOSURE -->
-  <section id="credits" class="sec tint" aria-labelledby="credits-title">
+  <section id="credits" class="sec tint c-sky" aria-labelledby="credits-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
-        <p class="sec-tag"><span class="sec-num">10</span><span>/ 10</span><span>Credits &amp; AI Disclosure</span></p>
+        <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">10</span><span>/ 10</span><span class="sec-kind">แคมเปญ</span><span>Credits &amp; AI Disclosure</span></p>
         <h2 id="credits-title">เครดิตและการใช้ Generative AI</h2>
         <p class="lede">ที่มาของสื่อทุกชิ้น และเครื่องมือ AI ที่กลุ่มใช้ในการทำเว็บไซต์นี้</p>
       </header>
@@ -930,7 +1039,7 @@ tbody tr:last-child td{border-bottom:0}
           <table>
             <thead><tr><th scope="col">เครื่องมือ</th><th scope="col">ใช้ทำอะไร</th><th scope="col">ใช้ในส่วน</th><th scope="col">กลุ่มตรวจสอบ / แก้ไขอย่างไร</th></tr></thead>
             <tbody>
-              <tr><td>Claude (Anthropic)</td><td>ออกแบบเลย์เอาต์และเขียนโค้ด HTML, CSS, JavaScript ของเว็บไซต์</td><td>โครงเว็บไซต์ทั้ง 10 ส่วน</td><td><span class="ph">เช่น ทดสอบบนมือถือและคอมพิวเตอร์ เขียนเนื้อหาทั้งหมดเอง ตรวจลิงก์ทุกจุด</span></td></tr>
+              <tr><td>Claude (Anthropic)</td><td>ออกแบบเลย์เอาต์ ชุดสี และเขียนโค้ด HTML, CSS, JavaScript ของเว็บไซต์</td><td>โครงเว็บไซต์ทั้ง 10 ส่วน</td><td><span class="ph">เช่น ทดสอบบนมือถือและคอมพิวเตอร์ เขียนเนื้อหาทั้งหมดเอง ตรวจลิงก์ทุกจุด</span></td></tr>
               <tr><td><span class="ph">ชื่อเครื่องมือ</span></td><td><span class="ph">เช่น ร่างคำบรรยาย สรุปงานวิจัย สร้างภาพประกอบ</span></td><td><span class="ph">ส่วนที่ใช้</span></td><td><span class="ph">เช่น เทียบกับแหล่งข้อมูลต้นฉบับ แก้ข้อความใหม่</span></td></tr>
             </tbody>
           </table>
@@ -956,7 +1065,6 @@ tbody tr:last-child td{border-bottom:0}
 <script>
 (function(){
   var root = document.documentElement;
-  root.lang = 'th';
 
   /* ===== กราฟแนวโน้ม (ส่วนที่ 03): แก้ป้ายและตัวเลขตรงนี้ ตอนนี้เป็นข้อมูลสมมุติ ===== */
   var TREND = [
@@ -1020,24 +1128,25 @@ tbody tr:last-child td{border-bottom:0}
     if (e.key === 'Escape' && !drawer.hidden) { setMenu(false); menuBtn.focus(); }
   });
 
-  /* ----- แถบความคืบหน้า + ไฮไลต์เมนูตามส่วนที่กำลังอ่าน ----- */
+  /* ----- แถบเรื่องราว 10 สี + ไฮไลต์เมนูตามส่วนที่กำลังอ่าน ----- */
   var sections = [].slice.call(document.querySelectorAll('main > section[id]'));
   var navLinks = [].slice.call(document.querySelectorAll('.nav a, .drawer a'));
-  var bar = document.getElementById('progressBar');
+  var storyLinks = [].slice.call(document.querySelectorAll('.story a'));
   var ticking = false;
   function onScroll(){
     ticking = false;
     var doc = document.documentElement;
     var y = window.scrollY || doc.scrollTop;
     var max = doc.scrollHeight - window.innerHeight;
-    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
-    var current = sections[0].id;
-    sections.forEach(function(s){ if (s.getBoundingClientRect().top <= 140) current = s.id; });
-    if (max > 0 && y >= max - 4) current = sections[sections.length - 1].id;
+    var current = 0;
+    sections.forEach(function(s, i){ if (s.getBoundingClientRect().top <= 140) current = i; });
+    if (max > 0 && y >= max - 4) current = sections.length - 1;
+    var id = sections[current].id;
     navLinks.forEach(function(a){
-      if (a.getAttribute('href') === '#' + current) a.setAttribute('aria-current', 'location');
+      if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'location');
       else a.removeAttribute('aria-current');
     });
+    storyLinks.forEach(function(a, i){ a.classList.toggle('on', i <= current); });
   }
   window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   window.addEventListener('resize', onScroll);
@@ -1052,7 +1161,7 @@ tbody tr:last-child td{border-bottom:0}
       return '<div class="bar-row' + (i === TREND.length - 1 ? ' is-latest' : '') + '">' +
         '<span class="bar-label">' + d.label + '</span>' +
         '<span class="bar-track"><span class="bar-fill" style="width:' + w + '%"></span></span>' +
-        '<span class="bar-val">' + d.value.toLocaleString('th-TH') + '</span></div>';
+        '<span class="bar-val"><span>' + d.value.toLocaleString('th-TH') + '</span></span></div>';
     }).join('');
   }
 
@@ -1063,7 +1172,7 @@ tbody tr:last-child td{border-bottom:0}
       return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
     });
     var L = 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
-    return (1.05 / (L + 0.05)) >= ((L + 0.05) / 0.0593) ? '#ffffff' : '#131826';
+    return (1.05 / (L + 0.05)) >= ((L + 0.05) / 0.0593) ? '#ffffff' : '#12233a';
   }
   var cards = [].slice.call(document.querySelectorAll('.sdg-card[data-goal]'));
   var chosen = [];
