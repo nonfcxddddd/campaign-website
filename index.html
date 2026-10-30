@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="It’s My Right, Not Charity — แคมเปญรณรงค์เรื่องความเหลื่อมล้ำทางเศรษฐกิจและรัฐสวัสดิการในประเทศไทย สวัสดิการคือสิทธิ ไม่ใช่การสงเคราะห์">
+<meta name="description" content="It’s My Right, Not Charity — สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง แคมเปญเรื่องความเหลื่อมล้ำทางเศรษฐกิจและช่องว่างการคุ้มครองทางสังคมของคนวัยทำงานไทย GE105 มหาวิทยาลัยกรุงเทพ">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14202f" media="(prefers-color-scheme: dark)">
 <title>It’s My Right, Not Charity</title>
@@ -68,9 +68,6 @@
   --guide-line:#a78bfa;
   --toggle-on:#7c3aed;
 
-  --slot-a:#e4eaf2;
-  --slot-b:#d8e0ea;
-  --slot-ink:#4a586b;
   --focus:#0a6fa8;
 
   /* สีประจำบทเริ่มต้น = ฟ้า */
@@ -106,7 +103,7 @@
     --hero-bg:#175e8c; --hero-ink:#ffffff; --hero-soft:rgba(255,255,255,.8); --hero-line:rgba(255,255,255,.32); --hero-wash:rgba(0,0,0,.2); --hero-btn:#ffffff; --hero-btn-ink:#0f2238; --hero-ph-bg:rgba(255,255,255,.14); --hero-ph-line:#d8c4ff;
     --act-bg:#136a40;
     --ph-bg-base:rgba(196,167,255,.14); --ph-line-base:#c4a7ff; --guide-bg:#211a33; --guide-line:#6d55b0; --toggle-on:#a78bfa;
-    --slot-a:#172333; --slot-b:#1d2b3e; --slot-ink:#9fb0c4; --focus:#7ccbf5;
+    --focus:#7ccbf5;
     color-scheme:dark;
   }
 }
@@ -120,7 +117,7 @@
   --hero-bg:#175e8c; --hero-ink:#ffffff; --hero-soft:rgba(255,255,255,.8); --hero-line:rgba(255,255,255,.32); --hero-wash:rgba(0,0,0,.2); --hero-btn:#ffffff; --hero-btn-ink:#0f2238; --hero-ph-bg:rgba(255,255,255,.14); --hero-ph-line:#d8c4ff;
   --act-bg:#136a40;
   --ph-bg-base:rgba(196,167,255,.14); --ph-line-base:#c4a7ff; --guide-bg:#211a33; --guide-line:#6d55b0; --toggle-on:#a78bfa;
-  --slot-a:#172333; --slot-b:#1d2b3e; --slot-ink:#9fb0c4; --focus:#7ccbf5;
+  --focus:#7ccbf5;
   color-scheme:dark;
 }
 
@@ -145,7 +142,6 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.25;mar
 p,figure,blockquote{margin:0}
 ul,ol{margin:0;padding:0}
 :focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 .wrap{max-width:1160px;margin-inline:auto;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
 .skip{position:absolute;left:12px;top:-80px;z-index:100;background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:6px;text-decoration:none}
@@ -225,22 +221,48 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 .on-green .lede{color:var(--act-soft)}
 .block{display:grid;gap:18px}
 .block-h{font-size:var(--fs-h3)}
-.slot{display:grid;place-items:center;width:100%;max-width:100%;padding:16px;border-radius:14px;background:repeating-linear-gradient(135deg,var(--slot-a) 0 12px,var(--slot-b) 12px 24px);color:var(--slot-ink);text-align:center;font-size:.9rem;line-height:1.5}
-.slot strong{display:block;font-family:var(--font-display);font-size:1.05rem}
-.slot small{font-family:var(--font-body);font-size:.8rem}
-.r-3-2{aspect-ratio:3/2}
+.note{max-width:72ch;font-size:.92rem;color:var(--muted)}
+.on-green .note{color:var(--act-soft)}
 .card{padding:22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
 /* ปุ่มอ้างอิง [1] ใช้สีเหลือง (ข้อเท็จจริง) ทุกที่ เพราะพาไปยังแหล่งข้อมูล */
 .cite{display:inline-block;padding:0 6px;border:1px solid var(--yellow);border-radius:4px;background:var(--yellow-tint);font-family:var(--font-mono);font-size:.76rem;line-height:1.55;color:var(--yellow-ink);text-decoration:none;vertical-align:.1em;white-space:nowrap}
 .cite:hover{background:var(--yellow);color:#12233a}
 .chip{display:inline-block;justify-self:start;padding:2px 10px;border-radius:999px;background:var(--accent-tint);font-size:.8rem;font-weight:600;color:var(--accent-ink)}
+.checked{display:inline-flex;align-items:center;gap:6px;justify-self:start;padding:2px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.82rem;color:var(--muted)}
+.checked::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+.status{display:inline-block;padding:1px 9px;border-radius:999px;background:var(--yellow-tint);color:var(--yellow-ink);font-size:.78rem;font-weight:600;white-space:nowrap}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;min-width:680px;border-collapse:collapse;font-size:.92rem;line-height:1.6}
+th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--band);font-size:.82rem;font-weight:600;color:var(--muted)}
+tbody tr:last-child td{border-bottom:0}
+td b{font-weight:600}
 
 /* ---------- ปุ่ม ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 22px;border:2px solid transparent;border-radius:999px;font:600 1rem/1.2 var(--font-body);text-decoration:none;cursor:pointer;transition:transform .15s}
 .btn:hover{transform:translateY(-1px)}
 .btn-solid{background:var(--accent-strong);color:var(--on-strong)}
 .btn-line{border-color:currentColor;background:transparent;color:inherit}
+.btn-small{min-height:40px;padding:6px 16px;font-size:.92rem}
 .on-sky .btn-solid{background:var(--hero-btn);color:var(--hero-btn-ink)}
+
+/* ---------- แถวข้อมูลแบบสมุดบัญชี (ใช้ในผลกระทบ ผู้เกี่ยวข้อง และแผนงาน) ---------- */
+.ledger{list-style:none;display:grid;border-top:3px solid var(--accent)}
+.ledger-row{display:grid;gap:10px 28px;padding-block:18px;border-bottom:1px solid var(--line)}
+.ledger-who{display:grid;gap:2px;align-content:start}
+.ledger-who h3{font-size:1.2rem}
+.lbl{display:block;margin-bottom:2px;font-size:.78rem;font-weight:600;color:var(--muted)}
+.lbl.go{color:var(--accent-ink)}
+@media (min-width:860px){ .ledger-row{grid-template-columns:minmax(0,3fr) minmax(0,4fr) minmax(0,4fr)} }
+
+/* ---------- ขั้นตอนเรียงลำดับ ---------- */
+.steps{list-style:none;display:grid;gap:12px;counter-reset:st}
+.steps li{display:grid;gap:6px;align-content:start;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);counter-increment:st}
+.steps li::before{content:counter(st,decimal-leading-zero);font:500 .8rem/1 var(--font-mono);color:var(--accent-ink)}
+.steps b{font-family:var(--font-display);font-weight:600;font-size:1.05rem;line-height:1.35}
+.steps span{font-size:.92rem;color:var(--muted)}
+@media (min-width:620px){ .steps{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:1000px){ .steps-4{grid-template-columns:repeat(4,minmax(0,1fr))} .steps-5{grid-template-columns:repeat(5,minmax(0,1fr))} }
 
 /* ---------- 01 หน้าแรก ---------- */
 .hero-grid{display:grid;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(36px,6vw,80px)}
@@ -256,14 +278,15 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 .legend ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 16px}
 .legend li{display:inline-flex;align-items:center;gap:7px;font-weight:600}
 .legend i{width:12px;height:12px;border-radius:3px;background:var(--accent);box-shadow:0 0 0 1.5px var(--hero-ink)}
-/* โปสเตอร์ข้อมูล: คนไทย 100 คน */
+/* โปสเตอร์ข้อมูล: คนทำงาน 100 คน */
 .poster{display:grid;gap:16px;min-width:0;padding:clamp(18px,3vw,28px);border:1.5px solid var(--hero-line);border-radius:18px;background:var(--hero-wash)}
 .poster-k{font-family:var(--font-display);font-weight:600;font-size:1.05rem}
 .people{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:clamp(5px,1vw,9px)}
-.people i{aspect-ratio:1;border-radius:50%;background:var(--hero-ink);opacity:.22}
-.people i.top{opacity:1;background:var(--red);box-shadow:0 0 0 2px var(--hero-ink)}
+.people i{aspect-ratio:1;border-radius:50%;background:var(--hero-ink);opacity:.2}
+.people i.on{opacity:1}
 .poster-stat{font:700 clamp(1.35rem,2.5vw,1.8rem)/1.35 var(--font-display);text-wrap:balance}
-.poster-stat em{font-style:normal;padding:0 .2em;border-radius:.15em;background:var(--red);color:#ffffff}
+.poster-stat em{font-style:normal;padding:0 .2em;border-radius:.15em;background:var(--yellow);color:#12233a}
+.poster p:not(.poster-k):not(.poster-stat){font-size:.92rem;color:var(--hero-soft)}
 .poster .src{font-size:.82rem;color:var(--hero-soft)}
 @media (min-width:880px){ .hero-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr)} }
 .ticker{overflow:hidden;background:var(--foot-bg);color:var(--foot-ink);--ph-bg:var(--act-ph-bg);--ph-line:var(--act-ph-line)}
@@ -280,6 +303,9 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 .issue-grid{display:grid;gap:clamp(24px,4vw,56px)}
 .issue-intro{display:grid;gap:18px;align-content:start;min-width:0}
 .issue-intro > p{font-size:var(--fs-lede);line-height:1.7}
+.question{display:grid;gap:6px;padding:18px 20px;border-radius:12px;background:var(--accent-tint);color:var(--ink)}
+.question p{font-family:var(--font-display);font-weight:600;font-size:1.15rem;line-height:1.5}
+.question .lbl{color:var(--accent-ink)}
 .qa{display:grid;margin:0;border-top:3px solid var(--accent)}
 .qa > div{display:grid;gap:4px 24px;padding-block:18px;border-bottom:1px solid var(--line)}
 .qa dt{display:grid;gap:2px;align-content:start}
@@ -290,6 +316,11 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 .dots li{display:grid;grid-template-columns:8px minmax(0,1fr);gap:12px}
 .dots li::before{content:"";width:8px;height:8px;margin-top:.72em;border-radius:2px;background:var(--accent)}
 .dots b{font-weight:600}
+.whys{list-style:none;display:grid;gap:14px;counter-reset:why}
+.whys li{display:grid;grid-template-columns:2.2rem minmax(0,1fr);gap:2px 14px;counter-increment:why}
+.whys li::before{content:counter(why);grid-row:span 2;display:grid;place-items:center;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--accent-strong);color:var(--on-strong);font:700 1rem/1 var(--font-display)}
+.whys b{font-weight:600}
+.whys span{color:var(--muted)}
 @media (min-width:620px){ .qa > div{grid-template-columns:11rem minmax(0,1fr)} }
 @media (min-width:900px){ .issue-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:start} }
 
@@ -298,6 +329,7 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 .stat{display:grid;gap:8px;align-content:start}
 .stat-num{font-family:var(--font-display);font-weight:700;font-size:clamp(2.6rem,6vw,3.9rem);line-height:1.1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .stat-num small{margin-left:6px;font-size:.38em;letter-spacing:0}
+.stat .note{font-size:.86rem}
 /* ปากกาเน้นข้อความสีเหลือง = ตัวเลขที่เป็นข้อเท็จจริง */
 .hl{display:inline-block;line-height:1;padding-inline:.06em;background:linear-gradient(to top,transparent 8%,var(--hl) 8%,var(--hl) 40%,transparent 40%)}
 .stat .cite{justify-self:start}
@@ -306,54 +338,36 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 .chart-head{display:grid;gap:4px}
 .chart-head h3{font-size:1.15rem}
 .chart-unit{font-size:.88rem;color:var(--muted)}
-.split{display:grid;gap:12px}
-.split-row{display:grid;grid-template-columns:4.6rem minmax(0,1fr);align-items:center;gap:12px}
-.split-k{font-size:.9rem;font-weight:600}
-.split-bar{display:flex;gap:2px;height:46px;border-radius:6px;overflow:hidden}
-.split-bar span{display:flex;align-items:center;justify-content:center;flex-basis:0;min-width:4px;overflow:hidden;font-size:.85rem;font-weight:600;color:#12233a;white-space:nowrap}
-.s-top{background:var(--red)}
-.s-mid{background:#c3ccd8}
-.s-rest{background:var(--yellow)}
+.split-bar{display:flex;gap:2px;height:56px;border-radius:6px;overflow:hidden}
+.split-bar span{display:flex;flex-direction:column;align-items:center;justify-content:center;flex-basis:0;min-width:4px;overflow:hidden;font-size:.85rem;font-weight:600;line-height:1.3;color:#12233a;white-space:nowrap}
+.split-bar span small{font-size:.78rem;font-weight:500}
+.s-inf{background:var(--yellow)}
+.s-for{background:#c3ccd8}
 .split-legend{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.88rem}
 .split-legend li{display:inline-flex;align-items:center;gap:7px}
 .split-legend i{width:12px;height:12px;border-radius:3px}
 .chart figcaption{font-size:.82rem;color:var(--muted)}
-.gaps{display:grid;gap:10px;align-content:start;min-width:0}
-.gaps h3{font-size:1.15rem}
-.gaps dl{display:grid;margin:0}
-.gaps dl > div{display:grid;gap:2px;padding-block:12px;border-top:1px solid var(--line)}
-.gaps dt{font:700 1.7rem/1.2 var(--font-display);font-variant-numeric:tabular-nums}
-.gaps dt small{margin-left:4px;font-size:.55em;font-weight:600}
-.gaps dd{margin:0;font-size:.92rem;color:var(--muted)}
+.readnote{display:grid;gap:10px;align-content:start;min-width:0}
+.readnote h3{font-size:1.15rem}
+.readnote ul{list-style:none;display:grid}
+.readnote li{padding-block:10px;border-top:1px solid var(--line);font-size:.92rem;color:var(--muted)}
+.readnote li b{display:block;font-weight:600;color:var(--ink)}
 .source{display:grid;gap:10px;align-content:start;padding-top:16px;border-top:3px solid var(--accent)}
 .source h3{font-size:1.1rem}
 .source-meta{font-size:.85rem;color:var(--muted)}
-@media (min-width:760px){ .stats,.sources{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (min-width:760px){ .stats{grid-template-columns:repeat(2,minmax(0,1fr))} .sources{grid-template-columns:repeat(3,minmax(0,1fr))} }
 @media (min-width:900px){ .ev-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr)} }
 
 /* ---------- 04 ผลกระทบ ---------- */
 .affected{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
 .affected-k{margin-right:6px;font-weight:600}
 .pill{padding:6px 14px;border-radius:999px;background:var(--accent-tint);color:var(--accent-ink);font-size:.92rem;font-weight:500;line-height:1.5}
-.impact-grid{display:grid;gap:16px}
-.impact{display:grid;gap:14px;align-content:start}
-.impact-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px}
-.impact-head h3{font-size:var(--fs-h3)}
-.impact-head h3::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.45em;border-radius:2px;background:var(--accent);vertical-align:.1em}
-.term{display:grid;grid-template-columns:5.2rem minmax(0,1fr);gap:12px;padding-top:12px;border-top:1px dashed var(--line)}
-.term-k{font-size:.85rem;font-weight:600;color:var(--accent-ink)}
-@media (min-width:760px){ .impact-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.two-col{display:grid;gap:16px}
+.two-col h3{font-size:1.15rem}
+@media (min-width:860px){ .two-col{grid-template-columns:repeat(2,minmax(0,1fr))} }
 
 /* ---------- 05 ผู้มีส่วนเกี่ยวข้อง ---------- */
-.stakes{display:grid;border-top:3px solid var(--accent)}
-.stake{display:grid;gap:10px 28px;padding-block:20px;border-bottom:1px solid var(--line)}
-.stake-who{display:grid;gap:2px;align-content:start}
-.stake-who h3{font-size:1.25rem}
-.stake-who p{font-size:.9rem;color:var(--muted)}
-.lbl{display:block;margin-bottom:2px;font-size:.78rem;font-weight:600;color:var(--muted)}
-.lbl.go{color:var(--accent-ink)}
 .collab{max-width:62ch;font-family:var(--font-display);font-weight:600;font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.5}
-@media (min-width:860px){ .stake{grid-template-columns:minmax(0,3.4fr) minmax(0,4fr) minmax(0,4fr)} }
 
 /* ---------- 06 SDGs (ใช้สีทางการของสหประชาชาติ) ---------- */
 .sdg-strip{list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
@@ -371,8 +385,13 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 .sdg-card-body{display:grid;gap:14px;align-content:start;padding:20px 22px}
 .sdg-card-body .lbl{font-size:.82rem}
 .sdg-main{padding:1px 8px;border-radius:999px;background:var(--accent-tint);color:var(--accent-ink);font-size:.78rem;font-weight:600;justify-self:start}
-@media (min-width:620px){ .sdg-strip{grid-template-columns:repeat(9,minmax(0,1fr))} }
-@media (min-width:1000px){ .sdg-strip{grid-template-columns:repeat(17,minmax(0,1fr))} .sdg-cards{grid-template-columns:repeat(3,minmax(0,1fr))} }
+.challenges{list-style:none;display:grid;gap:12px}
+.challenges li{display:grid;gap:6px;align-content:start}
+.challenges h4{font-size:1.1rem}
+.challenges p{font-size:.94rem;color:var(--muted)}
+@media (min-width:620px){ .sdg-strip{grid-template-columns:repeat(9,minmax(0,1fr))} .challenges{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:820px){ .sdg-cards{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:1000px){ .sdg-strip{grid-template-columns:repeat(17,minmax(0,1fr))} .challenges{grid-template-columns:repeat(4,minmax(0,1fr))} }
 
 /* ---------- 07 แคมเปญของเรา ---------- */
 .identity{display:grid;gap:24px;align-items:center}
@@ -380,48 +399,66 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 .identity-text{display:grid;gap:8px;min-width:0}
 .identity-text .name{font-size:clamp(1.9rem,4vw,2.7rem)}
 .identity-text .slogan{color:var(--accent-ink)}
-.identity-text p:last-child{color:var(--muted)}
+.identity-text p:not(.slogan){color:var(--muted)}
 .brief{display:grid;gap:24px}
 .brief-block{display:grid;gap:10px;align-content:start;padding-top:16px;border-top:3px solid var(--accent)}
 .brief-block h3{font-size:1.2rem}
 .keymsg{display:grid;gap:14px;padding:clamp(28px,5vw,56px);border-radius:18px}
 .keymsg .en{color:var(--hero-soft)}
 .keymsg p{font:700 clamp(1.45rem,3.4vw,2.4rem)/1.38 var(--font-display);text-wrap:balance}
+.acts{list-style:none;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.acts li{display:grid;gap:8px;align-content:start;padding:18px}
+.acts h4{font-size:1.1rem}
+.acts p{font-size:.92rem}
+.acts .lbl{margin-top:4px}
 .channels{list-style:none;display:grid;gap:12px}
 .channel{display:grid;gap:6px;align-content:start;padding:18px}
 .channel .en{color:var(--accent-ink)}
 .channel h4{font-size:1.1rem}
 .channel p{font-size:.92rem}
-.phases{list-style:none;display:grid;gap:20px}
-.phase{display:grid;gap:8px;align-content:start;padding-top:14px;border-top:3px solid var(--accent)}
-.phase-when{font-family:var(--font-body);font-size:.82rem;color:var(--muted)}
-.phase h4{font-size:1.2rem}
-.phase p{font-size:.95rem}
-.kpi{font-size:.88rem;color:var(--muted)}
-@media (min-width:620px){ .channels,.phases{grid-template-columns:repeat(2,minmax(0,1fr))} }
-@media (min-width:760px){ .identity{grid-template-columns:200px minmax(0,1fr)} .brief{grid-template-columns:repeat(2,minmax(0,1fr))} }
-@media (min-width:1000px){ .channels,.phases{grid-template-columns:repeat(4,minmax(0,1fr))} }
+.timeline{list-style:none;display:grid;border-top:3px solid var(--accent)}
+.timeline li{display:grid;gap:2px 24px;padding-block:14px;border-bottom:1px solid var(--line)}
+.tl-date{font-family:var(--font-display);font-weight:600;font-variant-numeric:tabular-nums}
+.tl-owner{font-size:.88rem;color:var(--muted)}
+.plan-grid{display:grid;gap:16px}
+.budget{display:grid;gap:12px;align-content:start}
+.budget h3,.evalm h3{font-size:1.15rem}
+.budget table{min-width:0}
+.budget td:last-child,.budget th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.budget tfoot td{font-weight:600;border-top:2px solid var(--ink);border-bottom:0}
+.evalm{display:grid;gap:10px;align-content:start}
+.evalm p{font-size:.95rem}
+@media (min-width:620px){ .channels{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:760px){ .identity{grid-template-columns:200px minmax(0,1fr)} .brief{grid-template-columns:repeat(2,minmax(0,1fr))} .timeline li{grid-template-columns:12rem minmax(0,1fr) 15rem} }
+@media (min-width:900px){ .plan-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr)} }
+@media (min-width:1000px){ .channels{grid-template-columns:repeat(4,minmax(0,1fr))} }
 
 /* ---------- 08 ร่วมเป็นส่วนหนึ่ง ---------- */
 .actions{display:grid;gap:16px}
-.action,.pledge{display:grid;gap:12px;align-content:start;padding:24px;border-radius:16px;background:var(--surface);color:var(--ink);--ph-bg:var(--ph-bg-base);--ph-line:var(--ph-line-base);--focus:var(--accent-ink)}
-.action h3{font-size:1.35rem}
+.action,.quiz-panel{display:grid;gap:12px;align-content:start;padding:24px;border-radius:16px;background:var(--surface);color:var(--ink);--ph-bg:var(--ph-bg-base);--ph-line:var(--ph-line-base);--focus:var(--accent-ink)}
+.action h3,.quiz-panel h3{font-size:1.35rem}
 .action .en{color:var(--accent-ink)}
 .action .btn{justify-self:start}
 .action > p:not(.en){color:var(--muted)}
-.hashtag{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-.hashtag code{padding:6px 12px;border-radius:8px;background:var(--accent-tint);color:var(--accent-ink);font-family:var(--font-display);font-weight:700;font-size:1.15rem;overflow-wrap:anywhere}
-.btn-small{min-height:40px;padding:6px 16px;font-size:.92rem}
-.pledge{gap:16px}
-.pledge-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px}
-.pledge-head h3{font-size:1.35rem}
-.pledge-count{font-family:var(--font-mono);font-size:.85rem;color:var(--muted)}
-.meter{height:6px;border-radius:99px;background:var(--band);overflow:hidden}
-.meter span{display:block;width:0;height:100%;background:var(--accent);transition:width .3s}
-.pledge-list{list-style:none;display:grid;gap:2px}
-.pledge-list label{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;padding:10px;border-radius:10px;cursor:pointer}
-.pledge-list label:hover{background:var(--band)}
-.pledge-list input{width:20px;height:20px;margin:.3em 0 0;accent-color:var(--accent-strong)}
+.msg{padding:14px 16px;border-radius:10px;background:var(--accent-tint);color:var(--ink);font-size:.98rem;line-height:1.7}
+.privacy{font-size:.86rem;color:var(--muted)}
+.quiz-panel{gap:16px;scroll-margin-top:calc(var(--head-h) + 16px)}
+.quiz-head{display:grid;gap:4px}
+.quiz{display:grid;gap:12px}
+.q{margin:0;padding:16px;border:1.5px solid var(--line);border-radius:12px;min-width:0}
+.q legend{float:left;width:100%;padding:0;margin-bottom:10px;font-weight:600;line-height:1.5}
+.q legend + *{clear:both}
+.q-n{display:inline-grid;place-items:center;width:1.8em;height:1.8em;margin-right:8px;border-radius:50%;background:var(--accent-tint);color:var(--accent-ink);font:600 .85rem/1 var(--font-mono)}
+.q label{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer}
+.q label:hover{background:var(--band)}
+.q input{width:18px;height:18px;margin:.3em 0 0;accent-color:var(--accent-strong)}
+.q.right{border-color:var(--green)}
+.q.wrong{border-color:var(--red)}
+.q-why{margin-top:8px;padding:10px 12px;border-radius:8px;background:var(--band);font-size:.92rem}
+.q.right .q-why b{color:var(--green-ink)}
+.q.wrong .q-why b{color:var(--red-ink)}
+.quiz-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.quiz-score{font-weight:600}
 @media (min-width:760px){ .actions{grid-template-columns:repeat(2,minmax(0,1fr))} }
 
 /* ---------- 09 แหล่งอ้างอิง ---------- */
@@ -440,12 +477,8 @@ main > section{scroll-margin-top:calc(var(--head-h) + env(safe-area-inset-top,0p
 .member .id{font-family:var(--font-mono);font-size:.82rem;color:var(--muted)}
 .member .role{font-size:.88rem;color:var(--muted)}
 .course{display:flex;flex-wrap:wrap;gap:4px 24px;font-size:.92rem;color:var(--muted)}
-.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
-table{width:100%;min-width:680px;border-collapse:collapse;font-size:.92rem;line-height:1.6}
-th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-th{background:var(--band);font-size:.82rem;font-weight:600;color:var(--muted)}
-tbody tr:last-child td{border-bottom:0}
-.statement{max-width:68ch;padding:18px 20px;border:2px solid var(--accent);border-radius:12px;background:var(--surface);font-weight:500}
+.statement{display:grid;gap:6px;max-width:68ch;padding:18px 20px;border:2px solid var(--accent);border-radius:12px;background:var(--surface);font-weight:500}
+.statement small{font-weight:400;font-size:.86rem;color:var(--muted)}
 
 /* ---------- ท้ายเว็บ ---------- */
 .site-foot{position:relative;padding-block:54px 44px;background:var(--foot-bg);color:var(--foot-ink);--focus:var(--foot-ink);--ph-bg:var(--act-ph-bg);--ph-line:var(--act-ph-line)}
@@ -463,18 +496,13 @@ tbody tr:last-child td{border-bottom:0}
 </style>
 </head>
 <body>
-<!-- โลโก้แคมเปญ: คนชูสิทธิพื้นฐาน (บ้าน การศึกษา สุขภาพ) ขึ้นเหนือศีรษะ ใช้ซ้ำทั้งหน้าด้วย <use href="#logo"> -->
+<!-- โลโก้แคมเปญ: เครื่องหมายเท่ากับอยู่ใต้เส้นหลังคา = ความเสมอภาคและหลักประกันร่วม ใช้ซ้ำทั้งหน้าด้วย <use href="#logo"> -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="logo" viewBox="0 0 120 120">
     <circle cx="60" cy="60" r="57" fill="#ffffff" stroke="#12233a" stroke-width="4"/>
-    <path d="M29 53V42l9-8 9 8v11z" fill="#ffc933" stroke="#12233a" stroke-width="2.5" stroke-linejoin="round"/>
-    <rect x="51" y="36" width="18" height="17" rx="2" fill="#2ba866" stroke="#12233a" stroke-width="2.5"/>
-    <path d="M60 36v17" stroke="#12233a" stroke-width="2.5"/>
-    <path d="M78 36h6v6h6v6h-6v6h-6v-6h-6v-6h6z" fill="#e5484d" stroke="#12233a" stroke-width="2.5" stroke-linejoin="round"/>
-    <path d="M24 57h72" stroke="#12233a" stroke-width="5" stroke-linecap="round"/>
-    <path d="M33 58l13 36M87 58l-13 36" stroke="#12233a" stroke-width="7" stroke-linecap="round"/>
-    <circle cx="60" cy="79" r="8.5" fill="#12233a"/>
-    <path d="M40 112c0-14 9-21 20-21s20 7 20 21z" fill="#12233a"/>
+    <path d="M24 57 60 27l36 30" fill="none" stroke="#12233a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="38" y="63" width="44" height="9" rx="4.5" fill="#0a6fa8"/>
+    <rect x="38" y="80" width="44" height="9" rx="4.5" fill="#0a6fa8"/>
   </symbol>
 </svg>
 <a class="skip" href="#main">ข้ามไปที่เนื้อหา</a>
@@ -540,14 +568,14 @@ tbody tr:last-child td{border-bottom:0}
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">01</span><span>/ 10</span><span class="sec-kind">แคมเปญ</span><span>Home</span></p>
-        <svg class="logo-mark" role="img" aria-label="โลโก้แคมเปญ: คนชูบ้าน หนังสือ และกากบาทการแพทย์ขึ้นเหนือศีรษะ"><use href="#logo"></use></svg>
-        <p class="eyebrow">แคมเปญรณรงค์เรื่องความเหลื่อมล้ำทางเศรษฐกิจและรัฐสวัสดิการในประเทศไทย</p>
+        <svg class="logo-mark" role="img" aria-label="โลโก้แคมเปญ: เครื่องหมายเท่ากับอยู่ใต้หลังคา"><use href="#logo"></use></svg>
+        <p class="eyebrow">GE105 · BU4Global Issue Campaign · ความเหลื่อมล้ำทางเศรษฐกิจและรัฐสวัสดิการของไทย</p>
         <h1 id="home-title">It’s My Right, Not Charity</h1>
-        <p class="slogan">“สวัสดิการคือสิทธิ ไม่ใช่การสงเคราะห์”</p>
-        <p class="hero-lede">คนไทย 1% ที่รวยที่สุดถือครองทรัพย์สินราวครึ่งหนึ่งของประเทศ ขณะที่คนจนต้องลงทะเบียนพิสูจน์ความจนเพื่อรับเงินช่วยเหลือเดือนละไม่กี่ร้อยบาท เราเชื่อว่าสวัสดิการพื้นฐานควรเป็นสิทธิของทุกคน ไม่ใช่บุญคุณ</p>
+        <p class="slogan">“สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง”</p>
+        <p class="hero-lede">คนทำงานในไทยกว่าครึ่งเป็นแรงงานนอกระบบ ทำงานเหมือนกัน แต่หลักประกันเมื่อเจ็บป่วย ขาดรายได้ หรือสูงวัยอาจต่างกัน แคมเปญนี้ชวนทำความเข้าใจช่องว่างนี้ และร่วมเสนอว่าหลักประกันพื้นฐานควรเข้าถึงได้อย่างมีศักดิ์ศรี</p>
         <div class="cta-row">
-          <a class="btn btn-solid" href="#issue">ทำความรู้จักปัญหา</a>
-          <a class="btn btn-line" href="#action">ร่วมลงชื่อสนับสนุน</a>
+          <a class="btn btn-solid" href="#issue">เริ่มเรียนรู้</a>
+          <a class="btn btn-line" href="#quiz">ทบทวนความเข้าใจ</a>
         </div>
         <div class="legend">
           <span class="legend-k">อ่านตามสี</span>
@@ -560,37 +588,38 @@ tbody tr:last-child td{border-bottom:0}
         </div>
         <aside class="guide">
           <span class="guide-k">ส่วนนี้ต้องมี</span>
-          <span>ชื่อแคมเปญ โลโก้ สโลแกน ภาพหน้าปก ข้อความสั้น ๆ ว่าปัญหาคืออะไร และปุ่มชวนให้เรียนรู้เพิ่มหรือร่วมแคมเปญ · ใส่เนื้อหาจากรายงานของกลุ่มแล้ว ส่วนที่ยังมีเส้นหยักสีม่วงคือข้อมูลที่กลุ่มต้องเติมเอง เช่น ชื่อสมาชิก รูปภาพ และลิงก์ ปิดสวิตช์ “จุดที่ต้องแก้” ด้านบนเพื่อดูหน้าตาจริง</span>
+          <span>ชื่อแคมเปญ โลโก้ สโลแกน ภาพกราฟิก ข้อความสั้น ๆ ว่าปัญหาคืออะไร และปุ่มเรียนรู้ · เนื้อหาทั้งเว็บมาจากรายงาน Final Project ของกลุ่ม (ฉบับร่าง 24 ต.ค. 2569) ส่วนที่มีเส้นหยักสีม่วงคือข้อมูลที่สมาชิกต้องเติมเอง ปิดสวิตช์ “จุดที่ต้องแก้” ด้านบนเพื่อดูหน้าตาจริง</span>
         </aside>
       </div>
       <figure class="poster" aria-labelledby="poster-stat">
-        <p class="poster-k">ถ้าคนไทยมี 100 คน</p>
+        <p class="poster-k">ถ้าคนทำงานในไทยมี 100 คน</p>
         <div class="people" aria-hidden="true">
-          <i class="top"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+          <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+          <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+          <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+          <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+          <i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
           <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
           <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
           <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
           <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
         </div>
-        <p class="poster-stat" id="poster-stat"><em>1 คน</em> ในนี้ถือครองทรัพย์สินราวครึ่งหนึ่งของทั้งประเทศ</p>
-        <figcaption class="src">ที่มา: TDRI <a class="cite" href="#ref-1">[1]</a></figcaption>
+        <p class="poster-stat" id="poster-stat"><em>52 คน</em> เป็นแรงงานนอกระบบ</p>
+        <p>แรงงานนอกระบบ 20.9 ล้านคน หรือ 52.4% ของผู้มีงานทำ 39.9 ล้านคน ในปี 2568</p>
+        <figcaption class="src">ที่มา: สำนักงานสถิติแห่งชาติ <a class="cite" href="#ref-2">[2]</a></figcaption>
       </figure>
     </div>
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
         <span>#ItsMyRightNotCharity</span><span class="sep s-red">●</span>
-        <span>สวัสดิการคือสิทธิ ไม่ใช่การสงเคราะห์</span><span class="sep s-yellow">●</span>
+        <span>สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง</span><span class="sep s-yellow">●</span>
         <span>#ItsMyRightNotCharity</span><span class="sep s-green">●</span>
-        <span>สวัสดิการคือสิทธิ ไม่ใช่การสงเคราะห์</span><span class="sep s-sky">●</span>
+        <span>สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง</span><span class="sep s-sky">●</span>
         <span>#ItsMyRightNotCharity</span><span class="sep s-red">●</span>
-        <span>สวัสดิการคือสิทธิ ไม่ใช่การสงเคราะห์</span><span class="sep s-yellow">●</span>
+        <span>สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง</span><span class="sep s-yellow">●</span>
         <span>#ItsMyRightNotCharity</span><span class="sep s-green">●</span>
-        <span>สวัสดิการคือสิทธิ ไม่ใช่การสงเคราะห์</span><span class="sep s-sky">●</span>
+        <span>สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง</span><span class="sep s-sky">●</span>
       </div>
     </div>
   </section>
@@ -601,7 +630,7 @@ tbody tr:last-child td{border-bottom:0}
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">02</span><span>/ 10</span><span class="sec-kind">ปัญหา</span><span>About the Issue</span></p>
         <h2 id="issue-title">ทำความรู้จักกับปัญหา</h2>
-        <p class="lede">ความเหลื่อมล้ำทางเศรษฐกิจ คือภาวะที่รายได้ ทรัพย์สิน และโอกาส ถูกกระจายอย่างไม่เท่าเทียม จนคนบางกลุ่มมีชีวิตและโอกาสดีกว่าอีกกลุ่มหนึ่งอย่างมาก</p>
+        <p class="lede">ความเหลื่อมล้ำทางเศรษฐกิจและช่องว่างการคุ้มครองทางสังคมของคนวัยทำงานในไทย เป็นปัญหาเชิงโครงสร้างที่เกิดขึ้นต่อเนื่อง ไม่ได้เพิ่งเริ่มในปีใดปีหนึ่ง</p>
       </header>
       <aside class="guide">
         <span class="guide-k">ส่วนนี้ต้องตอบให้ครบ</span>
@@ -609,41 +638,54 @@ tbody tr:last-child td{border-bottom:0}
       </aside>
       <div class="issue-grid">
         <div class="issue-intro">
-          <p>ทุกวันนี้ คนที่มีรายได้น้อยต้องลงทะเบียนและพิสูจน์ว่าตัวเองจนพอ จึงจะได้ “บัตรสวัสดิการแห่งรัฐ” ที่ให้วงเงินซื้อสินค้าจำเป็นเพียงเดือนละไม่กี่ร้อยบาท แต่ระบบคัดกรองนี้กลับตกหล่นคนในกลุ่มเป้าหมายไปราวครึ่งหนึ่ง และทำให้สวัสดิการถูกมองเป็น “บุญคุณ” มากกว่า “สิทธิ” <a class="cite" href="#ref-1">[1]</a></p>
-          <figure class="block" style="gap:8px">
-            <div class="slot r-3-2"><span><strong>ภาพสถานการณ์จริง</strong><small>เช่น แรงงาน คิวลงทะเบียนบัตรสวัสดิการ หรือชุมชนเมือง</small></span></div>
-            <figcaption class="ref-meta">ภาพ: <span class="ph">[ที่มาของภาพ]</span></figcaption>
-          </figure>
+          <p>คนที่มีสถานะการจ้างงาน รายได้ พื้นที่อยู่อาศัย และทรัพยากรครอบครัวต่างกัน มีโอกาสรับมือกับการขาดรายได้ไม่เท่ากัน แรงงานอิสระ ผู้ค้ารายย่อย และคนที่ทำงานไม่ต่อเนื่อง ต้องเผชิญรายได้ผันผวน ส่วนครัวเรือนที่ต้องดูแลเด็ก ผู้สูงอายุ หรือคนพิการ มีรายจ่ายที่ยืดหยุ่นได้น้อย</p>
+          <div class="question">
+            <span class="lbl">คำถามหลักของการศึกษา</span>
+            <p>เหตุใดการทำงานจึงยังไม่รับประกันความมั่นคง และความร่วมมือของภาคส่วนต่าง ๆ จะช่วยลดช่องว่างการเข้าถึงสวัสดิการได้อย่างไร</p>
+          </div>
         </div>
         <dl class="qa">
           <div>
             <dt><span class="en">What</span><span class="q">ปัญหาคืออะไร</span></dt>
-            <dd>รายได้และทรัพย์สินของไทยกระจุกอยู่ในมือคนส่วนน้อย ขณะที่รัฐยังไม่มีสวัสดิการถ้วนหน้า ความช่วยเหลือส่วนใหญ่จึงเป็นแบบสงเคราะห์เฉพาะกลุ่ม ที่ผู้รับต้องพิสูจน์ความจนก่อน <a class="cite" href="#ref-1">[1]</a></dd>
+            <dd>ช่องว่างของหลักประกันทางสังคมสำหรับคนวัยทำงาน คนที่ทำงานเหมือนกันอาจได้รับความคุ้มครองเมื่อเจ็บป่วย ขาดรายได้ หรือสูงวัยไม่เท่ากัน ขึ้นอยู่กับสถานะการทำงาน</dd>
           </div>
           <div>
             <dt><span class="en">Where</span><span class="q">เกิดขึ้นที่ไหน</span></dt>
-            <dd>ทั่วประเทศไทย และเห็นชัดระหว่างเมืองหลวงกับต่างจังหวัด ในปี 2563 ผลิตภัณฑ์มวลรวมต่อหัว (GDP ต่อหัว) ของกรุงเทพฯ สูงกว่าภาคตะวันออกเฉียงเหนือมากกว่า 6.5 เท่า <a class="cite" href="#ref-2">[2]</a></dd>
+            <dd>ทั่วประเทศไทย โดยเห็นความต่างระหว่างเมืองกับชนบท และระหว่างแรงงานในระบบกับแรงงานนอกระบบ</dd>
           </div>
           <div>
             <dt><span class="en">When</span><span class="q">เกิดขึ้นเมื่อใด</span></dt>
-            <dd>เป็นปัญหาเรื้อรังมาหลายทศวรรษ แม้ความยากจนจะลดลง แต่ในปี 2564 ไทยยังมีความเหลื่อมล้ำด้านรายได้สูงที่สุดในภูมิภาคเอเชียตะวันออกและแปซิฟิก <a class="cite" href="#ref-2">[2]</a> และในรอบสิบปีที่ผ่านมา รายได้ที่แท้จริงของแรงงานแทบไม่เพิ่มขึ้น <a class="cite" href="#ref-4">[4]</a></dd>
+            <dd>เป็นปัญหาต่อเนื่อง เว็บไซต์นี้ใช้หลักฐานที่เผยแพร่ช่วง พ.ศ. 2564–2568 และไม่ใช้ตัวเลขเก่าแทนสถานการณ์ปี 2569</dd>
           </div>
           <div>
             <dt><span class="en">Cause</span><span class="q">มีสาเหตุจากอะไร</span></dt>
             <dd>
               <ul class="dots">
-                <li><span><b>ค่าจ้างไม่ทันค่าครองชีพ</b> ค่าจ้างขั้นต่ำเพิ่มเฉลี่ยเพียงราว 1.7% ต่อปี <a class="cite" href="#ref-4">[4]</a></span></li>
-                <li><span><b>โอกาสทางการศึกษาไม่เท่ากัน</b> ครอบครัวฐานะดีใช้จ่ายด้านการศึกษามากกว่าครอบครัวยากจน 8.16 เท่า <a class="cite" href="#ref-3">[3]</a></span></li>
-                <li><span><b>แรงงานส่วนใหญ่อยู่นอกระบบ</b> ราว 65% ไม่ได้รับการคุ้มครองตามกฎหมายแรงงานและประกันสังคมอย่างเต็มที่ <a class="cite" href="#ref-5">[5]</a></span></li>
-                <li><span><b>ไม่มีสวัสดิการถ้วนหน้า</b> ความช่วยเหลือเป็นแบบคัดกรองเฉพาะกลุ่ม ทำให้คนจนตกหล่น <a class="cite" href="#ref-1">[1]</a></span></li>
+                <li><span><b>โอกาสเริ่มต้น</b> ครอบครัวที่มีทรัพยากรจำกัดอาจลงทุนด้านการเรียนรู้และการหางานได้น้อยกว่า</span></li>
+                <li><span><b>ลักษณะงาน</b> รายได้ที่ไม่ต่อเนื่องทำให้วางแผนรายจ่ายและออมรับเหตุฉุกเฉินได้ยาก</span></li>
+                <li><span><b>การเข้าถึงบริการ</b> ระยะทาง เวลา เอกสาร และทักษะดิจิทัล เพิ่มต้นทุนการใช้สิทธิ</span></li>
+                <li><span><b>ความเพียงพอของสวัสดิการ</b> ความช่วยเหลือที่เข้าถึงได้แต่ไม่สอดคล้องความจำเป็น อาจยังไม่ช่วยให้รับมือความเสี่ยงได้</span></li>
+                <li><span><b>อำนาจต่อรอง</b> คนที่ต่อรองรายได้และเงื่อนไขงานได้น้อย อาจต้องรับความเสี่ยงมากขึ้น</span></li>
               </ul>
+              <p class="note" style="margin-top:10px">กลุ่มมองว่าความเหลื่อมล้ำเกิดจากหลายกลไกร่วมกัน ไม่ได้สรุปว่าการขาดรัฐสวัสดิการถ้วนหน้าเป็นสาเหตุเดียว</p>
             </dd>
           </div>
           <div>
             <dt><span class="en">Why it matters</span><span class="q">ทำไมจึงสำคัญ</span></dt>
-            <dd>สวัสดิการคือการลงทุนพัฒนาคน เมื่อคนจำนวนมากเข้าไม่ถึงความช่วยเหลือ ประเทศก็เสียศักยภาพของคนกลุ่มนี้ไป <a class="cite" href="#ref-1">[1]</a> และความเหลื่อมล้ำยังบั่นทอนการพัฒนาสังคมและเศรษฐกิจในระยะยาว ขัดกับหลัก “ไม่ทิ้งใครไว้ข้างหลัง” ของ SDGs <a class="cite" href="#ref-9">[9]</a></dd>
+            <dd>เรื่องนี้ใกล้ตัวนักศึกษาที่กำลังเข้าสู่ตลาดแรงงาน ทั้งการเลือกงาน สิทธิเมื่อเจ็บป่วย และความมั่นคงของครอบครัว ในระดับโลก งานที่หลากหลายขึ้น สังคมสูงวัย และความเสี่ยงทางเศรษฐกิจ ทำให้หลายประเทศต้องทบทวนความสัมพันธ์ระหว่างสิทธิ การจ้างงาน และการเงินสาธารณะ</dd>
           </div>
         </dl>
+      </div>
+      <div class="block card">
+        <h3 class="block-h">ถามทำไม 5 ครั้ง</h3>
+        <ol class="whys">
+          <li><b>ทำไมทำงานแล้วบางครัวเรือนยังไม่มั่นคง</b><span>เพราะรายได้และเงินสำรองอาจไม่พอกับรายจ่ายจำเป็น</span></li>
+          <li><b>ทำไมมีเงินสำรองน้อย</b><span>เพราะรายได้ผันผวน และมีภาระดูแลที่ลดได้ไม่ง่าย</span></li>
+          <li><b>ทำไมความผันผวนจึงกระทบมาก</b><span>เพราะหลักประกันรายได้และการเข้าถึงบริการยังแตกต่างกัน</span></li>
+          <li><b>ทำไมการเข้าถึงจึงต่างกัน</b><span>เพราะสิทธิ เงื่อนไข เอกสาร และช่องทางบริการผูกกับหลายระบบ</span></li>
+          <li><b>ทำไมจึงแก้ได้ยาก</b><span>เพราะเกี่ยวข้องกับงบประมาณ ข้อมูล การประสานงาน และการตัดสินใจเชิงนโยบาย</span></li>
+        </ol>
+        <p class="note">ลำดับนี้เป็นกรอบตั้งคำถามเพื่อออกแบบกิจกรรม ไม่ใช่ผลสัมภาษณ์หรือข้อพิสูจน์เหตุและผลแบบตายตัว ต้องรับฟังประสบการณ์จริงและเทียบข้อมูลเพิ่มเติม</p>
       </div>
     </div>
   </section>
@@ -654,7 +696,8 @@ tbody tr:last-child td{border-bottom:0}
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">03</span><span>/ 10</span><span class="sec-kind">ข้อเท็จจริง</span><span>Evidence &amp; Facts</span></p>
         <h2 id="evidence-title">ข้อมูลและหลักฐาน</h2>
-        <p class="lede">ตัวเลขจากธนาคารโลก สถาบันวิจัย และหน่วยงานรัฐ ที่ยืนยันว่าความเหลื่อมล้ำในไทยมีอยู่จริงและรุนแรง</p>
+        <p class="lede">ตัวเลขที่ระบุปีชัดเจนจากแหล่งต้นทาง พร้อมขอบเขตว่าตัวเลขแต่ละตัวบอกอะไรได้ และบอกอะไรไม่ได้</p>
+        <span class="checked">ตรวจข้อมูลกับแหล่งต้นทางล่าสุด 24 ต.ค. 2569</span>
       </header>
       <aside class="guide">
         <span class="guide-k">ส่วนนี้ต้องมี</span>
@@ -662,75 +705,75 @@ tbody tr:last-child td{border-bottom:0}
       </aside>
       <div class="stats">
         <div class="stat card">
-          <p class="stat-num"><span class="hl">1<small>%</small></span></p>
-          <p>คนไทย 1% ที่รวยที่สุดถือครองทรัพย์สินราวครึ่งหนึ่งของประเทศ ส่วน 10% ที่รวยที่สุดถือครอง 70–80%</p>
-          <a class="cite" href="#ref-1">[1]</a>
-        </div>
-        <div class="stat card">
-          <p class="stat-num"><span class="hl">43.3</span></p>
-          <p>ค่าสัมประสิทธิ์จีนีด้านรายได้ของไทยในปี 2564 สูงที่สุดในภูมิภาคเอเชียตะวันออกและแปซิฟิก และสูงเป็นอันดับ 13 จาก 63 ประเทศที่มีข้อมูล</p>
+          <p class="stat-num"><span class="hl">20.9<small>ล้านคน</small></span></p>
+          <p>แรงงานนอกระบบในปี 2568 คิดเป็น 52.4% ของผู้มีงานทำทั้งหมด 39.9 ล้านคน</p>
+          <p class="note">เป็นข้อมูลตามนิยามและช่วงเวลาสำรวจ ไม่เท่ากับสัดส่วนคนที่ไม่มีสิทธิรักษาพยาบาล</p>
           <a class="cite" href="#ref-2">[2]</a>
         </div>
         <div class="stat card">
-          <p class="stat-num"><span class="hl">3.43<small>ล้านคน</small></span></p>
-          <p>คนไทยที่มีรายได้ต่ำกว่าเส้นความยากจน 3,078 บาทต่อเดือน ในปี 2567 หรือ 4.89% ของประชากร</p>
-          <a class="cite" href="#ref-3">[3]</a>
+          <p class="stat-num"><span class="hl">43.3</span></p>
+          <p>ค่าสัมประสิทธิ์จีนีด้านรายได้ของไทยปี 2564 สูงที่สุดในภูมิภาคเอเชียตะวันออกและแปซิฟิก</p>
+          <p class="note">ใช้หน่วยดัชนี 0–100 เท่ากับ 0.433 บนสเกล 0–1 สะท้อนการกระจายรายได้ ไม่ใช่สัดส่วนคนจน</p>
+          <a class="cite" href="#ref-1">[1]</a>
         </div>
       </div>
       <div class="ev-grid">
         <figure class="chart card">
           <div class="chart-head">
-            <h3>ถ้าทรัพย์สินทั้งประเทศมี 100 บาท</h3>
-            <p class="chart-unit">เทียบสัดส่วนคน กับสัดส่วนทรัพย์สินที่แต่ละกลุ่มถือครอง</p>
+            <h3>ผู้มีงานทำ 39.9 ล้านคน ปี 2568</h3>
+            <p class="chart-unit">แบ่งตามการได้รับความคุ้มครองหรือหลักประกันทางสังคมจากการทำงาน</p>
           </div>
-          <div class="split">
-            <div class="split-row">
-              <span class="split-k">ประชากร</span>
-              <div class="split-bar" role="img" aria-label="ประชากร: รวยที่สุด 1 คน รวยรองลงมา 9 คน อีก 90 คน">
-                <span class="s-top" style="flex-grow:1"></span><span class="s-mid" style="flex-grow:9">9</span><span class="s-rest" style="flex-grow:90">90 คน</span>
-              </div>
-            </div>
-            <div class="split-row">
-              <span class="split-k">ทรัพย์สิน</span>
-              <div class="split-bar" role="img" aria-label="ทรัพย์สิน: 1 คนที่รวยที่สุดถือราว 50 บาท 9 คนถัดมาถือราว 25 บาท อีก 90 คนถือรวมกันราว 25 บาท">
-                <span class="s-top" style="flex-grow:50">50 บาท</span><span class="s-mid" style="flex-grow:25">~25</span><span class="s-rest" style="flex-grow:25">~25 บาท</span>
-              </div>
-            </div>
+          <div class="split-bar" role="img" aria-label="แรงงานนอกระบบ 20.9 ล้านคน 52.4 เปอร์เซ็นต์ แรงงานในระบบ 19.0 ล้านคน 47.6 เปอร์เซ็นต์">
+            <span class="s-inf" style="flex-grow:52.4">52.4%<small>20.9 ล้านคน</small></span><span class="s-for" style="flex-grow:47.6">47.6%<small>19.0 ล้านคน</small></span>
           </div>
           <ul class="split-legend">
-            <li><i class="s-top"></i>รวยที่สุด 1 คน</li>
-            <li><i class="s-mid"></i>รวยรองลงมา 9 คน</li>
-            <li><i class="s-rest"></i>อีก 90 คน</li>
+            <li><i class="s-inf"></i>แรงงานนอกระบบ</li>
+            <li><i class="s-for"></i>แรงงานในระบบ</li>
           </ul>
-          <figcaption>ที่มา: TDRI <a class="cite" href="#ref-1">[1]</a> ระบุว่า 1% ที่รวยที่สุดถือครองราวครึ่งหนึ่งของทรัพย์สิน และ 10% ที่รวยที่สุดถือครอง 70–80% กราฟนี้ใช้ค่ากลาง 75% จึงเป็นตัวเลขประมาณ</figcaption>
+          <figcaption>ที่มา: สำนักงานสถิติแห่งชาติ การสำรวจแรงงานนอกระบบ พ.ศ. 2568 <a class="cite" href="#ref-2">[2]</a> แรงงานในระบบคำนวณจาก 39.9 − 20.9 ล้านคน</figcaption>
         </figure>
-        <div class="gaps card">
-          <h3>ช่องว่างที่วัดได้</h3>
-          <dl>
-            <div><dt>6.5<small>เท่าขึ้นไป</small></dt><dd>GDP ต่อหัวของกรุงเทพฯ เทียบกับภาคตะวันออกเฉียงเหนือ (ปี 2563) <a class="cite" href="#ref-2">[2]</a></dd></div>
-            <div><dt>8.16<small>เท่า</small></dt><dd>ค่าใช้จ่ายด้านการศึกษาของครอบครัวฐานะดี เทียบกับครอบครัวยากจน <a class="cite" href="#ref-3">[3]</a></dd></div>
-            <div><dt>14.21%<small>: 3%</small></dt><dd>อัตราความยากจนของคนที่ไม่ได้รับการศึกษา เทียบกับคนที่จบมัธยมศึกษา <a class="cite" href="#ref-3">[3]</a></dd></div>
-          </dl>
+        <div class="readnote card">
+          <h3>อ่านตัวเลขอย่างระวัง</h3>
+          <ul>
+            <li><b>ระบุปีทุกตัวเลข</b>ใช้ตัวเลขปี 2564–2568 และไม่นำมาแทนสถานการณ์ปี 2569</li>
+            <li><b>ไม่เทียบตัวเลขต่างนิยาม</b>ใช้ตัวเลขแรงงานนอกระบบปี 2568 จากแหล่งราชการเป็นฐานเดียว ไม่นำ 52.3% กับราว 65% ที่นิยามหรือช่วงเวลาต่างกันมาเทียบตรง ๆ</li>
+            <li><b>ไม่ใช้ตัวเลขที่ยังตรวจไม่พอ</b>ไม่ใช้ค่าแรงเพิ่มเฉลี่ย 1.7% หรือสัดส่วนทรัพย์สินของคนรวยในการสรุปสถานการณ์ปัจจุบัน เพราะยังตรวจวิธีคำนวณและปีฐานไม่พอ</li>
+            <li><b>ไม่สรุปเกินหลักฐาน</b>ไม่สรุปว่าไทยไม่มีสวัสดิการ หรือแรงงานนอกระบบทุกคนไม่มีสิทธิสุขภาพ และไม่เหมารวมว่าเงินช่วยเหลือเฉพาะกลุ่มเป็นการให้ทาน เพราะสวัสดิการที่มีกฎหมายรองรับเป็นสิทธิได้แม้มีเกณฑ์คุณสมบัติ</li>
+          </ul>
+        </div>
+      </div>
+      <div class="block">
+        <h3 class="block-h">หลักฐานและขอบเขตการตีความ</h3>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th scope="col">หลักฐาน</th><th scope="col">ความหมายต่อโครงงาน</th><th scope="col">ขอบเขตการตีความ</th></tr></thead>
+            <tbody>
+              <tr><td><b>จีนีด้านรายได้ 43.3</b> จากฐานข้อมูลปี 2564 <a class="cite" href="#ref-1">[1]</a></td><td>สะท้อนการกระจายรายได้ที่ยังเหลื่อมล้ำ</td><td>ใช้หน่วยดัชนี 0–100 เท่ากับ 0.433 บนสเกล 0–1 ไม่ใช่สัดส่วนคนจน</td></tr>
+              <tr><td><b>แรงงานนอกระบบ 20.9 ล้านคน</b> หรือ 52.4% ปี 2568 <a class="cite" href="#ref-2">[2]</a></td><td>ชี้ความสำคัญของการคุ้มครองที่เข้าถึงคนทำงานหลากหลายสถานะ</td><td>เป็นข้อมูลตามนิยามและช่วงเวลาสำรวจ ไม่เท่ากับสัดส่วนผู้ไม่มีสิทธิรักษาพยาบาล</td></tr>
+              <tr><td><b>TDRI เสนอการขยายความครอบคลุมสวัสดิการ</b> ปี 2564 <a class="cite" href="#ref-3">[3]</a></td><td>ให้กรอบอภิปรายสวัสดิการพื้นฐานและความยั่งยืนทางการเงิน</td><td>เป็นข้อเสนอเชิงนโยบาย ไม่ใช่หลักฐานว่ามาตรการทั้งหมดถูกใช้แล้ว</td></tr>
+              <tr><td><b>SDG 10.4</b> กล่าวถึงนโยบายการคลัง ค่าจ้าง และการคุ้มครองทางสังคม <a class="cite" href="#ref-4">[4]</a></td><td>เป็นกรอบเชื่อมปัญหากับการพัฒนาที่ยั่งยืน</td><td>เป็นเป้าประสงค์สากล ไม่ยืนยันผลสำเร็จของแคมเปญ</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="sources">
         <article class="source">
-          <span class="chip">ข่าว</span>
-          <h3>Thailand’s poor reach 3.4m, 870,000 earn just 600 baht per month</h3>
-          <p class="source-meta">The Nation Thailand · กันยายน 2568</p>
-          <p>สศช. พบว่าปี 2567 คนจนเพิ่มเป็น 3.43 ล้านคน และกลุ่ม “ยากจนมาก” 879,000 คนมีรายได้เฉลี่ยเพียง 615 บาทต่อเดือน <a class="cite" href="#ref-3">[3]</a></p>
-        </article>
-        <article class="source">
-          <span class="chip">งานวิจัย</span>
-          <h3>Toward Universal Welfare System: Leaving No One Behind</h3>
-          <p class="source-meta">TDRI สรุปงานวิจัยของ สมชัย จิตสุชน และบุญวรา สุมะโน · ธันวาคม 2564</p>
-          <p>สังคมไทยยังเข้าใจผิดว่าสวัสดิการคือการให้ทาน ทั้งที่เป็นการลงทุนพัฒนาคน และบัตรสวัสดิการแห่งรัฐตกหล่นคนในกลุ่มเป้าหมายไปราวครึ่งหนึ่ง <a class="cite" href="#ref-1">[1]</a></p>
+          <span class="chip">ข้อมูลสถิติ</span>
+          <h3>การสำรวจแรงงานนอกระบบ พ.ศ. 2568</h3>
+          <p class="source-meta">สำนักงานสถิติแห่งชาติ · 2568</p>
+          <p>ผู้มีงานทำ 39.9 ล้านคน เป็นแรงงานนอกระบบ 20.9 ล้านคน (52.4%) และแรงงานในระบบ 19.0 ล้านคน <a class="cite" href="#ref-2">[2]</a></p>
         </article>
         <article class="source">
           <span class="chip">รายงานหน่วยงาน</span>
           <h3>Bridging the Gap: Inequality and Jobs in Thailand</h3>
-          <p class="source-meta">ธนาคารโลก · พฤศจิกายน 2566</p>
-          <p>ไทยมีความเหลื่อมล้ำด้านรายได้สูงที่สุดในภูมิภาค และสัดส่วนครัวเรือนที่มีหนี้เพิ่มขึ้นช่วงโควิด-19 <a class="cite" href="#ref-2">[2]</a></p>
+          <p class="source-meta">ธนาคารโลก · 2566</p>
+          <p>ค่าจีนีด้านรายได้ของไทยปี 2564 อยู่ที่ 43.3 สูงที่สุดในภูมิภาคเอเชียตะวันออกและแปซิฟิก <a class="cite" href="#ref-1">[1]</a></p>
+        </article>
+        <article class="source">
+          <span class="chip">งานวิจัย</span>
+          <h3>Toward Universal Welfare System: Leaving No One Behind</h3>
+          <p class="source-meta">สถาบันวิจัยเพื่อการพัฒนาประเทศไทย (TDRI) · ธันวาคม 2564</p>
+          <p>เสนอการขยายความครอบคลุมของสวัสดิการ พร้อมพิจารณาความยั่งยืนทางการเงิน <a class="cite" href="#ref-3">[3]</a></p>
         </article>
       </div>
     </div>
@@ -741,8 +784,8 @@ tbody tr:last-child td{border-bottom:0}
     <div class="wrap sec-inner">
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">04</span><span>/ 10</span><span class="sec-kind">ปัญหา</span><span>Impacts</span></p>
-        <h2 id="impacts-title">ผลกระทบ</h2>
-        <p class="lede">ความเหลื่อมล้ำไม่ได้กระทบแค่คนจน แต่ฉุดทั้งคุณภาพชีวิต สังคม และเศรษฐกิจของประเทศ</p>
+        <h2 id="impacts-title">ผลกระทบและความแตกต่าง</h2>
+        <p class="lede">ผลกระทบไม่เท่ากันในแต่ละกลุ่ม ตารางนี้เป็นการวิเคราะห์ของกลุ่มถึงสิ่งที่อาจเกิดขึ้น ไม่ใช่ผลสำรวจ</p>
       </header>
       <aside class="guide">
         <span class="guide-k">ส่วนนี้ต้องอธิบาย</span>
@@ -750,32 +793,53 @@ tbody tr:last-child td{border-bottom:0}
       </aside>
       <div class="affected">
         <span class="affected-k">ผู้ได้รับผลกระทบ</span>
-        <span class="pill">ประชาชนรายได้น้อย</span>
         <span class="pill">แรงงานนอกระบบ</span>
-        <span class="pill">เด็กและเยาวชนจากครอบครัวยากจน</span>
-        <span class="pill">คนในภูมิภาคนอกกรุงเทพฯ</span>
+        <span class="pill">ลูกจ้างรายได้น้อย</span>
+        <span class="pill">เด็กและเยาวชน</span>
+        <span class="pill">ผู้ดูแลและผู้สูงอายุ</span>
+        <span class="pill">ผู้ประกอบการรายย่อย</span>
       </div>
-      <div class="impact-grid">
-        <article class="impact card">
-          <div class="impact-head"><h3>ผู้คนและคุณภาพชีวิต</h3><span class="en">People</span></div>
-          <div class="term"><span class="term-k">ระยะสั้น</span><p>คนไทย 879,000 คนมีรายได้เฉลี่ยเพียง 615 บาทต่อเดือน ไม่พอแม้แต่การยังชีพ ต้องพึ่งความช่วยเหลือหรือกู้หนี้ <a class="cite" href="#ref-3">[3]</a></p></div>
-          <div class="term"><span class="term-k">ระยะยาว</span><p>เงินอุดหนุนเด็กแรกเกิดแบบคัดกรองพลาดกลุ่มเป้าหมายไปราว 30% เด็กจากครอบครัวยากจนจึงเสียโอกาสตั้งแต่วัยแรก <a class="cite" href="#ref-1">[1]</a></p></div>
-        </article>
-        <article class="impact card">
-          <div class="impact-head"><h3>สังคม</h3><span class="en">Society</span></div>
-          <div class="term"><span class="term-k">ระยะสั้น</span><p>ความรู้สึกไม่เป็นธรรมทำให้เกิดการเรียกร้อง เช่น ในวันแรงงาน 1 พฤษภาคม 2569 แรงงานเดินขบวนไปทำเนียบรัฐบาลเพื่อเรียกร้องค่าจ้างที่เป็นธรรมและงานที่มั่นคง <a class="cite" href="#ref-7">[7]</a></p></div>
-          <div class="term"><span class="term-k">ระยะยาว</span><p>ความเหลื่อมล้ำคุกคามการพัฒนาสังคมในระยะยาว ทำให้การลดความยากจนสะดุด และบั่นทอนความรู้สึกมีคุณค่าในตัวเองของผู้คน <a class="cite" href="#ref-9">[9]</a></p></div>
-        </article>
-        <article class="impact card">
-          <div class="impact-head"><h3>เศรษฐกิจ</h3><span class="en">Economy</span></div>
-          <div class="term"><span class="term-k">ระยะสั้น</span><p>ครัวเรือนที่มีหนี้เพิ่มจาก 45.2% ในปี 2562 เป็น 51.5% ในปี 2564 เพราะต้องกู้มาชดเชยรายได้ที่หายไปช่วงโควิด-19 <a class="cite" href="#ref-2">[2]</a></p></div>
-          <div class="term"><span class="term-k">ระยะยาว</span><p>ค่าจ้างขั้นต่ำเพิ่มเฉลี่ยเพียงราว 1.7% ต่อปี และรายได้ที่แท้จริงโตไม่ถึง 1% ต่อปี <a class="cite" href="#ref-4">[4]</a> ครัวเรือนรายได้น้อยจึงออมและลงทุนเพื่ออนาคตได้ยาก ช่องว่างยิ่งกว้างขึ้น</p></div>
-        </article>
-        <article class="impact card">
-          <div class="impact-head"><h3>การศึกษาและโอกาส</h3><span class="en">Opportunity</span></div>
-          <div class="term"><span class="term-k">ระยะสั้น</span><p>นักเคลื่อนไหวด้านแรงงานเล่าว่า แรงงานที่ได้ค่าจ้างราว 357 บาทต่อวันต้องทำงานล่วงเวลา จนไม่มีเวลาไปฝึกทักษะเพิ่ม <a class="cite" href="#ref-6">[6]</a></p></div>
-          <div class="term"><span class="term-k">ระยะยาว</span><p>คนที่ไม่ได้รับการศึกษายากจนถึง 14.21% เทียบกับราว 3% ของคนที่จบมัธยมศึกษา ขณะที่ครอบครัวฐานะดีลงทุนด้านการศึกษามากกว่า 8.16 เท่า ความจนจึงส่งต่อข้ามรุ่น <a class="cite" href="#ref-3">[3]</a></p></div>
-        </article>
+      <ul class="ledger">
+        <li class="ledger-row">
+          <div class="ledger-who"><h3>แรงงานนอกระบบ</h3></div>
+          <p><span class="lbl">ระยะสั้นที่อาจเกิดขึ้น</span>รายได้ขาดช่วงเมื่อหยุดงาน และมีต้นทุนในการติดต่อใช้สิทธิ</p>
+          <p><span class="lbl">ระยะยาวที่อาจเกิดขึ้น</span>เงินออมไม่เพียงพอ และรับความเสี่ยงเมื่อสูงวัย</p>
+        </li>
+        <li class="ledger-row">
+          <div class="ledger-who"><h3>ลูกจ้างรายได้น้อย</h3></div>
+          <p><span class="lbl">ระยะสั้นที่อาจเกิดขึ้น</span>ต้องเลือกจัดสรรรายจ่ายจำเป็น และเวลาในการดูแลครอบครัว</p>
+          <p><span class="lbl">ระยะยาวที่อาจเกิดขึ้น</span>โอกาสพัฒนาทักษะหรือย้ายงานถูกจำกัด</p>
+        </li>
+        <li class="ledger-row">
+          <div class="ledger-who"><h3>เด็กและเยาวชน</h3></div>
+          <p><span class="lbl">ระยะสั้นที่อาจเกิดขึ้น</span>ทรัพยากรการเรียนรู้และสภาพแวดล้อมการเรียนแตกต่างกัน</p>
+          <p><span class="lbl">ระยะยาวที่อาจเกิดขึ้น</span>ความได้เปรียบเสียเปรียบส่งต่อไปสู่โอกาสทำงาน</p>
+        </li>
+        <li class="ledger-row">
+          <div class="ledger-who"><h3>ผู้ดูแลและผู้สูงอายุ</h3></div>
+          <p><span class="lbl">ระยะสั้นที่อาจเกิดขึ้น</span>มีค่าใช้จ่ายและภาระเวลาเพิ่มขึ้น</p>
+          <p><span class="lbl">ระยะยาวที่อาจเกิดขึ้น</span>อาจพึ่งพารายได้คนในครัวเรือน และมีความเสี่ยงต่อเนื่อง</p>
+        </li>
+        <li class="ledger-row">
+          <div class="ledger-who"><h3>ผู้ประกอบการรายย่อย</h3></div>
+          <p><span class="lbl">ระยะสั้นที่อาจเกิดขึ้น</span>ต้องจัดการต้นทุนและความไม่แน่นอนของยอดขาย</p>
+          <p><span class="lbl">ระยะยาวที่อาจเกิดขึ้น</span>อาจลงทุนเพิ่มผลิตภาพและสวัสดิการลูกจ้างได้จำกัด</p>
+        </li>
+      </ul>
+      <div class="two-col">
+        <div class="block card">
+          <h3>ผลต่อสังคมและเศรษฐกิจ</h3>
+          <p>ความไม่มั่นคงอาจทำให้ครัวเรือนชะลอรายจ่ายเพื่อการเรียนรู้และการลงทุน ขณะที่การเข้าถึงบริการที่แตกต่างกันอาจทำให้คนรู้สึกห่างจากระบบสาธารณะ การลดความเหลื่อมล้ำจึงต้องพิจารณาคุณภาพบริการและโอกาสหารายได้ ควบคู่กับเงินช่วยเหลือ</p>
+        </div>
+        <div class="block card">
+          <h3>ออกแบบให้เหมาะกับบริบทที่ต่างกัน</h3>
+          <ul class="dots">
+            <li><span>คนทำงานเป็นกะอาจร่วมเสวนาสดไม่ได้ จึงมีสรุปข้อความและคลิปให้ดูย้อนหลัง</span></li>
+            <li><span>คนที่ใช้อินเทอร์เน็ตได้จำกัด เข้าถึงแผ่นพับหรือบอร์ดข้อมูลได้</span></li>
+            <li><span>ผู้มีปัญหาการมองเห็นมีข้อความทดแทนภาพ และผู้ใช้ภาษาต่างกันมีสื่อภาษาที่เข้าใจได้</span></li>
+            <li><span>การใช้เรื่องเล่าต้องขออนุญาต แยกการยินยอมให้สัมภาษณ์ออกจากการยินยอมเผยแพร่ และให้ผู้เล่าทบทวนก่อนใช้</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -785,46 +849,56 @@ tbody tr:last-child td{border-bottom:0}
     <div class="wrap sec-inner">
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">05</span><span>/ 10</span><span class="sec-kind">ทางออก</span><span>Stakeholders</span></p>
-        <h2 id="stake-title">ผู้มีส่วนเกี่ยวข้อง</h2>
-        <p class="lede">รัฐสวัสดิการเกิดได้เมื่อทุกฝ่ายทำหน้าที่ของตัวเอง ตั้งแต่ผู้กำหนดนโยบายไปจนถึงประชาชนทั่วไป</p>
+        <h2 id="stake-title">ผู้เกี่ยวข้องและความร่วมมือ</h2>
+        <p class="lede">แต่ละภาคส่วนมีบทบาทและสิ่งที่ร่วมผลิตได้ต่างกัน การลดช่องว่างการเข้าถึงสวัสดิการจึงต้องอาศัยหลายฝ่าย</p>
       </header>
       <aside class="guide">
         <span class="guide-k">ส่วนนี้ต้องแสดง</span>
-        <span>ปัญหาเกี่ยวข้องกับใครบ้าง เช่น ภาครัฐ ภาคเอกชน ภาคประชาสังคม องค์กรระหว่างประเทศ นักวิชาการ ประชาชน พร้อมบทบาทหรือความเกี่ยวข้องของแต่ละฝ่าย เพื่อร่วมกันแก้ปัญหาอย่างยั่งยืน</span>
+        <span>ปัญหาเกี่ยวข้องกับใครบ้าง เช่น ภาครัฐ ภาคเอกชน ภาคประชาสังคม องค์กรระหว่างประเทศ นักวิชาการ ประชาชน พร้อมบทบาทของแต่ละฝ่ายในการร่วมแก้ปัญหาอย่างยั่งยืน</span>
       </aside>
-      <div class="stakes">
-        <article class="stake">
-          <div class="stake-who"><h3>ภาครัฐ</h3><p>กระทรวงการคลัง กระทรวงแรงงาน สำนักงานสภาพัฒนาการเศรษฐกิจและสังคมแห่งชาติ (สศช.)</p></div>
-          <p><span class="lbl">เกี่ยวข้องอย่างไร</span>กำหนดนโยบายการคลัง ค่าจ้างขั้นต่ำ และจัดสรรงบประมาณสวัสดิการ</p>
-          <p><span class="lbl go">ทำอะไรได้</span>ปฏิรูปภาษี เช่น ภาษีทรัพย์สินและภาษีเงินได้อัตราก้าวหน้า แล้วเปลี่ยนจากบัตรสวัสดิการเป็นสวัสดิการถ้วนหน้า</p>
-        </article>
-        <article class="stake">
-          <div class="stake-who"><h3>ภาคเอกชน</h3><p>นายจ้าง ผู้ประกอบการ ภาคอุตสาหกรรม และหอการค้า</p></div>
-          <p><span class="lbl">เกี่ยวข้องอย่างไร</span>ค่าจ้างและสวัสดิการแรงงานเป็นต้นทุนของธุรกิจ จึงมีผลต่อทิศทางนโยบาย</p>
-          <p><span class="lbl go">ทำอะไรได้</span>ร่วมหาข้อตกลงเรื่องค่าจ้างที่เป็นธรรม และลงทุนพัฒนาทักษะแรงงานเพื่อเพิ่มผลิตภาพ</p>
-        </article>
-        <article class="stake">
-          <div class="stake-who"><h3>ภาคประชาสังคม</h3><p>เครือข่ายรัฐสวัสดิการ We Fair เครือข่ายสังคมที่เป็นธรรม สหภาพแรงงาน</p></div>
-          <p><span class="lbl">เกี่ยวข้องอย่างไร</span>ทำงานกับแรงงานและผู้มีรายได้น้อยโดยตรง และผลักดันข้อเสนอรัฐสวัสดิการ</p>
-          <p><span class="lbl go">ทำอะไรได้</span>รณรงค์สร้างความเข้าใจ รวบรวมรายชื่อ และยื่นข้อเสนอต่อรัฐบาลและรัฐสภา</p>
-        </article>
-        <article class="stake">
-          <div class="stake-who"><h3>องค์กรระหว่างประเทศ</h3><p>ธนาคารโลก สหประชาชาติ</p></div>
-          <p><span class="lbl">เกี่ยวข้องอย่างไร</span>เก็บข้อมูล วัดความเหลื่อมล้ำ และวางกรอบเป้าหมาย SDG 10</p>
-          <p><span class="lbl go">ทำอะไรได้</span>ให้ข้อมูลและข้อเสนอเชิงนโยบาย และติดตามความคืบหน้าของไทยตามเป้าหมาย SDGs</p>
-        </article>
-        <article class="stake">
-          <div class="stake-who"><h3>นักวิชาการ</h3><p>สถาบันวิจัยเพื่อการพัฒนาประเทศไทย (TDRI) และมหาวิทยาลัย</p></div>
-          <p><span class="lbl">เกี่ยวข้องอย่างไร</span>ศึกษาสาเหตุของความเหลื่อมล้ำ และต้นทุนของรัฐสวัสดิการ</p>
-          <p><span class="lbl go">ทำอะไรได้</span>เสนอทางเลือกที่ทำได้จริงด้านงบประมาณ และสื่อสารข้อมูลให้สังคมเข้าใจ</p>
-        </article>
-        <article class="stake">
-          <div class="stake-who"><h3>ประชาชน</h3><p>แรงงานในระบบและนอกระบบ ผู้มีรายได้น้อย ผู้เสียภาษีทุกคน</p></div>
-          <p><span class="lbl">เกี่ยวข้องอย่างไร</span>เป็นทั้งผู้ได้รับผลกระทบโดยตรง และเป็นผู้จ่ายภาษีที่ใช้สร้างสวัสดิการ</p>
-          <p><span class="lbl go">ทำอะไรได้</span>รู้สิทธิของตัวเอง ส่งเสียงผ่านการเลือกตั้งและการแสดงความเห็น และร่วมลงชื่อสนับสนุน</p>
-        </article>
+      <ul class="ledger">
+        <li class="ledger-row">
+          <div class="ledger-who"><h3>ภาครัฐและหน่วยบริการ</h3></div>
+          <p><span class="lbl">บทบาทที่เสนอ</span>อธิบายสิทธิและช่องทางบริการ ตรวจคำอธิบายเงื่อนไข</p>
+          <p><span class="lbl go">สิ่งที่ร่วมผลิตได้</span>คู่มือข้อมูลที่ตรวจสอบได้ และช่องทางส่งต่อ</p>
+        </li>
+        <li class="ledger-row">
+          <div class="ledger-who"><h3>นายจ้างและผู้ประกอบการ</h3></div>
+          <p><span class="lbl">บทบาทที่เสนอ</span>ให้มุมมองด้านต้นทุน การจ้างงาน และการพัฒนาทักษะ</p>
+          <p><span class="lbl go">สิ่งที่ร่วมผลิตได้</span>ตัวอย่างการปรับสภาพงานและสวัสดิการที่เป็นไปได้</p>
+        </li>
+        <li class="ledger-row">
+          <div class="ledger-who"><h3>แรงงานและภาคประชาสังคม</h3></div>
+          <p><span class="lbl">บทบาทที่เสนอ</span>สะท้อนอุปสรรค และตรวจภาษาที่ใช้สื่อสาร</p>
+          <p><span class="lbl go">สิ่งที่ร่วมผลิตได้</span>ข้อเสนอจากประสบการณ์ โดยคงสิทธิการตัดสินใจของผู้เล่า</p>
+        </li>
+        <li class="ledger-row">
+          <div class="ledger-who"><h3>มหาวิทยาลัยและนักวิชาการ</h3></div>
+          <p><span class="lbl">บทบาทที่เสนอ</span>ช่วยตรวจวิธีใช้ข้อมูล และเปิดพื้นที่แลกเปลี่ยน</p>
+          <p><span class="lbl go">สิ่งที่ร่วมผลิตได้</span>สื่อความรู้และข้อเสนอที่ผ่านการทบทวน</p>
+        </li>
+        <li class="ledger-row">
+          <div class="ledger-who"><h3>องค์กรระหว่างประเทศ</h3></div>
+          <p><span class="lbl">บทบาทที่เสนอ</span>เป็นแหล่งหลักฐานและแนวทางการคุ้มครองทางสังคม</p>
+          <p><span class="lbl go">สิ่งที่ร่วมผลิตได้</span>บทเรียนและกรอบ SDGs สำหรับเปรียบเทียบ</p>
+        </li>
+        <li class="ledger-row">
+          <div class="ledger-who"><h3>นักศึกษาและประชาชน</h3></div>
+          <p><span class="lbl">บทบาทที่เสนอ</span>เรียนรู้ ตรวจสอบ แชร์ข้อมูล และเสนอปัญหาอย่างเคารพ</p>
+          <p><span class="lbl go">สิ่งที่ร่วมผลิตได้</span>ชุดคำถาม ข้อเสนอ และบทสรุปการรณรงค์</p>
+        </li>
+      </ul>
+      <p class="note">องค์กรที่กล่าวถึงเป็นผู้เกี่ยวข้องหรือผู้ที่อาจประสานงาน ไม่ใช่พันธมิตรที่ตอบรับแล้ว เว็บไซต์นี้จึงไม่ใช้โลโก้หรือข้อความที่ทำให้เข้าใจว่าองค์กรใดรับรองแคมเปญ</p>
+      <div class="block">
+        <h3 class="block-h">กลไก Global Alliance ที่ทำได้ในระดับโครงงาน</h3>
+        <ol class="steps steps-4">
+          <li><b>ทีมค้นคว้าจัดทำข้อมูล</b><span>รวบรวมและตรวจแหล่งต้นทาง</span></li>
+          <li><b>อาจารย์หรือนักวิชาการทบทวน</b><span>ตรวจวิธีใช้ข้อมูลและข้อสรุป</span></li>
+          <li><b>เชิญตัวแทนผู้ทำงานและผู้ประกอบการ</b><span>ให้ความเห็นโดยสมัครใจ</span></li>
+          <li><b>ปรับสื่อก่อนเผยแพร่</b><span>ประเมินความเหมาะสมกับรายได้ ภาษี โครงสร้างงาน และกำลังบริการของไทย</span></li>
+        </ol>
       </div>
-      <p class="collab">รัฐสวัสดิการจะเกิดขึ้นจริงเมื่อรัฐหารายได้อย่างเป็นธรรม ธุรกิจกับแรงงานหาจุดร่วมเรื่องค่าจ้าง และประชาชนเข้าใจว่าสวัสดิการคือการลงทุนร่วมกันของทุกคน</p>
+      <p class="collab">ทำงานร่วมกับความเห็นต่าง: เปิดพื้นที่ให้ตั้งคำถามเรื่องภาษี ความคุ้มค่า และผลต่อธุรกิจอย่างสุจริต แยกการวิจารณ์นโยบายออกจากการตำหนิผู้รับสวัสดิการ และสรุปทั้งข้อสนับสนุนและข้อกังวล</p>
     </div>
   </section>
 
@@ -838,7 +912,7 @@ tbody tr:last-child td{border-bottom:0}
       </header>
       <aside class="guide">
         <span class="guide-k">ส่วนนี้ต้องมี</span>
-        <span>อย่างน้อย 2 เป้าหมาย พร้อมเหตุผลว่าทำไมจึงเกี่ยวข้อง และแคมเปญช่วยสนับสนุนเป้าหมายนั้นอย่างไร · รายงานของกลุ่มเน้น SDG 10 จึงเพิ่ม SDG 1 และ SDG 8 ที่เกี่ยวข้องโดยตรงให้ครบเกณฑ์</span>
+        <span>อย่างน้อย 2 เป้าหมาย พร้อมเหตุผลว่าทำไมจึงเกี่ยวข้อง และแคมเปญช่วยสนับสนุนเป้าหมายนั้นอย่างไร · ตามรายงานของกลุ่ม: SDG 10, 1, 8 และ 17</span>
       </aside>
       <div class="block" style="gap:10px">
         <ol class="sdg-strip" id="sdgStrip" aria-label="SDGs ทั้ง 17 เป้าหมาย"></ol>
@@ -852,9 +926,9 @@ tbody tr:last-child td{border-bottom:0}
           </header>
           <div class="sdg-card-body">
             <span class="sdg-main">เป้าหมายหลัก</span>
-            <p><span class="lbl">เป้าหมายย่อยที่เกี่ยวข้อง</span>10.1 ให้รายได้ของประชากร 40% ที่ยากจนที่สุดเติบโตเร็วกว่าค่าเฉลี่ยของประเทศ · 10.4 ใช้นโยบายการคลัง ค่าจ้าง และการคุ้มครองทางสังคม เพื่อให้เกิดความเท่าเทียมมากขึ้น <a class="cite" href="#ref-8">[8]</a></p>
-            <p><span class="lbl">ทำไมจึงเกี่ยวข้อง</span>ไทยมีความเหลื่อมล้ำด้านรายได้สูงที่สุดในภูมิภาค <a class="cite" href="#ref-2">[2]</a> และทรัพย์สินราวครึ่งประเทศอยู่ในมือคน 1% <a class="cite" href="#ref-1">[1]</a></p>
-            <p><span class="lbl go">แคมเปญช่วยอย่างไร</span>ผลักดันให้รัฐใช้ภาษีและงบประมาณสร้างสวัสดิการถ้วนหน้า ตรงกับแนวทางของเป้าหมายย่อย 10.4</p>
+            <p><span class="lbl">เป้าประสงค์ 10.4</span>ใช้นโยบาย โดยเฉพาะนโยบายการคลัง ค่าจ้าง และการคุ้มครองทางสังคม เพื่อให้เกิดความเท่าเทียมมากขึ้นอย่างต่อเนื่อง <a class="cite" href="#ref-4">[4]</a></p>
+            <p><span class="lbl">ความเกี่ยวข้อง</span>นโยบายการคลัง ค่าจ้าง และการคุ้มครองทางสังคม ช่วยเพิ่มความเท่าเทียม</p>
+            <p><span class="lbl go">สิ่งที่แคมเปญช่วยได้</span>อธิบายความเชื่อมโยง และเปิดพื้นที่อภิปรายข้อเสนอ</p>
           </div>
         </article>
         <article class="sdg-card" data-goal="1">
@@ -863,9 +937,9 @@ tbody tr:last-child td{border-bottom:0}
             <div><h3 class="sdg-name">ขจัดความยากจน</h3><p class="sdg-en">No Poverty</p></div>
           </header>
           <div class="sdg-card-body">
-            <p><span class="lbl">เป้าหมายย่อยที่เกี่ยวข้อง</span>1.3 จัดให้มีระบบคุ้มครองทางสังคมที่เหมาะสมสำหรับทุกคน และครอบคลุมคนจนและกลุ่มเปราะบางอย่างทั่วถึงภายในปี 2573 <a class="cite" href="#ref-8">[8]</a></p>
-            <p><span class="lbl">ทำไมจึงเกี่ยวข้อง</span>ปี 2567 มีคนไทย 3.43 ล้านคนอยู่ใต้เส้นความยากจน <a class="cite" href="#ref-3">[3]</a> และระบบคัดกรองทำให้คนจนจำนวนมากตกหล่นจากความช่วยเหลือ <a class="cite" href="#ref-1">[1]</a></p>
-            <p><span class="lbl go">แคมเปญช่วยอย่างไร</span>เรียกร้องสวัสดิการที่ทุกคนได้รับโดยอัตโนมัติ ไม่มีใครหลุดจากระบบเพราะขั้นตอนพิสูจน์ความจน</p>
+            <p><span class="lbl">เป้าประสงค์ 1.3</span>ดำเนินการให้มีระบบและมาตรการคุ้มครองทางสังคมที่เหมาะสมสำหรับทุกคน รวมถึงระดับพื้นฐาน และครอบคลุมคนจนและกลุ่มเปราะบางอย่างมีนัยสำคัญภายในปี 2573 <a class="cite" href="#ref-5">[5]</a></p>
+            <p><span class="lbl">ความเกี่ยวข้อง</span>ระบบคุ้มครองทางสังคมและหลักประกันพื้นฐานสำหรับคนเปราะบาง</p>
+            <p><span class="lbl go">สิ่งที่แคมเปญช่วยได้</span>ให้ผู้ชมรู้จักช่องทางข้อมูล และสะท้อนอุปสรรคในการเข้าถึง</p>
           </div>
         </article>
         <article class="sdg-card" data-goal="8">
@@ -874,11 +948,33 @@ tbody tr:last-child td{border-bottom:0}
             <div><h3 class="sdg-name">งานที่มีคุณค่าและการเติบโตทางเศรษฐกิจ</h3><p class="sdg-en">Decent Work and Economic Growth</p></div>
           </header>
           <div class="sdg-card-body">
-            <p><span class="lbl">เป้าหมายย่อยที่เกี่ยวข้อง</span>8.5 การจ้างงานที่มีคุณค่าและค่าจ้างที่เท่าเทียมสำหรับงานที่มีคุณค่าเท่ากัน · 8.8 คุ้มครองสิทธิแรงงานของแรงงานทุกคน รวมถึงผู้ที่มีงานไม่มั่นคง <a class="cite" href="#ref-8">[8]</a></p>
-            <p><span class="lbl">ทำไมจึงเกี่ยวข้อง</span>แรงงานไทยราว 65% อยู่นอกระบบ <a class="cite" href="#ref-5">[5]</a> และค่าจ้างขั้นต่ำเพิ่มเฉลี่ยเพียงราว 1.7% ต่อปี <a class="cite" href="#ref-4">[4]</a></p>
-            <p><span class="lbl go">แคมเปญช่วยอย่างไร</span>สื่อสารเรื่องค่าจ้างที่เป็นธรรมและการคุ้มครองแรงงานนอกระบบ และจัดกิจกรรมร่วมกับเครือข่ายแรงงานในวันแรงงาน 1 พฤษภาคม</p>
+            <p><span class="lbl">เป้าประสงค์ 8.5 และ 8.8</span>การจ้างงานที่มีคุณค่าและค่าตอบแทนที่เท่าเทียมสำหรับงานที่มีคุณค่าเท่ากัน · คุ้มครองสิทธิแรงงานของแรงงานทุกคน รวมถึงผู้ที่มีงานไม่มั่นคง <a class="cite" href="#ref-6">[6]</a></p>
+            <p><span class="lbl">ความเกี่ยวข้อง</span>งานที่มีคุณค่า ความเป็นธรรม และการคุ้มครองสิทธิแรงงาน</p>
+            <p><span class="lbl go">สิ่งที่แคมเปญช่วยได้</span>สื่อสารประเด็นงานและหลักประกันไปพร้อมกัน</p>
           </div>
         </article>
+        <article class="sdg-card" data-goal="17">
+          <header class="sdg-card-head">
+            <p class="sdg-no"><small>SDG</small><b>17</b></p>
+            <div><h3 class="sdg-name">ความร่วมมือเพื่อการพัฒนาที่ยั่งยืน</h3><p class="sdg-en">Partnerships for the Goals</p></div>
+          </header>
+          <div class="sdg-card-body">
+            <p><span class="lbl">เป้าประสงค์ 17.17</span>สนับสนุนและส่งเสริมความร่วมมือที่มีประสิทธิผลระหว่างภาครัฐ ภาครัฐกับเอกชน และภาคประชาสังคม <a class="cite" href="#ref-7">[7]</a></p>
+            <p><span class="lbl">ความเกี่ยวข้อง</span>ความร่วมมือระหว่างภาครัฐ เอกชน และประชาสังคม</p>
+            <p><span class="lbl go">สิ่งที่แคมเปญช่วยได้</span>เสนอเวทีรับฟังที่มีหลายมุมมอง และความรับผิดชอบชัดเจน</p>
+          </div>
+        </article>
+      </div>
+      <p class="note">ผลด้าน SDGs ของโครงงานคือการสนับสนุนความรู้และการมีส่วนร่วม ไม่ใช่หลักฐานว่าประเทศบรรลุเป้าหมาย หรือแคมเปญทำให้รายได้ประชาชนเพิ่มขึ้นแล้ว</p>
+      <div class="block">
+        <h3 class="block-h">ความท้าทายและข้อแลกเปลี่ยน</h3>
+        <ul class="challenges">
+          <li class="card"><h4>งบประมาณ</h4><p>การขยายสวัสดิการต้องมีแหล่งรายได้ที่มั่นคง และต้องพิจารณาภาระภาษีที่กระทบแต่ละกลุ่ม</p></li>
+          <li class="card"><h4>บริการ</h4><p>การมีสิทธิบนเอกสารต้องตามมาด้วยบุคลากรและคุณภาพบริการ</p></li>
+          <li class="card"><h4>ข้อมูล</h4><p>การทำงานหลายหน่วยงานอาจทำให้เงื่อนไขและการติดต่อซับซ้อน</p></li>
+          <li class="card"><h4>การสื่อสาร</h4><p>ผู้ชมอาจเข้าใจว่าสวัสดิการถ้วนหน้าเท่ากับการแจกเงินโดยไม่มีข้อจำกัด</p></li>
+        </ul>
+        <p class="collab">แนวทางที่เสนอ: อภิปรายการมีสวัสดิการพื้นฐานที่เข้าถึงกว้าง ร่วมกับความช่วยเหลือเพิ่มเติมตามความจำเป็นและความคุ้มครองจากระบบสมทบ เลือกมาตรการเป็นขั้นตอน และประเมินต้นทุนและผลกระทบก่อนขยาย</p>
       </div>
     </div>
   </section>
@@ -889,7 +985,7 @@ tbody tr:last-child td{border-bottom:0}
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">07</span><span>/ 10</span><span class="sec-kind">แคมเปญ</span><span>Our Campaign</span></p>
         <h2 id="campaign-title">แคมเปญของเรา</h2>
-        <p class="lede">เปลี่ยนกรอบความคิดของสังคม จาก “สวัสดิการคือการให้ทาน” เป็น “สวัสดิการคือสิทธิ” และผลักดันรัฐสวัสดิการถ้วนหน้า</p>
+        <p class="lede">เริ่มจากความรู้ที่ตรวจสอบได้ เปิดพื้นที่รับฟังปัญหาการเข้าถึงสิทธิ และสรุปข้อเสนอจากผู้เข้าร่วมโดยไม่เปิดเผยตัวตน</p>
       </header>
       <aside class="guide">
         <span class="guide-k">ส่วนนี้ต้องมี</span>
@@ -899,66 +995,84 @@ tbody tr:last-child td{border-bottom:0}
         <svg class="logo-big" role="img" aria-label="โลโก้แคมเปญ It’s My Right, Not Charity"><use href="#logo"></use></svg>
         <div class="identity-text">
           <h3 class="name">It’s My Right, Not Charity</h3>
-          <p class="slogan">“สวัสดิการคือสิทธิ ไม่ใช่การสงเคราะห์”</p>
-          <p>โลโก้เป็นคนที่ชูบ้าน หนังสือ และกากบาทการแพทย์ขึ้นเหนือศีรษะ แทนสิทธิพื้นฐานด้านที่อยู่อาศัย การศึกษา และสุขภาพ ที่ทุกคนควรได้รับโดยไม่ต้องร้องขอ ส่วน 4 สีของเว็บเล่าเรื่องจากปัญหา (แดง) ข้อเท็จจริง (เหลือง) ไปสู่ทางออก (เขียว) และแคมเปญของเรา (ฟ้า)</p>
+          <p class="slogan">“สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง”</p>
+          <p>โลโก้เป็นเครื่องหมายเท่ากับอยู่ใต้เส้นหลังคา หมายถึงความเสมอภาคและหลักประกันร่วม ชื่อภาษาอังกฤษเป็นกรอบรณรงค์เพื่อลดการตีตรา ไม่ใช่ข้ออ้างว่าสวัสดิการเฉพาะกลุ่มทั้งหมดไม่ใช่สิทธิ</p>
+          <p>สีของเว็บเล่าเรื่องเป็นลำดับ: แดงคือปัญหา เหลืองคือข้อเท็จจริง เขียวคือทางออก และฟ้าคือแคมเปญของเรา</p>
         </div>
       </div>
       <div class="brief">
         <div class="brief-block">
           <h3>กลุ่มเป้าหมาย</h3>
-          <p><span class="lbl">กลุ่มหลัก</span>ประชาชนวัยแรงงานอายุ 20–60 ปี ทั้งแรงงานในระบบและนอกระบบ เช่น พนักงานบริษัท แรงงานโรงงาน ผู้ประกอบอาชีพอิสระ และแรงงานภาคเกษตร</p>
-          <p><span class="lbl">กลุ่มรอง</span>นิสิตนักศึกษาและเยาวชนที่ใกล้เข้าสู่ตลาดแรงงาน และประชาชนทั่วไปที่สนใจความเป็นธรรมทางสังคม</p>
+          <p><span class="lbl">กลุ่มหลัก</span>คนวัยทำงานอายุประมาณ 20–60 ปี ทั้งในระบบและนอกระบบ</p>
+          <p><span class="lbl">กลุ่มนำร่องที่เข้าถึงได้จริง</span>นักศึกษาและคนทำงานในเครือข่ายของกลุ่ม</p>
+          <p><span class="lbl">กลุ่มรอง</span>ผู้ประกอบการ ผู้ดูแลครอบครัว และผู้สนใจนโยบายสังคม</p>
+          <p class="note">ไม่ถือว่าผลตอบรับจากเครือข่ายนี้เป็นความเห็นของคนไทยทั้งหมด</p>
         </div>
         <div class="brief-block">
-          <h3>วัตถุประสงค์</h3>
+          <h3>วัตถุประสงค์ภายใน 1 เดือน</h3>
           <ul class="dots">
-            <li><span>ผลักดันให้รัฐเปลี่ยนจากการสงเคราะห์เฉพาะกลุ่ม เป็นสวัสดิการถ้วนหน้าที่ครอบคลุมทุกคน</span></li>
-            <li><span>เปลี่ยนความคิดของสังคมว่าสวัสดิการเป็นสิทธิของพลเมือง ไม่ใช่บุญคุณ และลดการตีตราผู้รับสวัสดิการ</span></li>
-            <li><span>รวบรวมรายชื่อผู้สนับสนุนอย่างน้อย 100,000 รายชื่อ เพื่อยื่นต่อรัฐบาลหรือรัฐสภา</span></li>
+            <li><span><b>เผยแพร่ความรู้ที่ตรวจสอบได้</b> สื่ออย่างน้อย 6 ชิ้น พร้อมแหล่งอ้างอิง และเว็บไซต์ 10 ส่วน</span></li>
+            <li><span><b>เพิ่มความเข้าใจ</b> ผู้ทำแบบประเมินก่อนและหลังครบอย่างน้อย 30 คน คะแนนเฉลี่ยเพิ่มอย่างน้อย 20 จุดร้อยละ</span></li>
+            <li><span><b>สร้างการมีส่วนร่วม</b> ผู้เข้าร่วมวงสนทนาอย่างน้อย 20 คน และความเห็นโดยสมัครใจอย่างน้อย 30 ข้อความ</span></li>
+            <li><span><b>สร้างข้อเสนอจากการรับฟัง</b> เอกสารข้อเสนอ 1 ฉบับ ระบุประเด็นร่วม ความเห็นต่าง และข้อจำกัด</span></li>
           </ul>
+          <p><span class="status">ทุกตัวเลขเป็นเป้าหมายแผนงาน ยังไม่มีผลดำเนินการ</span></p>
         </div>
       </div>
       <blockquote class="keymsg on-sky">
         <span class="en">Key Message · ข้อความหลัก</span>
-        <p>สวัสดิการถ้วนหน้าเป็นสิทธิขั้นพื้นฐานที่รัฐควรจัดให้ทุกคนอย่างเท่าเทียม ไม่ใช่การบริจาคหรือความเมตตา</p>
+        <p>ทุกคนควรเข้าถึงหลักประกันพื้นฐานอย่างมีศักดิ์ศรี ควบคู่กับงานและรายได้ที่เป็นธรรม</p>
       </blockquote>
       <div class="block">
-        <h3 class="block-h">วิธีการสื่อสาร</h3>
-        <ul class="channels">
-          <li class="channel card"><span class="en">TikTok · Reels</span><h4>คลิปสั้นเล่าเรื่องจริง</h4><p>ชีวิตแรงงานค่าแรงขั้นต่ำ และสถิติที่เข้าใจง่าย เช่น ต้องทำงานกี่ชั่วโมงถึงจะซื้อข้าวผัดได้ 1 จาน</p></li>
-          <li class="channel card"><span class="en">Facebook · X</span><h4>บทความและไลฟ์</h4><p>บทความสั้นอธิบายรัฐสวัสดิการ และไลฟ์เสวนากับนักเศรษฐศาสตร์และตัวแทนแรงงานทุกสัปดาห์</p></li>
-          <li class="channel card"><span class="en">Media · YouTube</span><h4>สื่อและอินฟลูเอนเซอร์</h4><p>ชวนสื่อมวลชนและอินฟลูเอนเซอร์ด้านสังคมเศรษฐกิจช่วยขยายประเด็นสู่วงกว้าง</p></li>
-          <li class="channel card"><span class="en">On-ground</span><h4>กิจกรรมในพื้นที่</h4><p>เสวนาและนิทรรศการในมหาวิทยาลัย แจกสติกเกอร์และแผ่นพับ และ Flash Mob ร่วมกับเครือข่ายแรงงานในวันแรงงาน</p></li>
+        <h3 class="block-h">กิจกรรมรณรงค์</h3>
+        <ul class="acts">
+          <li class="card"><h4>รู้สิทธิใน 3 นาที</h4><p>อินโฟกราฟิก 3 ชิ้นและคลิปสั้น 3 ชิ้น ครอบคลุมปัญหา สวัสดิการ และความร่วมมือ</p><p><span class="lbl">ผู้ชมลงมือทำ</span>อ่านแหล่งต้นทาง และแชร์สื่อพร้อมปีข้อมูล</p></li>
+          <li class="card"><h4>แผนที่ภาระชีวิต</h4><p>ใช้กรณีสมมติที่ระบุชัด ให้ผู้ชมคิดว่ารายจ่ายใดขาดไม่ได้ ไม่ใช่ค่าครองชีพจริง</p><p><span class="lbl">ผู้ชมลงมือทำ</span>ทดลองจัดลำดับรายจ่าย และอภิปรายบทบาทหลักประกัน</p></li>
+          <li class="card"><h4>วงสนทนาชีวิตและสวัสดิการ</h4><p>วงสนทนา 45–60 นาที ในมหาวิทยาลัยหรือออนไลน์ พร้อมสรุปย้อนหลัง</p><p><span class="lbl">ผู้ชมลงมือทำ</span>ร่วมถามและรับฟังทั้งผู้ทำงานและผู้ประกอบการ</p></li>
+          <li class="card"><h4>หนึ่งเสียงหนึ่งข้อเสนอ</h4><p>รับความคิดเห็นโดยสมัครใจ ไม่ขอเลขบัตรประชาชนหรือข้อมูลรายได้เฉพาะบุคคล</p><p><span class="lbl">ผู้ชมลงมือทำ</span>ระบุอุปสรรคและเสนอสิ่งที่ควรปรับ โดยไม่เปิดเผยชื่อ</p></li>
+          <li class="card"><h4>สรุปเสียงเพื่อการเปลี่ยนแปลง</h4><p>จัดกลุ่มความคิดเห็น และทบทวนกับผู้ร่วมกิจกรรมก่อนเผยแพร่</p><p><span class="lbl">ผู้ชมลงมือทำ</span>อ่านข้อสรุป ตรวจความถูกต้อง และเสนอข้อแก้ไข</p></li>
         </ul>
       </div>
       <div class="block">
-        <h3 class="block-h">กิจกรรมรณรงค์</h3>
-        <ol class="phases">
-          <li class="phase">
-            <span class="phase-when">ขั้นที่ 1 · 1–2 เดือนก่อนเริ่ม</span>
-            <h4>เตรียมการ</h4>
-            <p>รวบรวมสถิติ ผลิตวิดีโอ อินโฟกราฟิก และบทความ ประสานสหภาพแรงงาน มูลนิธิ และสื่อ และวางปฏิทินโพสต์</p>
-            <p class="kpi">ตัวชี้วัด: สื่อพร้อมและมีเครือข่ายร่วมก่อนวันเปิดตัว</p>
-          </li>
-          <li class="phase">
-            <span class="phase-when">ขั้นที่ 2 · ต้นเดือนพฤษภาคม</span>
-            <h4>เปิดตัวแคมเปญ</h4>
-            <p>แถลงข่าวเปิดตัวช่วงวันแรงงาน 1 พฤษภาคม เปิดตัวโลโก้และแฮชแท็ก #ItsMyRightNotCharity และชวนลงชื่อ</p>
-            <p class="kpi">ตัวชี้วัด: จำนวนข่าวและบทความที่พูดถึงแคมเปญ</p>
-          </li>
-          <li class="phase">
-            <span class="phase-when">ขั้นที่ 3 · ตลอดเดือนพฤษภาคม</span>
-            <h4>รณรงค์ต่อเนื่อง</h4>
-            <p>โพสต์ทุกวันหรือวันเว้นวัน ไลฟ์เสวนาทุกสัปดาห์ และอาสาสมัครลงพื้นที่วันหยุดเพื่อแจกใบปลิวและเก็บลายเซ็น</p>
-            <p class="kpi">ตัวชี้วัด: 100,000 รายชื่อ และยอดแชร์และการใช้แฮชแท็ก</p>
-          </li>
-          <li class="phase">
-            <span class="phase-when">ขั้นที่ 4 · หลังจบแคมเปญ</span>
-            <h4>สรุปและติดตามผล</h4>
-            <p>ทำรายงานสรุปพร้อมรายชื่อและข้อเสนอ ส่งถึง ส.ส. และคณะรัฐมนตรี แล้วจัดซ้ำทุกเดือนพฤษภาคม</p>
-            <p class="kpi">ตัวชี้วัด: ผลสำรวจความเข้าใจก่อน–หลัง และนักการเมืองที่หยิบประเด็นไปพูดต่อ</p>
-          </li>
+        <h3 class="block-h">ช่องทางสื่อสาร</h3>
+        <ul class="channels">
+          <li class="channel card"><span class="en">Website</span><h4>ศูนย์กลางข้อมูล</h4><p>รวมข้อมูล แหล่งอ้างอิง และแบบทบทวนความเข้าใจ</p></li>
+          <li class="channel card"><span class="en">Instagram · TikTok</span><h4>คลิปกระชับ</h4><p>อินโฟกราฟิกและคลิปสั้นชุด “รู้สิทธิใน 3 นาที”</p></li>
+          <li class="channel card"><span class="en">Facebook</span><h4>คำอธิบายและวงสนทนา</h4><p>โพสต์อธิบายเชิงลึก และประกาศวงสนทนา</p></li>
+          <li class="channel card"><span class="en">On-ground</span><h4>บอร์ดและแผ่นพับ</h4><p>บอร์ดในมหาวิทยาลัยและแผ่นพับ สำหรับคนที่ไม่สะดวกใช้สื่อออนไลน์</p></li>
+        </ul>
+        <p class="note">การเลือกช่องทางเป็นแผนที่ต้องทดสอบจากผู้ชมจริง ไม่มีการอ้างสัดส่วนความนิยมของแพลตฟอร์มที่ไม่ได้สำรวจ</p>
+      </div>
+      <div class="block">
+        <h3 class="block-h">แผนดำเนินงาน</h3>
+        <ol class="timeline">
+          <li><span class="tl-date">26 ต.ค.–1 พ.ย. 2569</span><span>ทบทวนเนื้อหา ตรวจแหล่งข้อมูล ทดลองสื่อและคำถาม</span><span class="tl-owner">ฝ่ายค้นคว้าและบรรณาธิการ</span></li>
+          <li><span class="tl-date">2–8 พ.ย. 2569</span><span>เปิดเว็บไซต์และเผยแพร่สื่อชุดแรก เชิญร่วมเรียนรู้</span><span class="tl-owner">ฝ่ายเว็บไซต์และประชาสัมพันธ์</span></li>
+          <li><span class="tl-date">9–15 พ.ย. 2569</span><span>จัดวงสนทนาและรับฟังความคิดเห็นตามความพร้อม</span><span class="tl-owner">ฝ่ายกิจกรรมและผู้ประสานงาน</span></li>
+          <li><span class="tl-date">16–22 พ.ย. 2569</span><span>ประเมินความเข้าใจ สรุปข้อเสนอและข้อจำกัด</span><span class="tl-owner">ฝ่ายประเมินผลและฝ่ายค้นคว้า</span></li>
+          <li><span class="tl-date">23–26 พ.ย. 2569</span><span>ตรวจรายงาน ลิงก์ สิทธิการเข้าถึง และซ้อมนำเสนอ</span><span class="tl-owner">สมาชิกทุกคน</span></li>
         </ol>
+      </div>
+      <div class="plan-grid">
+        <div class="budget card">
+          <h3>งบประมาณที่เสนอ</h3>
+          <table>
+            <thead><tr><th scope="col">รายการ</th><th scope="col">บาท</th></tr></thead>
+            <tbody>
+              <tr><td>งานพิมพ์สื่อและแผ่นข้อมูล</td><td>300</td></tr>
+              <tr><td>อุปกรณ์บอร์ดและกิจกรรม</td><td>250</td></tr>
+              <tr><td>วัสดุประกอบวงสนทนา</td><td>150</td></tr>
+              <tr><td>สำรองค่าใช้จ่าย</td><td>300</td></tr>
+            </tbody>
+            <tfoot><tr><td>รวม</td><td>1,000</td></tr></tfoot>
+          </table>
+        </div>
+        <div class="evalm card">
+          <h3>วิธีประเมินผล</h3>
+          <p>ใช้คำถามความรู้ชุดเดียวกันก่อนและหลัง 5 ข้อ วัดการแยกปีข้อมูล ความหมายของแรงงานนอกระบบ ความแตกต่างของสิทธิกับการบริจาค ความเชื่อมโยง SDGs และบทบาทภาคส่วน คิดคะแนนเป็นร้อยละจากคำตอบถูก รายงานเฉพาะคนที่ตอบครบทั้งสองครั้ง ใช้รหัสสุ่มแทนชื่อ และรายงานจำนวนคนที่หลุดจากการติดตาม</p>
+          <p>คะแนนที่เพิ่มจาก 40% เป็น 60% คือเพิ่ม 20 จุดร้อยละ ไม่ใช่เพิ่ม 20% แบบสัมพัทธ์ ยอดเผยแพร่เก็บจากข้อมูลจริงของแต่ละช่องทาง โดยไม่บวกยอดข้ามแพลตฟอร์มแล้วเรียกว่าจำนวนคนที่ไม่ซ้ำกัน</p>
+          <p class="note">ข้อจำกัด: กลุ่มตัวอย่างสมัครใจ ขนาดเล็ก และอาจจำคำตอบได้ จึงใช้เป็นผลการเรียนรู้ของกิจกรรมนำร่อง ไม่สรุปเหตุและผล หรือขยายผลแทนประชากรไทย</p>
+        </div>
       </div>
     </div>
   </section>
@@ -969,55 +1083,95 @@ tbody tr:last-child td{border-bottom:0}
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">08</span><span>/ 10</span><span class="sec-kind">ทางออก</span><span>Take Action</span></p>
         <h2 id="action-title">ร่วมเป็นส่วนหนึ่งของการเปลี่ยนแปลง</h2>
-        <p class="lede">สวัสดิการถ้วนหน้าเริ่มจากคนจำนวนมากพอที่บอกว่า “นี่คือสิทธิของเรา” เลือกสิ่งที่คุณทำได้ตั้งแต่วันนี้</p>
+        <p class="lede">เริ่มจากความเข้าใจที่ตรวจสอบได้ แล้วค่อยแชร์และเสนอทางแก้อย่างรับผิดชอบ</p>
       </header>
       <aside class="guide">
         <span class="guide-k">ส่วนนี้ต้องชวนให้ลงมือทำ</span>
-        <span>เช่น เข้าร่วมกิจกรรม แชร์ข้อมูลบนโซเชียล ดาวน์โหลดสื่อประชาสัมพันธ์ ลงชื่อสนับสนุน หรือปรับพฤติกรรมในชีวิตประจำวัน · ปุ่มที่ยังไม่มีลิงก์จริงจะขึ้นข้อความเตือนเมื่อกด</span>
+        <span>เช่น เข้าร่วมกิจกรรม แชร์ข้อมูลบนโซเชียล ดาวน์โหลดสื่อ ลงชื่อสนับสนุน หรือปรับพฤติกรรม · ตามรายงาน: อ่านแหล่งข้อมูล ทบทวนความเข้าใจ และคัดลอกข้อความรณรงค์ · ปุ่มที่ยังไม่มีลิงก์จริงจะขึ้นข้อความเตือนเมื่อกด</span>
       </aside>
+      <ol class="steps steps-5">
+        <li><b>เรียนรู้ปัญหา</b><span>อ่านส่วนที่ 02–04</span></li>
+        <li><b>เปิดแหล่งอ้างอิง</b><span>ดูตัวเลขจากต้นทางในส่วนที่ 09</span></li>
+        <li><b>ตรวจความเข้าใจ</b><span>ทำแบบทบทวน 5 ข้อด้านล่าง</span></li>
+        <li><b>คุยหรือแชร์อย่างรับผิดชอบ</b><span>เลือกข้อมูล 1 เรื่อง พร้อมปีข้อมูลและแหล่งที่มา</span></li>
+        <li><b>เสนอแนวทางแก้ไข</b><span>ผ่านกิจกรรมที่กลุ่มประกาศจริง</span></li>
+      </ol>
       <div class="actions">
         <article class="action">
-          <span class="en">Sign</span>
-          <h3>ลงชื่อสนับสนุนสวัสดิการถ้วนหน้า</h3>
-          <p>เป้าหมาย 100,000 รายชื่อ เพื่อยื่นต่อรัฐบาลและรัฐสภา</p>
-          <a class="btn btn-solid" href="#" data-todo="ลิงก์ลงชื่อ (เช่น change.org หรือ Google Form)">ลงชื่อ</a>
+          <span class="en">Read</span>
+          <h3>อ่านแหล่งข้อมูล</h3>
+          <p>ทุกตัวเลขในเว็บนี้มีปีและแหล่งต้นทาง เปิดอ่านก่อนนำไปพูดต่อ</p>
+          <a class="btn btn-solid" href="#references">ไปที่แหล่งอ้างอิง</a>
         </article>
         <article class="action">
           <span class="en">Share</span>
-          <h3>แชร์ต่อบนโซเชียล</h3>
-          <p>ติดแฮชแท็กนี้ทุกครั้งที่โพสต์เรื่องความเหลื่อมล้ำและสวัสดิการ</p>
-          <div class="hashtag">
-            <code id="hashtag">#ItsMyRightNotCharity</code>
-            <button type="button" class="btn btn-line btn-small" data-copy="hashtag">คัดลอก</button>
-          </div>
+          <h3>คัดลอกข้อความรณรงค์</h3>
+          <p class="msg" id="campaignMsg">ทำงานเหมือนกัน แต่หลักประกันอาจต่างกัน มาทำความเข้าใจช่องว่างการคุ้มครองจากงานผ่านข้อมูลแรงงานนอกระบบปี 2568 แล้วร่วมเสนอว่าบริการพื้นฐานควรเข้าถึงง่ายขึ้นอย่างไร #ItsMyRightNotCharity</p>
+          <button type="button" class="btn btn-line btn-small" data-copy="campaignMsg" style="justify-self:start">คัดลอกข้อความ</button>
+        </article>
+        <article class="action">
+          <span class="en">Voice</span>
+          <h3>หนึ่งเสียงหนึ่งข้อเสนอ</h3>
+          <p>บอกอุปสรรคในการเข้าถึงสิทธิ และสิ่งที่ควรปรับ โดยไม่ต้องเปิดเผยชื่อ</p>
+          <a class="btn btn-solid" href="#" data-todo="ลิงก์แบบฟอร์มความคิดเห็น">ส่งความคิดเห็น</a>
+          <p class="privacy">ไม่ขอเลขบัตรประชาชน ข้อมูลสุขภาพ หรือข้อมูลรายได้รายบุคคล ตอบโดยสมัครใจและเลือกไม่ตอบได้ ข้อมูลที่ระบุตัวบุคคลจะถูกลบก่อนเผยแพร่ <span class="ph">ระบุผู้เข้าถึงข้อมูลและวันลบข้อมูลก่อนเปิดฟอร์ม</span></p>
         </article>
         <article class="action">
           <span class="en">Join</span>
-          <h3>เข้าร่วมเสวนาและนิทรรศการ</h3>
-          <p>“สวัสดิการคือสิทธิ” · <span class="ph">วันที่</span> · <span class="ph">สถานที่</span></p>
-          <a class="btn btn-solid" href="#" data-todo="ลิงก์ลงทะเบียนกิจกรรม">ลงทะเบียน</a>
-        </article>
-        <article class="action">
-          <span class="en">Download</span>
-          <h3>ดาวน์โหลดสื่อ</h3>
-          <p>โปสเตอร์ อินโฟกราฟิก และสติกเกอร์ “It’s my right, not charity” สำหรับโพสต์และติดในพื้นที่</p>
-          <a class="btn btn-solid" href="#" data-todo="ลิงก์โฟลเดอร์สื่อ (Google Drive)">เปิดโฟลเดอร์สื่อ</a>
+          <h3>วงสนทนาชีวิตและสวัสดิการ</h3>
+          <p>45–60 นาที ช่วง 9–15 พ.ย. 2569 · <span class="ph">วันเวลา</span> · <span class="ph">สถานที่หรือลิงก์ออนไลน์</span></p>
+          <a class="btn btn-solid" href="#" data-todo="ลิงก์ลงทะเบียนวงสนทนา">ลงทะเบียน</a>
         </article>
       </div>
-      <div class="pledge">
-        <div class="pledge-head">
-          <h3>5 สิ่งที่เริ่มได้วันนี้</h3>
-          <span class="pledge-count" id="pledgeCount">ทำแล้ว 0 จาก 5</span>
+      <div class="quiz-panel" id="quiz">
+        <div class="quiz-head">
+          <h3>ทบทวนความเข้าใจ 5 ข้อ</h3>
+          <p class="privacy">แบบทบทวนนี้ตรวจคำตอบในเครื่องของคุณ ไม่เก็บหรือส่งข้อมูล และไม่ใช่แบบประเมินก่อน–หลังของโครงงาน</p>
         </div>
-        <div class="meter" aria-hidden="true"><span id="pledgeMeter"></span></div>
-        <ul class="pledge-list">
-          <li><label for="pl1"><input type="checkbox" id="pl1"><span>ตรวจสอบสิทธิสวัสดิการของตัวเองและครอบครัว เช่น ประกันสังคม และหลักประกันสุขภาพถ้วนหน้า (บัตรทอง)</span></label></li>
-          <li><label for="pl2"><input type="checkbox" id="pl2"><span>เวลาพูดถึงสวัสดิการ ใช้คำว่า “สิทธิของทุกคน” แทน “การช่วยเหลือคนจน”</span></label></li>
-          <li><label for="pl3"><input type="checkbox" id="pl3"><span>ไม่ตีตราหรือดูถูกคนที่รับสวัสดิการจากรัฐ</span></label></li>
-          <li><label for="pl4"><input type="checkbox" id="pl4"><span>แชร์ข้อมูลความเหลื่อมล้ำ 1 เรื่องพร้อมแหล่งอ้างอิง และติด #ItsMyRightNotCharity</span></label></li>
-          <li><label for="pl5"><input type="checkbox" id="pl5"><span>ถามผู้สมัครรับเลือกตั้งถึงนโยบายสวัสดิการ และชวนคนรอบตัวอย่างน้อย 1 คนมาลงชื่อ</span></label></li>
-        </ul>
+        <form class="quiz" id="quizForm" novalidate>
+          <fieldset class="q" data-answer="b">
+            <legend><span class="q-n">1</span>ตัวเลขแรงงานนอกระบบ 20.9 ล้านคน เป็นข้อมูลของปีใด</legend>
+            <label for="q1a"><input type="radio" name="q1" id="q1a" value="a"><span>พ.ศ. 2564</span></label>
+            <label for="q1b"><input type="radio" name="q1" id="q1b" value="b"><span>พ.ศ. 2568</span></label>
+            <label for="q1c"><input type="radio" name="q1" id="q1c" value="c"><span>พ.ศ. 2569</span></label>
+            <p class="q-why" hidden data-why="เป็นผลสำรวจของสำนักงานสถิติแห่งชาติปี 2568 การระบุปีช่วยไม่ให้นำตัวเลขเก่าไปแทนสถานการณ์ปัจจุบัน"></p>
+          </fieldset>
+          <fieldset class="q" data-answer="b">
+            <legend><span class="q-n">2</span>ข้อใดอ่านตัวเลข “แรงงานนอกระบบ 52.4%” ได้ถูกต้อง</legend>
+            <label for="q2a"><input type="radio" name="q2" id="q2a" value="a"><span>52.4% ของคนไทยไม่มีสิทธิรักษาพยาบาล</span></label>
+            <label for="q2b"><input type="radio" name="q2" id="q2b" value="b"><span>52.4% ของผู้มีงานทำ อยู่นอกระบบตามนิยามและช่วงเวลาของการสำรวจ</span></label>
+            <label for="q2c"><input type="radio" name="q2" id="q2c" value="c"><span>52.4% ของคนวัยทำงานเป็นคนว่างงาน</span></label>
+            <p class="q-why" hidden data-why="ตัวเลขนี้คิดจากผู้มีงานทำ 39.9 ล้านคน และเป็นข้อมูลตามนิยามของการสำรวจ ไม่เท่ากับสัดส่วนคนที่ไม่มีสิทธิรักษาพยาบาล"></p>
+          </fieldset>
+          <fieldset class="q" data-answer="a">
+            <legend><span class="q-n">3</span>สวัสดิการที่มีกฎหมายหรือระเบียบรองรับ ต่างจากการบริจาคอย่างไร</legend>
+            <label for="q3a"><input type="radio" name="q3" id="q3a" value="a"><span>เป็นสิทธิที่ใช้ได้ตามเงื่อนไข แม้จะมีเกณฑ์คุณสมบัติ</span></label>
+            <label for="q3b"><input type="radio" name="q3" id="q3b" value="b"><span>ขึ้นอยู่กับความเมตตาของผู้ให้ในแต่ละครั้ง</span></label>
+            <label for="q3c"><input type="radio" name="q3" id="q3c" value="c"><span>ถ้ามีเกณฑ์คุณสมบัติ ก็ถือเป็นการให้ทานทั้งหมด</span></label>
+            <p class="q-why" hidden data-why="สวัสดิการที่มีกฎหมายหรือระเบียบรองรับเป็นสิทธิได้แม้มีเกณฑ์คุณสมบัติ แคมเปญนี้จึงไม่เหมารวมว่าความช่วยเหลือเฉพาะกลุ่มเป็นการให้ทาน"></p>
+          </fieldset>
+          <fieldset class="q" data-answer="c">
+            <legend><span class="q-n">4</span>เป้าประสงค์ใดพูดถึงนโยบายการคลัง ค่าจ้าง และการคุ้มครองทางสังคมโดยตรง</legend>
+            <label for="q4a"><input type="radio" name="q4" id="q4a" value="a"><span>SDG 1.3</span></label>
+            <label for="q4b"><input type="radio" name="q4" id="q4b" value="b"><span>SDG 17.17</span></label>
+            <label for="q4c"><input type="radio" name="q4" id="q4c" value="c"><span>SDG 10.4</span></label>
+            <p class="q-why" hidden data-why="10.4 ให้ใช้นโยบายการคลัง ค่าจ้าง และการคุ้มครองทางสังคม เพื่อความเท่าเทียมที่มากขึ้น ส่วน 1.3 เน้นระบบคุ้มครองทางสังคม และ 17.17 เน้นความร่วมมือ"></p>
+          </fieldset>
+          <fieldset class="q" data-answer="b">
+            <legend><span class="q-n">5</span>ในแคมเปญนี้ แรงงานและภาคประชาสังคมมีบทบาทอะไร</legend>
+            <label for="q5a"><input type="radio" name="q5" id="q5a" value="a"><span>รับรองแคมเปญในนามองค์กร</span></label>
+            <label for="q5b"><input type="radio" name="q5" id="q5b" value="b"><span>สะท้อนอุปสรรคและตรวจภาษาที่ใช้สื่อสาร โดยผู้เล่ายังตัดสินใจเองว่าจะเผยแพร่อะไร</span></label>
+            <label for="q5c"><input type="radio" name="q5" id="q5c" value="c"><span>ไม่เกี่ยวข้อง เพราะเป็นเรื่องของรัฐเท่านั้น</span></label>
+            <p class="q-why" hidden data-why="องค์กรที่กล่าวถึงไม่ใช่พันธมิตรที่ตอบรับแล้ว บทบาทที่เสนอคือสะท้อนอุปสรรคและตรวจภาษา โดยคงสิทธิการตัดสินใจของผู้เล่า"></p>
+          </fieldset>
+          <div class="quiz-foot">
+            <button type="submit" class="btn btn-solid">ตรวจคำตอบ</button>
+            <button type="button" class="btn btn-line btn-small" id="quizReset">เริ่มใหม่</button>
+            <p class="quiz-score" id="quizScore" aria-live="polite"></p>
+          </div>
+        </form>
       </div>
+      <p class="note">เว็บไซต์นี้ไม่แสดงยอดลงชื่อหรือผลสำรวจที่ยังไม่มี</p>
     </div>
   </section>
 
@@ -1027,77 +1181,60 @@ tbody tr:last-child td{border-bottom:0}
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">09</span><span>/ 10</span><span class="sec-kind">ข้อเท็จจริง</span><span>References</span></p>
         <h2 id="refs-title">แหล่งอ้างอิง</h2>
-        <p class="lede">แหล่งข้อมูลทั้งหมดที่ใช้ในเว็บไซต์นี้ เรียงตามเลขอ้างอิงในเนื้อหา เพื่อให้ผู้อ่านตรวจสอบและศึกษาต่อได้</p>
+        <p class="lede">แหล่งข้อมูลออนไลน์ทั้งหมดเข้าถึงเมื่อ 24 ตุลาคม 2569 เลขในวงเล็บเหลี่ยมในเนื้อหาตรงกับรายการนี้และรายงานของกลุ่ม</p>
       </header>
       <aside class="guide">
         <span class="guide-k">ส่วนนี้ต้องรวบรวม</span>
-        <span>แหล่งข้อมูลทั้งหมดที่ใช้ เช่น ข่าว เว็บไซต์ งานวิจัย รายงานของหน่วยงาน หรือเอกสารวิชาการ · เขียนแบบ APA 7 และเลขลำดับตรงกับปุ่ม [1] [2] ในเนื้อหา · ลิงก์และตัวเลขตรวจกับต้นฉบับแล้วเมื่อ 24 ต.ค. 2569 แหล่งในรายงานดิบที่หาต้นฉบับไม่พบถูกตัดออก</span>
+        <span>แหล่งข้อมูลทั้งหมดที่ใช้ เช่น ข่าว เว็บไซต์ งานวิจัย รายงานของหน่วยงาน หรือเอกสารวิชาการ อย่างน้อย 3 แหล่ง พร้อมลิงก์ต้นทาง · เขียนแบบ APA 7</span>
       </aside>
       <ol class="refs">
         <li id="ref-1">
           <span class="ref-n">[1]</span>
           <div class="ref-body">
-            <span class="chip">งานวิจัย</span>
-            <p>Thailand Development Research Institute. (2021, December 28). <i>Toward universal welfare system: Leaving no one behind</i>. TDRI. <a href="https://tdri.or.th/en/2021/12/toward-universal-welfare-system-leaving-no-one-behind/" target="_blank" rel="noopener">https://tdri.or.th/en/2021/12/toward-universal-welfare-system-leaving-no-one-behind/</a></p>
-            <p class="ref-meta">สรุปงานวิจัยของ สมชัย จิตสุชน และบุญวรา สุมะโน ที่นำเสนอในงานสัมมนาวิชาการประจำปี TDRI 2564</p>
+            <span class="chip">รายงานหน่วยงาน</span>
+            <p>World Bank. (2023). <i>Bridging the gap: Inequality and jobs in Thailand</i>. <a href="https://www.worldbank.org/en/country/thailand/publication/bridging-the-gap-inequality-and-jobs-in-thailand" target="_blank" rel="noopener">https://www.worldbank.org/en/country/thailand/publication/bridging-the-gap-inequality-and-jobs-in-thailand</a></p>
           </div>
         </li>
         <li id="ref-2">
           <span class="ref-n">[2]</span>
           <div class="ref-body">
-            <span class="chip">รายงานหน่วยงาน</span>
-            <p>World Bank. (2023). <i>Bridging the gap: Inequality and jobs in Thailand</i>. <a href="https://www.worldbank.org/en/country/thailand/publication/bridging-the-gap-inequality-and-jobs-in-thailand" target="_blank" rel="noopener">https://www.worldbank.org/en/country/thailand/publication/bridging-the-gap-inequality-and-jobs-in-thailand</a></p>
+            <span class="chip">ข้อมูลสถิติ</span>
+            <p>สำนักงานสถิติแห่งชาติ. (2568). <i>การสำรวจแรงงานนอกระบบ พ.ศ. 2568</i>. <a href="https://www.nso.go.th/nsoweb/storage/survey_detail/2026/20251126091907_74347.pdf" target="_blank" rel="noopener">https://www.nso.go.th/nsoweb/storage/survey_detail/2026/20251126091907_74347.pdf</a></p>
           </div>
         </li>
         <li id="ref-3">
           <span class="ref-n">[3]</span>
           <div class="ref-body">
-            <span class="chip">ข่าว</span>
-            <p>The Nation. (2025, September 17). Thailand’s poor reach 3.4m, 870,000 earn just 600 baht per month. <i>The Nation Thailand</i>. <a href="https://www.nationthailand.com/news/policy/40055537" target="_blank" rel="noopener">https://www.nationthailand.com/news/policy/40055537</a></p>
-            <p class="ref-meta">ใช้ข้อมูลความยากจนปี 2567 ของสำนักงานสภาพัฒนาการเศรษฐกิจและสังคมแห่งชาติ (สศช.)</p>
+            <span class="chip">งานวิจัย</span>
+            <p>Thailand Development Research Institute. (2021, December 28). <i>Toward universal welfare system: Leaving no one behind</i>. <a href="https://tdri.or.th/en/2021/12/toward-universal-welfare-system-leaving-no-one-behind/" target="_blank" rel="noopener">https://tdri.or.th/en/2021/12/toward-universal-welfare-system-leaving-no-one-behind/</a></p>
           </div>
         </li>
         <li id="ref-4">
           <span class="ref-n">[4]</span>
           <div class="ref-body">
-            <span class="chip">ข่าว</span>
-            <p>The Nation. (2026, May 1). Thailand’s minimum wage rises just 1.7% a year, real incomes stagnate. <i>The Nation Thailand</i>. <a href="https://www.nationthailand.com/news/general/40065708" target="_blank" rel="noopener">https://www.nationthailand.com/news/general/40065708</a></p>
-            <p class="ref-meta">ใช้ข้อมูลของศูนย์วิจัย Bnomics ธนาคารกรุงเทพ</p>
+            <span class="chip">เว็บไซต์</span>
+            <p>United Nations DESA. (n.d.). <i>Goal 10: Reduced inequalities</i>. <a href="https://sdgs.un.org/goals/goal10" target="_blank" rel="noopener">https://sdgs.un.org/goals/goal10</a></p>
           </div>
         </li>
         <li id="ref-5">
           <span class="ref-n">[5]</span>
           <div class="ref-body">
-            <span class="chip">ข้อมูลสถิติ</span>
-            <p>Paweenawat, S. W., &amp; Vechbanyongratana, J. (2026). <i>Employment in Thailand, 2019–2024: Crisis, recovery and informality</i> (WIEGO Statistical Brief No. 43). WIEGO. <a href="https://www.wiego.org/research-library-publications/employment-thailand-2019-2024-crisis-recovery-informality/" target="_blank" rel="noopener">https://www.wiego.org/research-library-publications/employment-thailand-2019-2024-crisis-recovery-informality/</a></p>
+            <span class="chip">เว็บไซต์</span>
+            <p>United Nations DESA. (n.d.). <i>Goal 1: No poverty</i>. <a href="https://sdgs.un.org/goals/goal1" target="_blank" rel="noopener">https://sdgs.un.org/goals/goal1</a></p>
           </div>
         </li>
         <li id="ref-6">
           <span class="ref-n">[6]</span>
           <div class="ref-body">
-            <span class="chip">ข่าว</span>
-            <p>Thai PBS World. (2026, January 19). The minimum wage: Thailand’s hidden election issue. <i>Thai PBS World</i>. <a href="https://www.thaipbsworld.com/election-2026/the-minimum-wage%3A-thailand%E2%80%99s-hidden-election-issue" target="_blank" rel="noopener">https://www.thaipbsworld.com/election-2026/the-minimum-wage%3A-thailand%E2%80%99s-hidden-election-issue</a></p>
+            <span class="chip">เว็บไซต์</span>
+            <p>United Nations DESA. (n.d.). <i>Goal 8: Decent work and economic growth</i>. <a href="https://sdgs.un.org/goals/goal8" target="_blank" rel="noopener">https://sdgs.un.org/goals/goal8</a></p>
           </div>
         </li>
         <li id="ref-7">
           <span class="ref-n">[7]</span>
           <div class="ref-body">
-            <span class="chip">ข่าว</span>
-            <p>Khaosod English. (2026, May 1). Thai workers march on Govt House for fair pay, jobs on Labour Day. <i>Khaosod English</i>. <a href="https://www.khaosodenglish.com/politics/2026/05/01/thai-workers-march-on-govt-house-for-fair-pay-jobs-on-labour-day/" target="_blank" rel="noopener">https://www.khaosodenglish.com/politics/2026/05/01/thai-workers-march-on-govt-house-for-fair-pay-jobs-on-labour-day/</a></p>
-          </div>
-        </li>
-        <li id="ref-8">
-          <span class="ref-n">[8]</span>
-          <div class="ref-body">
             <span class="chip">เว็บไซต์</span>
-            <p>United Nations Department of Economic and Social Affairs. (n.d.). <i>Goal 1</i>, <i>Goal 8</i> and <i>Goal 10</i>. Sustainable Development. <a href="https://sdgs.un.org/goals/goal1" target="_blank" rel="noopener">https://sdgs.un.org/goals/goal1</a> · <a href="https://sdgs.un.org/goals/goal8" target="_blank" rel="noopener">https://sdgs.un.org/goals/goal8</a> · <a href="https://sdgs.un.org/goals/goal10" target="_blank" rel="noopener">https://sdgs.un.org/goals/goal10</a></p>
-          </div>
-        </li>
-        <li id="ref-9">
-          <span class="ref-n">[9]</span>
-          <div class="ref-body">
-            <span class="chip">เว็บไซต์</span>
-            <p>United Nations. (n.d.). <i>Goal 10: Reduced inequalities</i>. Sustainable Development Goals. <a href="https://www.un.org/sustainabledevelopment/inequality/" target="_blank" rel="noopener">https://www.un.org/sustainabledevelopment/inequality/</a></p>
+            <p>United Nations DESA. (n.d.). <i>Goal 17: Partnerships for the goals</i>. <a href="https://sdgs.un.org/goals/goal17" target="_blank" rel="noopener">https://sdgs.un.org/goals/goal17</a></p>
           </div>
         </li>
       </ol>
@@ -1110,51 +1247,56 @@ tbody tr:last-child td{border-bottom:0}
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">10</span><span>/ 10</span><span class="sec-kind">แคมเปญ</span><span>Credits &amp; AI Disclosure</span></p>
         <h2 id="credits-title">เครดิตและการใช้ Generative AI</h2>
-        <p class="lede">ที่มาของสื่อทุกชิ้น และเครื่องมือ AI ที่กลุ่มใช้ในการทำเว็บไซต์นี้</p>
+        <p class="lede">ที่มาของสื่อทุกชิ้น เครื่องมือ AI ที่ใช้ จุดประสงค์ และสถานะการตรวจทาน</p>
       </header>
       <aside class="guide">
         <span class="guide-k">ส่วนนี้ต้องระบุ</span>
-        <span>เครดิตของภาพ กราฟิก วิดีโอ เสียง หรือสื่อที่นำมาใช้ ถ้าใช้ Generative AI ให้ระบุชื่อเครื่องมือ จุดประสงค์ที่ใช้ และวิธีที่กลุ่มตรวจสอบหรือปรับแก้ผลลัพธ์ · ช่องวิธีตรวจสอบ กลุ่มต้องเขียนจากสิ่งที่ทำจริง</span>
+        <span>เครดิตของภาพ กราฟิก วิดีโอ เสียง หรือสื่อที่นำมาใช้ ถ้าใช้ Generative AI ให้ระบุชื่อเครื่องมือ จุดประสงค์ที่ใช้ และวิธีที่กลุ่มตรวจสอบหรือปรับแก้ผลลัพธ์ · สมาชิกต้องเติมชื่อ รหัส และช่องวิธีตรวจสอบจากสิ่งที่ทำจริง</span>
       </aside>
       <div class="block">
         <h3 class="block-h">ผู้จัดทำ</h3>
+        <p class="course"><span>กลุ่ม <span class="ph">ชื่อกลุ่ม</span></span><span>Section <span class="ph">เลข Section</span></span></p>
         <ul class="team">
-          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">หน้าที่ เช่น หัวหน้ากลุ่ม</span></span></li>
-          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">หน้าที่ เช่น ค้นข้อมูล</span></span></li>
-          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">หน้าที่ เช่น ออกแบบกราฟิก</span></span></li>
-          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">หน้าที่ เช่น เขียนเนื้อหา</span></span></li>
-          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">หน้าที่ เช่น ทำเว็บไซต์</span></span></li>
+          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">บทบาท</span></span></li>
+          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">บทบาท</span></span></li>
+          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">บทบาท</span></span></li>
+          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">บทบาท</span></span></li>
+          <li class="member card"><span class="nm"><span class="ph">ชื่อ–นามสกุล</span></span><span class="id"><span class="ph">รหัสนักศึกษา</span></span><span class="role"><span class="ph">บทบาท</span></span></li>
         </ul>
-        <p class="course"><span><span class="ph">รหัสวิชา ชื่อวิชา</span></span><span>อาจารย์ผู้สอน <span class="ph">ชื่ออาจารย์</span></span><span><span class="ph">คณะ มหาวิทยาลัย</span></span><span>ภาคการศึกษา <span class="ph">1/2569</span></span></p>
+        <p class="course"><span>GE105 Global Alliance and Emerging Issues</span><span>มหาวิทยาลัยกรุงเทพ</span><span>ภาคเรียนที่ 1 ปีการศึกษา 2569</span><span>อาจารย์เสฎฐวุฒิ ยุทธาวรกูล</span><span>โครงงาน BU4Global Issue Campaign พลังชาวบียูสู่โลกที่ดีกว่า</span></p>
       </div>
       <div class="block">
         <h3 class="block-h">เครดิตสื่อ</h3>
         <div class="table-scroll">
           <table>
-            <thead><tr><th scope="col">สื่อ</th><th scope="col">ใช้ในส่วน</th><th scope="col">ที่มา / ผู้สร้าง</th><th scope="col">สิทธิ์การใช้งาน</th></tr></thead>
+            <thead><tr><th scope="col">สื่อ</th><th scope="col">ใช้ในส่วน</th><th scope="col">ที่มา / ผู้สร้าง</th><th scope="col">หมายเหตุ</th></tr></thead>
             <tbody>
-              <tr><td>โลโก้แคมเปญ</td><td>01, 07, ท้ายเว็บ</td><td>แนวคิดของกลุ่ม (คนชูสิทธิพื้นฐานขึ้นเหนือศีรษะ) วาดเป็น SVG ด้วย Claude</td><td>ใช้ในงานของกลุ่ม</td></tr>
-              <tr><td>ภาพ “ถ้าคนไทยมี 100 คน” และกราฟสัดส่วนทรัพย์สิน</td><td>01, 03</td><td>กลุ่มทำจากข้อมูลของ TDRI [1]</td><td>ใช้ในงานของกลุ่ม</td></tr>
-              <tr><td>ภาพสถานการณ์จริง</td><td>02 ปัญหา</td><td><span class="ph">ชื่อผู้ถ่าย หรือ “กลุ่มถ่ายเอง”</span></td><td><span class="ph">เช่น CC BY 4.0 / ได้รับอนุญาต</span></td></tr>
+              <tr><td>โลโก้เครื่องหมายเท่ากับใต้หลังคา</td><td>01, 07 และท้ายเว็บ</td><td>แนวคิดจากรายงานของกลุ่ม วาดเป็นกราฟิกเวกเตอร์ (SVG) ด้วยโค้ดโดย Claude</td><td>ไม่ได้ใช้โลโก้ขององค์กรใด</td></tr>
+              <tr><td>ภาพ “คนทำงาน 100 คน” และแผนภาพสัดส่วนแรงงาน</td><td>01, 03</td><td>สร้างด้วยโค้ดจากข้อมูลสำนักงานสถิติแห่งชาติปี 2568 [2]</td><td>ตัวเลขปัดเป็นจำนวนเต็มในภาพ 100 คน</td></tr>
               <tr><td>สีของ SDGs</td><td>06 SDGs</td><td>คู่มือการใช้สัญลักษณ์ SDGs ของสหประชาชาติ</td><td>ใช้เพื่อการศึกษา</td></tr>
               <tr><td>ฟอนต์</td><td>ทั้งเว็บไซต์</td><td>Bai Jamjuree, IBM Plex Sans Thai, IBM Plex Mono (Google Fonts)</td><td>SIL Open Font License 1.1</td></tr>
             </tbody>
           </table>
         </div>
+        <p class="note">เว็บไซต์นี้ไม่ได้ใช้ภาพบุคคลหรือภาพจากหน่วยงานภายนอก</p>
       </div>
       <div class="block">
         <h3 class="block-h">การใช้ Generative AI</h3>
         <div class="table-scroll">
           <table>
-            <thead><tr><th scope="col">เครื่องมือ</th><th scope="col">ใช้ทำอะไร</th><th scope="col">ใช้ในส่วน</th><th scope="col">กลุ่มตรวจสอบ / แก้ไขอย่างไร</th></tr></thead>
+            <thead><tr><th scope="col">เครื่องมือ</th><th scope="col">จุดประสงค์</th><th scope="col">สถานะการตรวจทาน</th><th scope="col">สมาชิกตรวจสอบ / แก้ไขอย่างไร</th></tr></thead>
             <tbody>
-              <tr><td>AI Passport (Deep Research)</td><td>ค้นคว้าและร่างรายงานข้อมูลดิบเรื่องความเหลื่อมล้ำและรัฐสวัสดิการ</td><td>เนื้อหาส่วนที่ 02–08</td><td><span class="ph">เช่น เปิดแหล่งอ้างอิงต้นฉบับทุกแหล่ง เทียบตัวเลขทีละตัว แก้ส่วนที่ไม่ตรง</span></td></tr>
-              <tr><td>Claude (Anthropic)</td><td>ออกแบบเว็บไซต์ ชุดสี และโลโก้ SVG เขียนโค้ด HTML, CSS, JavaScript และเรียบเรียงเนื้อหาจากรายงานของกลุ่มลงในเว็บ</td><td>ทั้งเว็บไซต์</td><td><span class="ph">เช่น อ่านทวนทุกส่วน ทดสอบบนมือถือและคอมพิวเตอร์ ตรวจลิงก์ทุกจุด</span></td></tr>
+              <tr><td>AI Passport (Deep Research)</td><td>ร่างแผนการค้นคว้าตั้งต้น 14 หน้า</td><td>ใช้เป็นแนวทางเท่านั้น ไม่ใช้แทนการตรวจต้นทาง</td><td><span class="ph">สิ่งที่สมาชิกทำจริง</span></td></tr>
+              <tr><td>ChatGPT</td><td>อ่านและสังเคราะห์เอกสารตั้งต้น จัดโครงร่าง เขียนร่างการวิเคราะห์และแผนแคมเปญ ตรวจความสอดคล้องของตัวเลขบางรายการ และจัดทำรายงาน</td><td>ตรวจแหล่งออนไลน์ผ่านเครื่องมือ AI เมื่อ 24 ต.ค. 2569 สมาชิกยังต้องตรวจเอง</td><td><span class="ph">สิ่งที่สมาชิกทำจริง</span></td></tr>
+              <tr><td>Claude (Anthropic)</td><td>ออกแบบเว็บไซต์และชุดสี วาดโลโก้ SVG เขียนโค้ด HTML, CSS, JavaScript เรียบเรียงเนื้อหาจากรายงานลงเว็บ และตรวจลิงก์กับตัวเลขหลักกับแหล่งต้นทาง</td><td>ตรวจตัวเลขแรงงานนอกระบบปี 2568 กับข้อมูลสำนักงานสถิติแห่งชาติแล้ว สมาชิกยังต้องตรวจเอง</td><td><span class="ph">สิ่งที่สมาชิกทำจริง</span></td></tr>
             </tbody>
           </table>
         </div>
       </div>
-      <p class="statement">ข้อมูล ตัวเลข และข้อความทั้งหมดในเว็บไซต์นี้ กลุ่มได้ตรวจสอบกับแหล่งอ้างอิงในส่วนที่ 09 แล้ว และกลุ่มรับผิดชอบต่อความถูกต้องของเนื้อหาทั้งหมด</p>
+      <div class="statement">
+        <span><span class="ph">สมาชิกกลุ่มได้เปิดอ่านแหล่งอ้างอิงในส่วนที่ 09 ตรวจตัวเลข ปีข้อมูล และบริบทแล้ว เมื่อวันที่ ...</span></span>
+        <small>จนกว่าสมาชิกจะตรวจเอง ให้ถือว่าเนื้อหานี้เป็นฉบับร่างที่ AI ช่วยตรวจ ยังไม่ใช่ผลการเก็บข้อมูลภาคสนามหรือหลักฐานการดำเนินแคมเปญ</small>
+      </div>
     </div>
   </section>
 </main>
@@ -1165,7 +1307,8 @@ tbody tr:last-child td{border-bottom:0}
       <svg aria-hidden="true"><use href="#logo"></use></svg>
       <div>
         <p class="foot-name">It’s My Right, Not Charity</p>
-        <p class="foot-meta">#ItsMyRightNotCharity · จัดทำเพื่อการศึกษา โดย <span class="ph">ชื่อกลุ่ม</span> · พ.ศ. 2569</p>
+        <p class="foot-meta">สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง · #ItsMyRightNotCharity</p>
+        <p class="foot-meta">GE105 · มหาวิทยาลัยกรุงเทพ · ภาคเรียนที่ 1/2569 · กลุ่ม <span class="ph">ชื่อกลุ่ม</span></p>
       </div>
     </div>
     <a class="to-top" href="#home">กลับขึ้นด้านบน ↑</a>
@@ -1310,7 +1453,7 @@ tbody tr:last-child td{border-bottom:0}
     toastTimer = setTimeout(function(){ toastEl.hidden = true; }, 2800);
   }
 
-  /* ----- ปุ่มคัดลอกแฮชแท็ก ----- */
+  /* ----- ปุ่มคัดลอกข้อความรณรงค์ ----- */
   [].slice.call(document.querySelectorAll('[data-copy]')).forEach(function(btn){
     btn.addEventListener('click', function(){
       var el = document.getElementById(btn.getAttribute('data-copy'));
@@ -1321,7 +1464,7 @@ tbody tr:last-child td{border-bottom:0}
         toast('เลือกข้อความให้แล้ว กดคัดลอกจากเมนูของเครื่องได้เลย');
       }
       try {
-        navigator.clipboard.writeText(text).then(function(){ toast('คัดลอก ' + text + ' แล้ว'); }, fallback);
+        navigator.clipboard.writeText(text).then(function(){ toast('คัดลอกข้อความรณรงค์แล้ว'); }, fallback);
       } catch (e) { fallback(); }
     });
   });
@@ -1335,24 +1478,34 @@ tbody tr:last-child td{border-bottom:0}
     });
   });
 
-  /* ----- เช็กลิสต์ 5 สิ่งที่ทำได้ (จำไว้ในเครื่องของผู้ชม) ----- */
-  var PLEDGE_KEY = 'campaign-template:pledge';
-  var boxes = [].slice.call(document.querySelectorAll('.pledge-list input'));
-  var countEl = document.getElementById('pledgeCount');
-  var meterEl = document.getElementById('pledgeMeter');
-  var savedPledge = [];
-  try { savedPledge = JSON.parse(localStorage.getItem(PLEDGE_KEY) || '[]'); } catch (e) {}
-  function updatePledge(){
-    var done = boxes.filter(function(b){ return b.checked; }).length;
-    countEl.textContent = 'ทำแล้ว ' + done + ' จาก ' + boxes.length;
-    meterEl.style.width = (done / boxes.length * 100) + '%';
-    try { localStorage.setItem(PLEDGE_KEY, JSON.stringify(boxes.map(function(b){ return b.checked ? b.id : null; }).filter(Boolean))); } catch (e) {}
-  }
-  boxes.forEach(function(b){
-    b.checked = Array.isArray(savedPledge) && savedPledge.indexOf(b.id) > -1;
-    b.addEventListener('change', updatePledge);
+  /* ----- แบบทบทวนความเข้าใจ 5 ข้อ (ตรวจในเครื่อง ไม่เก็บข้อมูล) ----- */
+  var form = document.getElementById('quizForm');
+  var scoreEl = document.getElementById('quizScore');
+  var qs = [].slice.call(form.querySelectorAll('.q'));
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var right = 0, answered = 0;
+    qs.forEach(function(q){
+      var picked = q.querySelector('input:checked');
+      var why = q.querySelector('.q-why');
+      q.classList.remove('right', 'wrong');
+      if (!picked) { why.hidden = true; return; }
+      answered++;
+      var ok = picked.value === q.getAttribute('data-answer');
+      if (ok) right++;
+      q.classList.add(ok ? 'right' : 'wrong');
+      why.innerHTML = '<b>' + (ok ? 'ถูกต้อง' : 'ยังไม่ถูก') + '</b> · ' + why.getAttribute('data-why');
+      why.hidden = false;
+    });
+    scoreEl.textContent = answered < qs.length
+      ? 'ตอบแล้ว ' + answered + ' จาก ' + qs.length + ' ข้อ · ถูก ' + right + ' ข้อ'
+      : 'ถูก ' + right + ' จาก ' + qs.length + ' ข้อ';
   });
-  updatePledge();
+  document.getElementById('quizReset').addEventListener('click', function(){
+    form.reset();
+    qs.forEach(function(q){ q.classList.remove('right', 'wrong'); q.querySelector('.q-why').hidden = true; });
+    scoreEl.textContent = '';
+  });
 })();
 </script>
 </body>
