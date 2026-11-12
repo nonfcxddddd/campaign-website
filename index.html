@@ -7,6 +7,7 @@
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14202f" media="(prefers-color-scheme: dark)">
 <title>It’s My Right, Not Charity</title>
+<link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
@@ -155,7 +156,7 @@ ul,ol{margin:0;padding:0}
 .masthead{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--surface);border-bottom:1px solid var(--line)}
 .masthead-in{display:flex;align-items:center;gap:14px;min-height:var(--head-h)}
 .brand{display:flex;align-items:center;gap:10px;min-width:0;margin-right:auto;text-decoration:none}
-.brand-logo{flex:none;width:36px;height:36px}
+.brand-logo{flex:none;width:38px;height:38px}
 .brand-name{font-family:var(--font-display);font-weight:700;font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .brand-tail{display:none}
 .nav{display:none}
@@ -251,7 +252,7 @@ tbody tr:last-child td{border-bottom:0}
 /* ---------- 01 หน้าแรก ---------- */
 .hero-grid{display:grid;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(36px,6vw,76px)}
 .hero-copy{display:grid;gap:18px;justify-items:start;min-width:0}
-.logo-mark{width:84px;height:84px}
+.logo-mark{width:96px;height:96px}
 .eyebrow{font-weight:500;color:var(--hero-soft)}
 .hero h1{font-size:var(--fs-h1);line-height:1.1;letter-spacing:-.015em}
 .slogan{font-family:var(--font-display);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.4}
@@ -324,7 +325,7 @@ tbody tr:last-child td{border-bottom:0}
 .ig-big{font:700 clamp(2rem,4vw,2.6rem)/1.12 var(--font-display);text-wrap:balance}
 .ig-text{font:600 1.08rem/1.45 var(--font-display)}
 .ig-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.8rem;font-weight:600}
-.ig-foot svg{flex:none;width:32px;height:32px}
+.ig-foot img{flex:none;width:34px;height:34px}
 @media (min-width:760px){ .stats{grid-template-columns:repeat(2,minmax(0,1fr))} }
 
 /* ---------- การ์ดสั้น (ผลกระทบ, ผู้เกี่ยวข้อง, SDGs) ---------- */
@@ -462,7 +463,7 @@ tbody tr:last-child td{border-bottom:0}
 .site-foot::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,var(--orange) 0 50%,var(--yellow) 50% 100%)}
 .foot-grid{display:grid;gap:20px}
 .foot-brand{display:flex;align-items:center;gap:14px}
-.foot-brand svg{flex:none;width:56px;height:56px}
+.foot-brand img{flex:none;width:60px;height:60px}
 .foot-name{font:700 1.5rem/1.25 var(--font-display)}
 .foot-meta{font-size:.88rem;opacity:.78}
 .to-top{justify-self:start;font-weight:600}
@@ -474,21 +475,12 @@ tbody tr:last-child td{border-bottom:0}
 </style>
 </head>
 <body>
-<!-- โลโก้แคมเปญ: เครื่องหมายเท่ากับอยู่ใต้เส้นหลังคา = ความเสมอภาคและหลักประกันร่วม -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="logo" viewBox="0 0 120 120">
-    <circle cx="60" cy="60" r="57" fill="#ffffff" stroke="#1d2b4c" stroke-width="4"/>
-    <path d="M24 57 60 27l36 30" fill="none" stroke="#1d2b4c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="38" y="63" width="44" height="9" rx="4.5" fill="#0b5a85"/>
-    <rect x="38" y="80" width="44" height="9" rx="4.5" fill="#0b5a85"/>
-  </symbol>
-</svg>
 <a class="skip" href="#main">ข้ามไปที่เนื้อหา</a>
 
 <header class="masthead">
   <div class="wrap masthead-in">
     <a class="brand" href="#home">
-      <svg class="brand-logo" aria-hidden="true"><use href="#logo"></use></svg>
+      <img class="brand-logo" src="images/logo.png" width="400" height="400" alt="">
       <span class="brand-name">It’s My Right<span class="brand-tail">, Not Charity</span></span>
     </a>
     <nav class="nav" aria-label="ส่วนต่าง ๆ ของเว็บไซต์">
@@ -546,7 +538,7 @@ tbody tr:last-child td{border-bottom:0}
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">01</span><span>/ 10</span><span class="sec-kind">แคมเปญ</span><span>Home</span></p>
-        <svg class="logo-mark" role="img" aria-label="โลโก้แคมเปญ: เครื่องหมายเท่ากับอยู่ใต้หลังคา"><use href="#logo"></use></svg>
+        <img class="logo-mark" src="images/logo.png" width="400" height="400" alt="โลโก้แคมเปญ It’s My Right, Not Charity: คนสามคนกับมือที่ประคองเครื่องหมายเท่ากับ ล้อมด้วยข้อความ IT’S MY RIGHT, NOT CHARITY!">
         <h1 id="home-title">It’s My Right, <span class="accent-word">Not Charity</span></h1>
         <p class="slogan">“สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง”</p>
         <p class="hero-lede">คนทำงานในไทยกว่าครึ่งอยู่นอกระบบ ทำงานเหมือนกัน แต่หลักประกันอาจต่างกัน มาเรียนรู้ ลองเล่น และส่งเสียงไปด้วยกัน</p>
@@ -696,19 +688,19 @@ tbody tr:last-child td{border-bottom:0}
             <p class="ig-k">รู้สิทธิใน 3 นาที · 1/3</p>
             <p class="ig-big">52 จาก 100</p>
             <p class="ig-text">คนทำงานในไทยเป็นแรงงานนอกระบบ</p>
-            <p class="ig-foot"><span>สำนักงานสถิติแห่งชาติ 2568</span><svg aria-hidden="true"><use href="#logo"></use></svg></p>
+            <p class="ig-foot"><span>สำนักงานสถิติแห่งชาติ 2568</span><img src="images/logo.png" width="400" height="400" alt=""></p>
           </li>
           <li class="ig ig-s">
             <p class="ig-k">รู้สิทธิใน 3 นาที · 2/3</p>
             <p class="ig-big">ทำงานเหมือนกัน</p>
             <p class="ig-text">แต่หลักประกันเมื่อป่วย ขาดรายได้ หรือสูงวัย อาจต่างกัน</p>
-            <p class="ig-foot"><span>#ItsMyRightNotCharity</span><svg aria-hidden="true"><use href="#logo"></use></svg></p>
+            <p class="ig-foot"><span>#ItsMyRightNotCharity</span><img src="images/logo.png" width="400" height="400" alt=""></p>
           </li>
           <li class="ig ig-g">
             <p class="ig-k">รู้สิทธิใน 3 นาที · 3/3</p>
             <p class="ig-big">สิทธิ ไม่ใช่บุญคุณ</p>
             <p class="ig-text">หลักประกันพื้นฐานควรเข้าถึงได้อย่างมีศักดิ์ศรี</p>
-            <p class="ig-foot"><span>#ItsMyRightNotCharity</span><svg aria-hidden="true"><use href="#logo"></use></svg></p>
+            <p class="ig-foot"><span>#ItsMyRightNotCharity</span><img src="images/logo.png" width="400" height="400" alt=""></p>
           </li>
         </ul>
       </div>
@@ -827,11 +819,11 @@ tbody tr:last-child td{border-bottom:0}
         <h2 id="campaign-title">แคมเปญของเรา</h2>
       </header>
       <div class="identity">
-        <svg class="logo-big" role="img" aria-label="โลโก้แคมเปญ It’s My Right, Not Charity"><use href="#logo"></use></svg>
+        <img class="logo-big" src="images/logo.png" width="400" height="400" alt="โลโก้แคมเปญ It’s My Right, Not Charity: คนสามคนกับมือที่ประคองเครื่องหมายเท่ากับ ล้อมด้วยข้อความ IT’S MY RIGHT, NOT CHARITY!" loading="lazy">
         <div class="identity-text">
           <h3 class="name">It’s My Right, Not Charity</h3>
           <p class="slogan">“สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง”</p>
-          <p>โลโก้คือเครื่องหมายเท่ากับใต้หลังคา หมายถึงทุกคนควรมีหลักประกันอย่างเท่าเทียม</p>
+          <p>โลโก้เป็นคนสามคนที่มีมือประคองเครื่องหมายเท่ากับไว้ตรงกลาง หมายถึงทุกคนควรได้รับหลักประกันอย่างเท่าเทียม และสังคมช่วยกันดูแลให้เกิดขึ้นจริง</p>
         </div>
       </div>
       <blockquote class="keymsg on-sky">
@@ -1209,7 +1201,7 @@ tbody tr:last-child td{border-bottom:0}
               <tr><td>ภาพพนักงานในสำนักงาน</td><td>02</td><td>Tech in Asia</td></tr>
               <tr><td>ภาพแรงงานก่อสร้าง</td><td>02</td><td><span class="ph">ใส่ที่มาของภาพ IMG_0620</span></td></tr>
               <tr><td>ภาพประกอบคนบนกองเหรียญ</td><td>03</td><td><span class="ph">ใส่ที่มาของภาพ IMG_0611</span></td></tr>
-              <tr><td>โลโก้ ภาพประกอบกิจกรรม การ์ดความรู้ ภาพ 100 คน และแผนภาพแรงงาน</td><td>01, 03, 07, 08</td><td>สร้างด้วยโค้ด (SVG/HTML) โดย Claude ตามแนวคิดของกลุ่ม ตัวเลขจากสำนักงานสถิติแห่งชาติ [2]</td></tr>
+              <tr><td>โลโก้แคมเปญ</td><td>ทั้งเว็บไซต์</td><td>ออกแบบโดยกลุ่ม</td></tr><tr><td>ภาพประกอบกิจกรรม การ์ดความรู้ ภาพ 100 คน และแผนภาพแรงงาน</td><td>01, 03, 07, 08</td><td>สร้างด้วยโค้ด (SVG/HTML) โดย Claude ตามแนวคิดของกลุ่ม ตัวเลขจากสำนักงานสถิติแห่งชาติ [2]</td></tr>
               <tr><td>สีของ SDGs และฟอนต์</td><td>ทั้งเว็บไซต์</td><td>คู่มือสัญลักษณ์ SDGs ของสหประชาชาติ · Google Fonts (SIL Open Font License 1.1)</td></tr>
             </tbody>
           </table>
@@ -1240,7 +1232,7 @@ tbody tr:last-child td{border-bottom:0}
 <footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-brand">
-      <svg aria-hidden="true"><use href="#logo"></use></svg>
+      <img src="images/logo.png" width="400" height="400" alt="" loading="lazy">
       <div>
         <p class="foot-name">It’s My Right, Not Charity</p>
         <p class="foot-meta">สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง · #ItsMyRightNotCharity</p>
