@@ -11,44 +11,44 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
 <style>
-/* Layout: หน้าเดียวเลื่อนดู 10 ส่วนตามโจทย์ เน้นให้คนอ่านเข้าใจเร็วและมีส่วนร่วม · แต่ละส่วนมี "สีประจำบท"
-   ปัญหา (แดง) → ข้อเท็จจริง (เหลือง) → ทางออก (เขียว) → แคมเปญ (ฟ้า)
-   สัดส่วนสี 60-30-10: พื้นขาวอมฟ้า ~60% · ฟ้า (สีหลัก) ~30% · แดง/เหลือง/เขียว รวม ~10% */
+/* Layout: หน้าเดียวเลื่อนดู 10 ส่วนตามโจทย์ เน้นให้คนอ่านเข้าใจเร็วและมีส่วนร่วม · ธีมกรมท่า + ส้ม ตามโลโก้และสื่อของกลุ่ม
+   แต่ละส่วนมี "สีประจำบท": ปัญหา (กรมท่า) → ข้อเท็จจริง (เหลืองโลโก้) → ทางออก/ลงมือทำ (ส้ม) → แคมเปญ (น้ำเงินโลโก้)
+   สัดส่วนสี 60-30-10: พื้นครีม ~60% · กรมท่า ~30% · ส้มและเหลือง ~10% */
 :root{
   /* ชุดสีแคมเปญ: -ink = ตัวหนังสือ, -tint = พื้นป้าย, -strong = พื้นปุ่ม */
-  --sky:#4db3ec;    --sky-ink:#0a6fa8;    --sky-tint:#e4f3fc;    --sky-strong:#0a6fa8;
-  --red:#e5484d;    --red-ink:#c42f35;    --red-tint:#fde9e9;    --red-strong:#c42f35;
-  --yellow:#ffc933; --yellow-ink:#8a6200; --yellow-tint:#fff5d1; --yellow-strong:#8a6200;
-  --green:#2ba866;  --green-ink:#147a45;  --green-tint:#e1f4e9;  --green-strong:#147a45;
+  --blue:#0b5a85;   --blue-ink:#0b5a85;   --blue-tint:#e2edf4;   --blue-strong:#0b5a85;
+  --navy:#2b3f6b;   --navy-ink:#2b3f6b;   --navy-tint:#e6e9f2;   --navy-strong:#2b3f6b;
+  --yellow:#f2d72a; --yellow-ink:#7a6100; --yellow-tint:#fcf4c8; --yellow-strong:#7a6100;
+  --orange:#f08a2e; --orange-ink:#b5530a; --orange-tint:#fdebd9; --orange-strong:#b5530a;
   --on-strong:#ffffff;
 
-  --bg:#f5f7fa;
+  --bg:#fbf6ec;
   --surface:#ffffff;
-  --band:#eaeff5;
-  --ink:#12233a;
-  --muted:#566476;
-  --line:#d5dde7;
-  --hl:#ffc933;
+  --band:#f4ecdf;
+  --ink:#1d2b4c;
+  --muted:#5d6273;
+  --line:#e5dccd;
+  --hl:#f2d72a;
 
-  --hero-bg:#4db3ec;
-  --hero-ink:#0f2238;
-  --hero-soft:rgba(15,34,56,.76);
-  --hero-line:rgba(15,34,56,.3);
-  --hero-wash:rgba(255,255,255,.4);
-  --hero-btn:#12233a;
-  --hero-btn-ink:#ffffff;
-  --hero-ph-bg:rgba(255,255,255,.55);
-  --hero-ph-line:#5b21b6;
+  --hero-bg:#1d2b4c;
+  --hero-ink:#ffffff;
+  --hero-soft:rgba(255,255,255,.8);
+  --hero-line:rgba(255,255,255,.3);
+  --hero-wash:rgba(255,255,255,.08);
+  --hero-btn:#f08a2e;
+  --hero-btn-ink:#1d2b4c;
+  --hero-ph-bg:rgba(255,255,255,.14);
+  --hero-ph-line:#d8c4ff;
 
-  --act-bg:#17794a;
+  --act-bg:#0b5a85;
   --act-ink:#ffffff;
-  --act-soft:rgba(255,255,255,.82);
+  --act-soft:rgba(255,255,255,.84);
   --act-line:rgba(255,255,255,.34);
   --act-wash:rgba(0,0,0,.16);
   --act-ph-bg:rgba(255,255,255,.16);
   --act-ph-line:#e4d6ff;
 
-  --foot-bg:#0f1c2e;
+  --foot-bg:#16223d;
   --foot-ink:#ffffff;
 
   /* เครื่องหมาย "ต้องแก้" เป็นสีม่วง อยู่นอกชุดสีแคมเปญ และซ่อนไว้เป็นค่าเริ่มต้น */
@@ -60,12 +60,12 @@
   --guide-line:#a78bfa;
   --toggle-on:#7c3aed;
 
-  --focus:#0a6fa8;
+  --focus:#0b5a85;
 
-  --accent:var(--sky);
-  --accent-ink:var(--sky-ink);
-  --accent-tint:var(--sky-tint);
-  --accent-strong:var(--sky-strong);
+  --accent:var(--blue);
+  --accent-ink:var(--blue-ink);
+  --accent-tint:var(--blue-tint);
+  --accent-strong:var(--blue-strong);
 
   --font-display:"Bai Jamjuree","IBM Plex Sans Thai","Leelawadee UI","Noto Sans Thai",system-ui,sans-serif;
   --font-body:"IBM Plex Sans Thai","Leelawadee UI","Noto Sans Thai",system-ui,sans-serif;
@@ -85,42 +85,42 @@
 @media (min-width:720px){ :root{ --gutter:32px } }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --sky:#5bbdf2;    --sky-ink:#7ccbf5;    --sky-tint:#132c3e;    --sky-strong:#5bbdf2;
-    --red:#f0646a;    --red-ink:#ff8f92;    --red-tint:#3a1b1f;    --red-strong:#f0646a;
-    --yellow:#ffd24d; --yellow-ink:#ffd666; --yellow-tint:#33290f; --yellow-strong:#ffd24d;
-    --green:#3cc07a;  --green-ink:#64d79a;  --green-tint:#12301f;  --green-strong:#3cc07a;
-    --on-strong:#0d1520;
-    --bg:#0d1520; --surface:#14202f; --band:#182637; --ink:#e7edf5; --muted:#9aa8b9; --line:#26364a; --hl:rgba(255,210,77,.38);
-    --hero-bg:#175e8c; --hero-ink:#ffffff; --hero-soft:rgba(255,255,255,.8); --hero-line:rgba(255,255,255,.32); --hero-wash:rgba(0,0,0,.2); --hero-btn:#ffffff; --hero-btn-ink:#0f2238; --hero-ph-bg:rgba(255,255,255,.14); --hero-ph-line:#d8c4ff;
-    --act-bg:#136a40;
+    --blue:#5aa7d6;   --blue-ink:#7fbde3;   --blue-tint:#13304a;   --blue-strong:#5aa7d6;
+    --navy:#8fa6d9;   --navy-ink:#aebee6;   --navy-tint:#1f2a47;   --navy-strong:#8fa6d9;
+    --yellow:#f5dd55; --yellow-ink:#f5dd55; --yellow-tint:#352f12; --yellow-strong:#f5dd55;
+    --orange:#ff9a45; --orange-ink:#ffab66; --orange-tint:#3a2512; --orange-strong:#ff9a45;
+    --on-strong:#141c2e;
+    --bg:#121a2c; --surface:#1a2438; --band:#1e2a42; --ink:#f1ece3; --muted:#a9b0bf; --line:#2c3a55; --hl:rgba(245,221,85,.38);
+    --hero-bg:#16223d; --hero-ink:#ffffff; --hero-soft:rgba(255,255,255,.8); --hero-line:rgba(255,255,255,.3); --hero-wash:rgba(255,255,255,.06); --hero-btn:#ff9a45; --hero-btn-ink:#141c2e; --hero-ph-bg:rgba(255,255,255,.14); --hero-ph-line:#d8c4ff;
+    --act-bg:#0d4a6e;
     --ph-bg-base:rgba(196,167,255,.14); --ph-line-base:#c4a7ff; --guide-bg:#211a33; --guide-line:#6d55b0; --toggle-on:#a78bfa;
-    --focus:#7ccbf5;
+    --focus:#7fbde3;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --sky:#5bbdf2;    --sky-ink:#7ccbf5;    --sky-tint:#132c3e;    --sky-strong:#5bbdf2;
-  --red:#f0646a;    --red-ink:#ff8f92;    --red-tint:#3a1b1f;    --red-strong:#f0646a;
-  --yellow:#ffd24d; --yellow-ink:#ffd666; --yellow-tint:#33290f; --yellow-strong:#ffd24d;
-  --green:#3cc07a;  --green-ink:#64d79a;  --green-tint:#12301f;  --green-strong:#3cc07a;
-  --on-strong:#0d1520;
-  --bg:#0d1520; --surface:#14202f; --band:#182637; --ink:#e7edf5; --muted:#9aa8b9; --line:#26364a; --hl:rgba(255,210,77,.38);
-  --hero-bg:#175e8c; --hero-ink:#ffffff; --hero-soft:rgba(255,255,255,.8); --hero-line:rgba(255,255,255,.32); --hero-wash:rgba(0,0,0,.2); --hero-btn:#ffffff; --hero-btn-ink:#0f2238; --hero-ph-bg:rgba(255,255,255,.14); --hero-ph-line:#d8c4ff;
-  --act-bg:#136a40;
-  --ph-bg-base:rgba(196,167,255,.14); --ph-line-base:#c4a7ff; --guide-bg:#211a33; --guide-line:#6d55b0; --toggle-on:#a78bfa;
-  --focus:#7ccbf5;
+  --blue:#5aa7d6;   --blue-ink:#7fbde3;   --blue-tint:#13304a;   --blue-strong:#5aa7d6;
+    --navy:#8fa6d9;   --navy-ink:#aebee6;   --navy-tint:#1f2a47;   --navy-strong:#8fa6d9;
+    --yellow:#f5dd55; --yellow-ink:#f5dd55; --yellow-tint:#352f12; --yellow-strong:#f5dd55;
+    --orange:#ff9a45; --orange-ink:#ffab66; --orange-tint:#3a2512; --orange-strong:#ff9a45;
+    --on-strong:#141c2e;
+    --bg:#121a2c; --surface:#1a2438; --band:#1e2a42; --ink:#f1ece3; --muted:#a9b0bf; --line:#2c3a55; --hl:rgba(245,221,85,.38);
+    --hero-bg:#16223d; --hero-ink:#ffffff; --hero-soft:rgba(255,255,255,.8); --hero-line:rgba(255,255,255,.3); --hero-wash:rgba(255,255,255,.06); --hero-btn:#ff9a45; --hero-btn-ink:#141c2e; --hero-ph-bg:rgba(255,255,255,.14); --hero-ph-line:#d8c4ff;
+    --act-bg:#0d4a6e;
+    --ph-bg-base:rgba(196,167,255,.14); --ph-line-base:#c4a7ff; --guide-bg:#211a33; --guide-line:#6d55b0; --toggle-on:#a78bfa;
+    --focus:#7fbde3;
   color-scheme:dark;
 }
 
-.c-sky{--accent:var(--sky);--accent-ink:var(--sky-ink);--accent-tint:var(--sky-tint);--accent-strong:var(--sky-strong)}
-.c-red{--accent:var(--red);--accent-ink:var(--red-ink);--accent-tint:var(--red-tint);--accent-strong:var(--red-strong)}
+.c-blue{--accent:var(--blue);--accent-ink:var(--blue-ink);--accent-tint:var(--blue-tint);--accent-strong:var(--blue-strong)}
+.c-navy{--accent:var(--navy);--accent-ink:var(--navy-ink);--accent-tint:var(--navy-tint);--accent-strong:var(--navy-strong)}
 .c-yellow{--accent:var(--yellow);--accent-ink:var(--yellow-ink);--accent-tint:var(--yellow-tint);--accent-strong:var(--yellow-strong)}
-.c-green{--accent:var(--green);--accent-ink:var(--green-ink);--accent-tint:var(--green-tint);--accent-strong:var(--green-strong)}
+.c-orange{--accent:var(--orange);--accent-ink:var(--orange-ink);--accent-tint:var(--orange-tint);--accent-strong:var(--orange-strong)}
 
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-@media (prefers-reduced-motion:reduce){
+@media (prefers-navyuced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
@@ -147,9 +147,9 @@ ul,ol{margin:0;padding:0}
 .clean .guide{display:none}
 
 .on-sky{background:var(--hero-bg);color:var(--hero-ink);--ph-bg:var(--hero-ph-bg);--ph-line:var(--hero-ph-line);--focus:var(--hero-ink)}
-.on-green{background:var(--act-bg);color:var(--act-ink);--ph-bg:var(--act-ph-bg);--ph-line:var(--act-ph-line);--focus:#ffffff}
+.on-act{background:var(--act-bg);color:var(--act-ink);--ph-bg:var(--act-ph-bg);--ph-line:var(--act-ph-line);--focus:#ffffff}
 .on-sky .guide{background:var(--hero-wash);border-color:var(--hero-line);color:inherit}
-.on-green .guide{background:var(--act-wash);border-color:var(--act-line);color:inherit}
+.on-act .guide{background:var(--act-wash);border-color:var(--act-line);color:inherit}
 
 /* ---------- แถบเมนูด้านบน ---------- */
 .masthead{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--surface);border-bottom:1px solid var(--line)}
@@ -199,24 +199,24 @@ ul,ol{margin:0;padding:0}
 .sec-num{font-size:1rem;font-weight:500;color:var(--accent-ink)}
 .sec-kind{padding:1px 9px;border-radius:999px;background:var(--accent-tint);color:var(--accent-ink);font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:0;text-transform:none}
 .on-sky .sec-tag{color:var(--hero-soft)}
-.on-green .sec-tag{color:var(--act-soft)}
-.on-sky .sec-num,.on-green .sec-num{color:inherit}
+.on-act .sec-tag{color:var(--act-soft)}
+.on-sky .sec-num,.on-act .sec-num{color:inherit}
 .on-sky .sec-kind{background:var(--hero-wash);color:var(--hero-ink)}
-.on-green .sec-kind{background:var(--act-wash);color:var(--act-ink)}
-.on-sky .sec-dot,.on-green .sec-dot{box-shadow:0 0 0 1.5px currentColor}
+.on-act .sec-kind{background:var(--act-wash);color:var(--act-ink)}
+.on-sky .sec-dot,.on-act .sec-dot{box-shadow:0 0 0 1.5px currentColor}
 .sec-head h2{font-size:var(--fs-h2)}
 .lede{max-width:64ch;font-size:var(--fs-lede);line-height:1.7;color:var(--muted)}
-.on-green .lede{color:var(--act-soft)}
+.on-act .lede{color:var(--act-soft)}
 .block{display:grid;gap:18px}
 .block-h{font-size:var(--fs-h3)}
 .note{max-width:72ch;font-size:.9rem;color:var(--muted)}
-.on-green .note{color:var(--act-soft)}
+.on-act .note{color:var(--act-soft)}
 .card{padding:22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
 .cite{display:inline-block;padding:0 6px;border:1px solid var(--yellow);border-radius:4px;background:var(--yellow-tint);font-family:var(--font-mono);font-size:.76rem;line-height:1.55;color:var(--yellow-ink);text-decoration:none;vertical-align:.1em;white-space:nowrap}
-.cite:hover{background:var(--yellow);color:#12233a}
+.cite:hover{background:var(--yellow);color:#1d2b4c}
 .chip{display:inline-block;justify-self:start;padding:2px 10px;border-radius:999px;background:var(--accent-tint);font-size:.8rem;font-weight:600;color:var(--accent-ink)}
 .checked{display:inline-flex;align-items:center;gap:6px;justify-self:start;padding:2px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.82rem;color:var(--muted)}
-.checked::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+.checked::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange)}
 .table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
 table{width:100%;min-width:640px;border-collapse:collapse;font-size:.92rem;line-height:1.6}
 th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
@@ -268,17 +268,17 @@ tbody tr:last-child td{border-bottom:0}
 .people i{aspect-ratio:1;border-radius:50%;background:var(--hero-ink);opacity:.2}
 .people i.on{opacity:1}
 .poster-stat{font:700 clamp(1.35rem,2.5vw,1.8rem)/1.35 var(--font-display);text-wrap:balance}
-.poster-stat em{font-style:normal;padding:0 .2em;border-radius:.15em;background:var(--yellow);color:#12233a}
+.poster-stat em{font-style:normal;padding:0 .2em;border-radius:.15em;background:var(--yellow);color:#1d2b4c}
 .poster .src{font-size:.82rem;color:var(--hero-soft)}
 @media (min-width:880px){ .hero-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr)} }
 .ticker{overflow:hidden;background:var(--foot-bg);color:var(--foot-ink)}
 .ticker-track{display:flex;width:max-content;animation:tick 48s linear infinite}
 .ticker-track > span{padding:12px 20px;font-family:var(--font-display);font-weight:600;font-size:1.05rem;white-space:nowrap}
 .ticker .sep{padding-inline:0}
-.ticker .s-red{color:var(--red)}
+.ticker .s-navy{color:var(--orange)}
 .ticker .s-yellow{color:var(--yellow)}
-.ticker .s-green{color:var(--green)}
-.ticker .s-sky{color:var(--sky)}
+.ticker .s-orange{color:var(--orange)}
+.ticker .s-blue{color:var(--yellow)}
 @keyframes tick{to{transform:translateX(-50%)}}
 
 /* ---------- 02 ทำความรู้จักกับปัญหา ---------- */
@@ -306,20 +306,20 @@ tbody tr:last-child td{border-bottom:0}
 .chart{display:grid;gap:16px;align-content:start;min-width:0}
 .chart h3{font-size:1.15rem}
 .split-bar{display:flex;gap:2px;height:56px;border-radius:6px;overflow:hidden}
-.split-bar span{display:flex;flex-direction:column;align-items:center;justify-content:center;flex-basis:0;min-width:4px;overflow:hidden;font-size:.85rem;font-weight:600;line-height:1.3;color:#12233a;white-space:nowrap}
+.split-bar span{display:flex;flex-direction:column;align-items:center;justify-content:center;flex-basis:0;min-width:4px;overflow:hidden;font-size:.85rem;font-weight:600;line-height:1.3;color:#1d2b4c;white-space:nowrap}
 .split-bar span small{font-size:.78rem;font-weight:500}
 .s-inf{background:var(--yellow)}
-.s-for{background:#c3ccd8}
+.s-for{background:#d9cfbd}
 .split-legend{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.88rem}
 .split-legend li{display:inline-flex;align-items:center;gap:7px}
 .split-legend i{width:12px;height:12px;border-radius:3px}
 .chart figcaption{font-size:.82rem;color:var(--muted)}
 /* การ์ดความรู้ "รู้สิทธิใน 3 นาที" เป็นสื่อของแคมเปญ ใช้สีคงที่ทั้งโหมดสว่างและมืด */
 .igs{list-style:none;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.ig{display:grid;align-content:space-between;gap:18px;min-height:250px;padding:22px;border-radius:16px;color:#12233a}
-.ig-y{background:#ffc933}
-.ig-s{background:#4db3ec}
-.ig-g{background:#2ba866}
+.ig{display:grid;align-content:space-between;gap:18px;min-height:250px;padding:22px;border-radius:16px;color:#1d2b4c}
+.ig-y{background:#f2d72a}
+.ig-s{background:#f08a2e}
+.ig-g{background:#1d2b4c;color:#ffffff}
 .ig-k{font:500 .78rem/1.3 var(--font-mono);letter-spacing:.06em}
 .ig-big{font:700 clamp(2rem,4vw,2.6rem)/1.12 var(--font-display);text-wrap:balance}
 .ig-text{font:600 1.08rem/1.45 var(--font-display)}
@@ -396,8 +396,8 @@ tbody tr:last-child td{border-bottom:0}
 .persona-card span{font-size:.9rem;color:var(--muted)}
 .spend{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
 .spend li{padding:3px 10px;border-radius:999px;background:var(--band);font-size:.85rem;font-variant-numeric:tabular-nums}
-.event{padding:12px 14px;border-radius:10px;background:var(--red-tint);color:var(--ink);font-weight:500}
-.event b{color:var(--red-ink)}
+.event{padding:12px 14px;border-radius:10px;background:var(--navy-tint);color:var(--ink);font-weight:500}
+.event b{color:var(--navy-ink)}
 .play{display:grid;gap:12px;align-content:start}
 .play-k{font-weight:600}
 .choices{display:grid;gap:8px}
@@ -405,8 +405,8 @@ tbody tr:last-child td{border-bottom:0}
 .choice b{font-weight:600}
 .choice span{font-size:.85rem;color:var(--muted)}
 .choice[aria-pressed="true"]{border-color:var(--accent-strong);background:var(--accent-tint)}
-.protect{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;padding:12px 14px;border-radius:12px;background:var(--sky-tint);color:var(--ink);cursor:pointer}
-.protect input{width:20px;height:20px;margin:.25em 0 0;accent-color:var(--sky-strong)}
+.protect{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;padding:12px 14px;border-radius:12px;background:var(--blue-tint);color:var(--ink);cursor:pointer}
+.protect input{width:20px;height:20px;margin:.25em 0 0;accent-color:var(--blue-strong)}
 .balance{display:grid;gap:6px}
 .balance-row{display:flex;justify-content:space-between;gap:8px;font-weight:600;font-variant-numeric:tabular-nums}
 .meter{height:10px;border-radius:99px;background:var(--band);overflow:hidden}
@@ -421,11 +421,11 @@ tbody tr:last-child td{border-bottom:0}
 .q label{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer}
 .q label:hover{background:var(--band)}
 .q input{width:18px;height:18px;margin:.3em 0 0;accent-color:var(--accent-strong)}
-.q.right{border-color:var(--green)}
-.q.wrong{border-color:var(--red)}
+.q.right{border-color:var(--orange)}
+.q.wrong{border-color:var(--navy)}
 .q-why{margin-top:8px;padding:10px 12px;border-radius:8px;background:var(--band);font-size:.92rem}
-.q.right .q-why b{color:var(--green-ink)}
-.q.wrong .q-why b{color:var(--red-ink)}
+.q.right .q-why b{color:var(--orange-ink)}
+.q.wrong .q-why b{color:var(--navy-ink)}
 .quiz-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
 .quiz-score{font-weight:600}
 .pick{display:flex;flex-wrap:wrap;gap:8px}
@@ -445,7 +445,7 @@ tbody tr:last-child td{border-bottom:0}
 .refs li:target{background:var(--accent-tint)}
 .ref-n{font-family:var(--font-mono);font-weight:500;color:var(--accent-ink)}
 .ref-body{display:grid;gap:6px;min-width:0;overflow-wrap:anywhere}
-.ref-body a{color:var(--sky-ink)}
+.ref-body a{color:var(--blue-ink)}
 
 /* ---------- 10 เครดิต ---------- */
 .team{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
@@ -459,7 +459,7 @@ tbody tr:last-child td{border-bottom:0}
 
 /* ---------- ท้ายเว็บ ---------- */
 .site-foot{position:relative;padding-block:54px 44px;background:var(--foot-bg);color:var(--foot-ink);--focus:var(--foot-ink);--ph-bg:var(--act-ph-bg);--ph-line:var(--act-ph-line)}
-.site-foot::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,var(--red) 0 25%,var(--yellow) 25% 50%,var(--green) 50% 75%,var(--sky) 75% 100%)}
+.site-foot::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,var(--orange) 0 50%,var(--yellow) 50% 100%)}
 .foot-grid{display:grid;gap:20px}
 .foot-brand{display:flex;align-items:center;gap:14px}
 .foot-brand svg{flex:none;width:56px;height:56px}
@@ -469,16 +469,18 @@ tbody tr:last-child td{border-bottom:0}
 @media (min-width:760px){ .foot-grid{grid-template-columns:minmax(0,1fr) auto;align-items:end} }
 
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:80;max-width:calc(100% - 32px);padding:10px 16px;border-radius:10px;background:var(--ink);color:var(--bg);font-size:.92rem;transform:translateX(-50%);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+
+.accent-word{color:var(--hero-btn)}
 </style>
 </head>
 <body>
 <!-- โลโก้แคมเปญ: เครื่องหมายเท่ากับอยู่ใต้เส้นหลังคา = ความเสมอภาคและหลักประกันร่วม -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="logo" viewBox="0 0 120 120">
-    <circle cx="60" cy="60" r="57" fill="#ffffff" stroke="#12233a" stroke-width="4"/>
-    <path d="M24 57 60 27l36 30" fill="none" stroke="#12233a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="38" y="63" width="44" height="9" rx="4.5" fill="#0a6fa8"/>
-    <rect x="38" y="80" width="44" height="9" rx="4.5" fill="#0a6fa8"/>
+    <circle cx="60" cy="60" r="57" fill="#ffffff" stroke="#1d2b4c" stroke-width="4"/>
+    <path d="M24 57 60 27l36 30" fill="none" stroke="#1d2b4c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="38" y="63" width="44" height="9" rx="4.5" fill="#0b5a85"/>
+    <rect x="38" y="80" width="44" height="9" rx="4.5" fill="#0b5a85"/>
   </symbol>
 </svg>
 <a class="skip" href="#main">ข้ามไปที่เนื้อหา</a>
@@ -491,47 +493,47 @@ tbody tr:last-child td{border-bottom:0}
     </a>
     <nav class="nav" aria-label="ส่วนต่าง ๆ ของเว็บไซต์">
       <ol>
-        <li class="c-sky"><a href="#home">หน้าแรก</a></li>
-        <li class="c-red"><a href="#issue">ปัญหา</a></li>
+        <li class="c-blue"><a href="#home">หน้าแรก</a></li>
+        <li class="c-navy"><a href="#issue">ปัญหา</a></li>
         <li class="c-yellow"><a href="#evidence">หลักฐาน</a></li>
-        <li class="c-red"><a href="#impacts">ผลกระทบ</a></li>
-        <li class="c-green"><a href="#stakeholders">ผู้เกี่ยวข้อง</a></li>
-        <li class="c-green"><a href="#sdgs">SDGs</a></li>
-        <li class="c-sky"><a href="#campaign">แคมเปญ</a></li>
-        <li class="c-green"><a href="#action">มาร่วมเล่น</a></li>
+        <li class="c-navy"><a href="#impacts">ผลกระทบ</a></li>
+        <li class="c-orange"><a href="#stakeholders">ผู้เกี่ยวข้อง</a></li>
+        <li class="c-orange"><a href="#sdgs">SDGs</a></li>
+        <li class="c-blue"><a href="#campaign">แคมเปญ</a></li>
+        <li class="c-orange"><a href="#action">มาร่วมเล่น</a></li>
         <li class="c-yellow"><a href="#references">อ้างอิง</a></li>
-        <li class="c-sky"><a href="#credits">เครดิต</a></li>
+        <li class="c-blue"><a href="#credits">เครดิต</a></li>
       </ol>
     </nav>
     <button type="button" class="guide-toggle js-guide-toggle" aria-pressed="false"><span class="sw" aria-hidden="true"></span>จุดที่ต้องแก้</button>
     <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer"><span class="bars" aria-hidden="true"></span><span class="menu-label">เมนู</span></button>
   </div>
   <div class="story" aria-hidden="true">
-    <a class="c-sky" href="#home" tabindex="-1"></a>
-    <a class="c-red" href="#issue" tabindex="-1"></a>
+    <a class="c-blue" href="#home" tabindex="-1"></a>
+    <a class="c-navy" href="#issue" tabindex="-1"></a>
     <a class="c-yellow" href="#evidence" tabindex="-1"></a>
-    <a class="c-red" href="#impacts" tabindex="-1"></a>
-    <a class="c-green" href="#stakeholders" tabindex="-1"></a>
-    <a class="c-green" href="#sdgs" tabindex="-1"></a>
-    <a class="c-sky" href="#campaign" tabindex="-1"></a>
-    <a class="c-green" href="#action" tabindex="-1"></a>
+    <a class="c-navy" href="#impacts" tabindex="-1"></a>
+    <a class="c-orange" href="#stakeholders" tabindex="-1"></a>
+    <a class="c-orange" href="#sdgs" tabindex="-1"></a>
+    <a class="c-blue" href="#campaign" tabindex="-1"></a>
+    <a class="c-orange" href="#action" tabindex="-1"></a>
     <a class="c-yellow" href="#references" tabindex="-1"></a>
-    <a class="c-sky" href="#credits" tabindex="-1"></a>
+    <a class="c-blue" href="#credits" tabindex="-1"></a>
   </div>
   <div class="drawer" id="drawer" hidden>
     <div class="wrap drawer-in">
       <button type="button" class="guide-toggle js-guide-toggle" aria-pressed="false"><span class="sw" aria-hidden="true"></span>แสดงจุดที่ต้องแก้</button>
       <ol>
-        <li class="c-sky"><a href="#home"><span class="n">01</span><span class="t">หน้าแรก<small>Home</small></span></a></li>
-        <li class="c-red"><a href="#issue"><span class="n">02</span><span class="t">ทำความรู้จักกับปัญหา<small>About the Issue</small></span></a></li>
+        <li class="c-blue"><a href="#home"><span class="n">01</span><span class="t">หน้าแรก<small>Home</small></span></a></li>
+        <li class="c-navy"><a href="#issue"><span class="n">02</span><span class="t">ทำความรู้จักกับปัญหา<small>About the Issue</small></span></a></li>
         <li class="c-yellow"><a href="#evidence"><span class="n">03</span><span class="t">ข้อมูลและหลักฐาน<small>Evidence &amp; Facts</small></span></a></li>
-        <li class="c-red"><a href="#impacts"><span class="n">04</span><span class="t">ผลกระทบ<small>Impacts</small></span></a></li>
-        <li class="c-green"><a href="#stakeholders"><span class="n">05</span><span class="t">ผู้มีส่วนเกี่ยวข้อง<small>Stakeholders</small></span></a></li>
-        <li class="c-green"><a href="#sdgs"><span class="n">06</span><span class="t">ความเชื่อมโยงกับ SDGs<small>SDGs</small></span></a></li>
-        <li class="c-sky"><a href="#campaign"><span class="n">07</span><span class="t">แคมเปญของเรา<small>Our Campaign</small></span></a></li>
-        <li class="c-green"><a href="#action"><span class="n">08</span><span class="t">มาร่วมเป็นส่วนหนึ่ง<small>Take Action</small></span></a></li>
+        <li class="c-navy"><a href="#impacts"><span class="n">04</span><span class="t">ผลกระทบ<small>Impacts</small></span></a></li>
+        <li class="c-orange"><a href="#stakeholders"><span class="n">05</span><span class="t">ผู้มีส่วนเกี่ยวข้อง<small>Stakeholders</small></span></a></li>
+        <li class="c-orange"><a href="#sdgs"><span class="n">06</span><span class="t">ความเชื่อมโยงกับ SDGs<small>SDGs</small></span></a></li>
+        <li class="c-blue"><a href="#campaign"><span class="n">07</span><span class="t">แคมเปญของเรา<small>Our Campaign</small></span></a></li>
+        <li class="c-orange"><a href="#action"><span class="n">08</span><span class="t">มาร่วมเป็นส่วนหนึ่ง<small>Take Action</small></span></a></li>
         <li class="c-yellow"><a href="#references"><span class="n">09</span><span class="t">แหล่งอ้างอิง<small>References</small></span></a></li>
-        <li class="c-sky"><a href="#credits"><span class="n">10</span><span class="t">เครดิตและการใช้ Generative AI<small>Credits &amp; AI Disclosure</small></span></a></li>
+        <li class="c-blue"><a href="#credits"><span class="n">10</span><span class="t">เครดิตและการใช้ Generative AI<small>Credits &amp; AI Disclosure</small></span></a></li>
       </ol>
     </div>
   </div>
@@ -540,12 +542,12 @@ tbody tr:last-child td{border-bottom:0}
 <main id="main">
 
   <!-- 01 HOME -->
-  <section id="home" class="hero on-sky c-sky" aria-labelledby="home-title">
+  <section id="home" class="hero on-sky c-blue" aria-labelledby="home-title">
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">01</span><span>/ 10</span><span class="sec-kind">แคมเปญ</span><span>Home</span></p>
         <svg class="logo-mark" role="img" aria-label="โลโก้แคมเปญ: เครื่องหมายเท่ากับอยู่ใต้หลังคา"><use href="#logo"></use></svg>
-        <h1 id="home-title">It’s My Right, Not Charity</h1>
+        <h1 id="home-title">It’s My Right, <span class="accent-word">Not Charity</span></h1>
         <p class="slogan">“สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง”</p>
         <p class="hero-lede">คนทำงานในไทยกว่าครึ่งอยู่นอกระบบ ทำงานเหมือนกัน แต่หลักประกันอาจต่างกัน มาเรียนรู้ ลองเล่น และส่งเสียงไปด้วยกัน</p>
         <div class="quick">
@@ -581,14 +583,14 @@ tbody tr:last-child td{border-bottom:0}
     </div>
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
-        <span>#ItsMyRightNotCharity</span><span class="sep s-red">●</span>
+        <span>#ItsMyRightNotCharity</span><span class="sep s-navy">●</span>
         <span>สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง</span><span class="sep s-yellow">●</span>
-        <span>#ItsMyRightNotCharity</span><span class="sep s-green">●</span>
-        <span>สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง</span><span class="sep s-sky">●</span>
-        <span>#ItsMyRightNotCharity</span><span class="sep s-red">●</span>
+        <span>#ItsMyRightNotCharity</span><span class="sep s-orange">●</span>
+        <span>สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง</span><span class="sep s-blue">●</span>
+        <span>#ItsMyRightNotCharity</span><span class="sep s-navy">●</span>
         <span>สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง</span><span class="sep s-yellow">●</span>
-        <span>#ItsMyRightNotCharity</span><span class="sep s-green">●</span>
-        <span>สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง</span><span class="sep s-sky">●</span>
+        <span>#ItsMyRightNotCharity</span><span class="sep s-orange">●</span>
+        <span>สวัสดิการคือสิทธิ เพื่อชีวิตที่มั่นคง</span><span class="sep s-blue">●</span>
       </div>
     </div>
     <figure class="band-photo">
@@ -603,7 +605,7 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 02 ABOUT THE ISSUE -->
-  <section id="issue" class="sec c-red" aria-labelledby="issue-title">
+  <section id="issue" class="sec c-navy" aria-labelledby="issue-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">02</span><span>/ 10</span><span class="sec-kind">ปัญหา</span><span>About the Issue</span></p>
@@ -715,7 +717,7 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 04 IMPACTS -->
-  <section id="impacts" class="sec c-red" aria-labelledby="impacts-title">
+  <section id="impacts" class="sec c-navy" aria-labelledby="impacts-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">04</span><span>/ 10</span><span class="sec-kind">ปัญหา</span><span>Impacts</span></p>
@@ -737,7 +739,7 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 05 STAKEHOLDERS -->
-  <section id="stakeholders" class="sec tint c-green" aria-labelledby="stake-title">
+  <section id="stakeholders" class="sec tint c-orange" aria-labelledby="stake-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">05</span><span>/ 10</span><span class="sec-kind">ทางออก</span><span>Stakeholders</span></p>
@@ -761,7 +763,7 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 06 SDGs -->
-  <section id="sdgs" class="sec c-green" aria-labelledby="sdgs-title">
+  <section id="sdgs" class="sec c-orange" aria-labelledby="sdgs-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">06</span><span>/ 10</span><span class="sec-kind">ทางออก</span><span>Sustainable Development Goals</span></p>
@@ -818,7 +820,7 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 07 OUR CAMPAIGN -->
-  <section id="campaign" class="sec tint c-sky" aria-labelledby="campaign-title">
+  <section id="campaign" class="sec tint c-blue" aria-labelledby="campaign-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">07</span><span>/ 10</span><span class="sec-kind">แคมเปญ</span><span>Our Campaign</span></p>
@@ -855,19 +857,19 @@ tbody tr:last-child td{border-bottom:0}
         <ul class="acts">
           <li class="act">
             <svg viewBox="0 0 240 140" role="img" aria-label="ภาพประกอบโทรศัพท์ที่แสดงอินโฟกราฟิก นาฬิกา และปุ่มเล่นคลิป">
-              <rect width="240" height="140" fill="#e4f3fc"/>
-              <circle cx="56" cy="92" r="22" fill="#e5484d" stroke="#12233a" stroke-width="3"/>
+              <rect width="240" height="140" fill="#e2edf4"/>
+              <circle cx="56" cy="92" r="22" fill="#e8721c" stroke="#1d2b4c" stroke-width="3"/>
               <path d="M50 82v20l17-10z" fill="#ffffff"/>
-              <rect x="88" y="12" width="64" height="116" rx="10" fill="#12233a"/>
+              <rect x="88" y="12" width="64" height="116" rx="10" fill="#1d2b4c"/>
               <rect x="94" y="22" width="52" height="96" rx="4" fill="#ffffff"/>
-              <rect x="100" y="30" width="28" height="6" rx="3" fill="#12233a"/>
-              <rect x="100" y="46" width="40" height="10" rx="3" fill="#ffc933"/>
-              <rect x="100" y="62" width="26" height="10" rx="3" fill="#4db3ec"/>
-              <rect x="100" y="78" width="34" height="10" rx="3" fill="#2ba866"/>
-              <rect x="108" y="97" width="24" height="4" rx="2" fill="#0a6fa8"/>
-              <rect x="108" y="105" width="24" height="4" rx="2" fill="#0a6fa8"/>
-              <circle cx="186" cy="46" r="22" fill="#ffc933" stroke="#12233a" stroke-width="4"/>
-              <path d="M186 46V32M186 46l9 6" stroke="#12233a" stroke-width="4" stroke-linecap="round"/>
+              <rect x="100" y="30" width="28" height="6" rx="3" fill="#1d2b4c"/>
+              <rect x="100" y="46" width="40" height="10" rx="3" fill="#f2d72a"/>
+              <rect x="100" y="62" width="26" height="10" rx="3" fill="#5b8fc0"/>
+              <rect x="100" y="78" width="34" height="10" rx="3" fill="#f08a2e"/>
+              <rect x="108" y="97" width="24" height="4" rx="2" fill="#0b5a85"/>
+              <rect x="108" y="105" width="24" height="4" rx="2" fill="#0b5a85"/>
+              <circle cx="186" cy="46" r="22" fill="#f2d72a" stroke="#1d2b4c" stroke-width="4"/>
+              <path d="M186 46V32M186 46l9 6" stroke="#1d2b4c" stroke-width="4" stroke-linecap="round"/>
             </svg>
             <div class="act-body">
               <h4>รู้สิทธิใน 3 นาที</h4>
@@ -878,18 +880,18 @@ tbody tr:last-child td{border-bottom:0}
           </li>
           <li class="act">
             <svg viewBox="0 0 240 140" role="img" aria-label="ภาพประกอบเส้นทางชีวิตที่ผ่านบ้าน อาหาร การเดินทาง และค่ารักษา">
-              <rect width="240" height="140" fill="#fff5d1"/>
-              <path d="M30 108H92V48H152V100H208" fill="none" stroke="#12233a" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="30" cy="108" r="15" fill="#4db3ec" stroke="#12233a" stroke-width="3"/>
+              <rect width="240" height="140" fill="#fcf4c8"/>
+              <path d="M30 108H92V48H152V100H208" fill="none" stroke="#1d2b4c" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="30" cy="108" r="15" fill="#5b8fc0" stroke="#1d2b4c" stroke-width="3"/>
               <path d="M22 110l8-8 8 8v7H22z" fill="#ffffff"/>
-              <circle cx="92" cy="48" r="15" fill="#ffc933" stroke="#12233a" stroke-width="3"/>
-              <path d="M82 46h20a10 8 0 0 1-20 0z" fill="#12233a"/>
-              <circle cx="152" cy="48" r="15" fill="#2ba866" stroke="#12233a" stroke-width="3"/>
+              <circle cx="92" cy="48" r="15" fill="#f2d72a" stroke="#1d2b4c" stroke-width="3"/>
+              <path d="M82 46h20a10 8 0 0 1-20 0z" fill="#1d2b4c"/>
+              <circle cx="152" cy="48" r="15" fill="#f08a2e" stroke="#1d2b4c" stroke-width="3"/>
               <circle cx="152" cy="48" r="6" fill="none" stroke="#ffffff" stroke-width="3"/>
-              <circle cx="152" cy="100" r="15" fill="#e5484d" stroke="#12233a" stroke-width="3"/>
+              <circle cx="152" cy="100" r="15" fill="#e8721c" stroke="#1d2b4c" stroke-width="3"/>
               <path d="M149 93h6v4h4v6h-4v4h-6v-4h-4v-6h4z" fill="#ffffff"/>
-              <path d="M208 100V70" stroke="#12233a" stroke-width="4" stroke-linecap="round"/>
-              <path d="M208 70h20l-6 7 6 7h-20z" fill="#12233a"/>
+              <path d="M208 100V70" stroke="#1d2b4c" stroke-width="4" stroke-linecap="round"/>
+              <path d="M208 70h20l-6 7 6 7h-20z" fill="#1d2b4c"/>
             </svg>
             <div class="act-body">
               <h4>แผนที่ภาระชีวิต</h4>
@@ -900,16 +902,16 @@ tbody tr:last-child td{border-bottom:0}
           </li>
           <li class="act">
             <svg viewBox="0 0 240 140" role="img" aria-label="ภาพประกอบคนสี่คนนั่งล้อมโต๊ะคุยกัน มีกล่องคำพูดลอยอยู่ด้านบน">
-              <rect width="240" height="140" fill="#e1f4e9"/>
-              <rect x="70" y="12" width="46" height="24" rx="8" fill="#ffffff" stroke="#12233a" stroke-width="3"/>
-              <circle cx="84" cy="24" r="3" fill="#12233a"/><circle cx="93" cy="24" r="3" fill="#12233a"/><circle cx="102" cy="24" r="3" fill="#12233a"/>
-              <rect x="134" y="20" width="40" height="22" rx="8" fill="#ffffff" stroke="#12233a" stroke-width="3"/>
-              <path d="M144 31h20" stroke="#12233a" stroke-width="3" stroke-linecap="round"/>
-              <circle cx="50" cy="74" r="11" fill="#12233a"/><path d="M32 112c0-16 8-24 18-24s18 8 18 24z" fill="#4db3ec"/>
-              <circle cx="96" cy="66" r="11" fill="#12233a"/><path d="M78 104c0-16 8-24 18-24s18 8 18 24z" fill="#ffc933"/>
-              <circle cx="146" cy="66" r="11" fill="#12233a"/><path d="M128 104c0-16 8-24 18-24s18 8 18 24z" fill="#e5484d"/>
-              <circle cx="192" cy="74" r="11" fill="#12233a"/><path d="M174 112c0-16 8-24 18-24s18 8 18 24z" fill="#2ba866"/>
-              <ellipse cx="120" cy="114" rx="98" ry="18" fill="#ffffff" stroke="#12233a" stroke-width="3"/>
+              <rect width="240" height="140" fill="#fcf4c8"/>
+              <rect x="70" y="12" width="46" height="24" rx="8" fill="#ffffff" stroke="#1d2b4c" stroke-width="3"/>
+              <circle cx="84" cy="24" r="3" fill="#1d2b4c"/><circle cx="93" cy="24" r="3" fill="#1d2b4c"/><circle cx="102" cy="24" r="3" fill="#1d2b4c"/>
+              <rect x="134" y="20" width="40" height="22" rx="8" fill="#ffffff" stroke="#1d2b4c" stroke-width="3"/>
+              <path d="M144 31h20" stroke="#1d2b4c" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="50" cy="74" r="11" fill="#1d2b4c"/><path d="M32 112c0-16 8-24 18-24s18 8 18 24z" fill="#5b8fc0"/>
+              <circle cx="96" cy="66" r="11" fill="#1d2b4c"/><path d="M78 104c0-16 8-24 18-24s18 8 18 24z" fill="#f2d72a"/>
+              <circle cx="146" cy="66" r="11" fill="#1d2b4c"/><path d="M128 104c0-16 8-24 18-24s18 8 18 24z" fill="#e8721c"/>
+              <circle cx="192" cy="74" r="11" fill="#1d2b4c"/><path d="M174 112c0-16 8-24 18-24s18 8 18 24z" fill="#f08a2e"/>
+              <ellipse cx="120" cy="114" rx="98" ry="18" fill="#ffffff" stroke="#1d2b4c" stroke-width="3"/>
             </svg>
             <div class="act-body">
               <h4>วงสนทนาชีวิตและสวัสดิการ</h4>
@@ -920,15 +922,15 @@ tbody tr:last-child td{border-bottom:0}
           </li>
           <li class="act">
             <svg viewBox="0 0 240 140" role="img" aria-label="ภาพประกอบกล่องข้อความขนาดใหญ่และดินสอ">
-              <rect width="240" height="140" fill="#fde9e9"/>
-              <path d="M72 92l-10 26 30-24" fill="#ffffff" stroke="#12233a" stroke-width="4" stroke-linejoin="round"/>
-              <rect x="40" y="18" width="132" height="78" rx="16" fill="#ffffff" stroke="#12233a" stroke-width="4"/>
-              <rect x="58" y="36" width="78" height="8" rx="4" fill="#12233a"/>
+              <rect width="240" height="140" fill="#fdebd9"/>
+              <path d="M72 92l-10 26 30-24" fill="#ffffff" stroke="#1d2b4c" stroke-width="4" stroke-linejoin="round"/>
+              <rect x="40" y="18" width="132" height="78" rx="16" fill="#ffffff" stroke="#1d2b4c" stroke-width="4"/>
+              <rect x="58" y="36" width="78" height="8" rx="4" fill="#1d2b4c"/>
               <rect x="58" y="52" width="96" height="8" rx="4" fill="#c3ccd8"/>
               <rect x="58" y="68" width="60" height="8" rx="4" fill="#c3ccd8"/>
               <g transform="rotate(-35 196 92)">
-                <rect x="176" y="84" width="48" height="16" rx="3" fill="#ffc933" stroke="#12233a" stroke-width="3"/>
-                <path d="M176 84l-15 8 15 8z" fill="#12233a"/>
+                <rect x="176" y="84" width="48" height="16" rx="3" fill="#f2d72a" stroke="#1d2b4c" stroke-width="3"/>
+                <path d="M176 84l-15 8 15 8z" fill="#1d2b4c"/>
               </g>
             </svg>
             <div class="act-body">
@@ -940,16 +942,16 @@ tbody tr:last-child td{border-bottom:0}
           </li>
           <li class="act act-wide">
             <svg viewBox="0 0 240 140" role="img" aria-label="ภาพประกอบบอร์ดที่มีกระดาษโน้ตหลายสีแบ่งเป็นสองกลุ่ม">
-              <rect width="240" height="140" fill="#eef1f6"/>
-              <path d="M80 118l-10 16M160 118l10 16" stroke="#12233a" stroke-width="4" stroke-linecap="round"/>
-              <rect x="28" y="14" width="184" height="104" rx="8" fill="#ffffff" stroke="#12233a" stroke-width="4"/>
+              <rect width="240" height="140" fill="#f4ecdf"/>
+              <path d="M80 118l-10 16M160 118l10 16" stroke="#1d2b4c" stroke-width="4" stroke-linecap="round"/>
+              <rect x="28" y="14" width="184" height="104" rx="8" fill="#ffffff" stroke="#1d2b4c" stroke-width="4"/>
               <path d="M120 26v84" stroke="#c3ccd8" stroke-width="3" stroke-dasharray="4 6"/>
-              <rect x="42" y="28" width="30" height="30" rx="3" fill="#ffc933" transform="rotate(-4 57 43)"/>
-              <rect x="80" y="30" width="30" height="30" rx="3" fill="#ffc933" transform="rotate(3 95 45)"/>
-              <rect x="60" y="68" width="30" height="30" rx="3" fill="#ffc933" transform="rotate(-2 75 83)"/>
-              <rect x="130" y="28" width="30" height="30" rx="3" fill="#4db3ec" transform="rotate(3 145 43)"/>
-              <rect x="168" y="32" width="30" height="30" rx="3" fill="#2ba866" transform="rotate(-3 183 47)"/>
-              <rect x="148" y="70" width="30" height="30" rx="3" fill="#4db3ec" transform="rotate(2 163 85)"/>
+              <rect x="42" y="28" width="30" height="30" rx="3" fill="#f2d72a" transform="rotate(-4 57 43)"/>
+              <rect x="80" y="30" width="30" height="30" rx="3" fill="#f2d72a" transform="rotate(3 95 45)"/>
+              <rect x="60" y="68" width="30" height="30" rx="3" fill="#f2d72a" transform="rotate(-2 75 83)"/>
+              <rect x="130" y="28" width="30" height="30" rx="3" fill="#5b8fc0" transform="rotate(3 145 43)"/>
+              <rect x="168" y="32" width="30" height="30" rx="3" fill="#f08a2e" transform="rotate(-3 183 47)"/>
+              <rect x="148" y="70" width="30" height="30" rx="3" fill="#5b8fc0" transform="rotate(2 163 85)"/>
             </svg>
             <div class="act-body">
               <span class="lbl">หลังจบกิจกรรม</span>
@@ -964,7 +966,7 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 08 TAKE ACTION -->
-  <section id="action" class="sec on-green c-green" aria-labelledby="action-title">
+  <section id="action" class="sec on-act c-orange" aria-labelledby="action-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">08</span><span>/ 10</span><span class="sec-kind">ทางออก</span><span>Take Action</span></p>
@@ -982,10 +984,10 @@ tbody tr:last-child td{border-bottom:0}
           <div class="persona">
             <div class="persona-card">
               <svg viewBox="0 0 64 64" aria-hidden="true">
-                <circle cx="32" cy="32" r="32" fill="#ffc933"/>
-                <circle cx="32" cy="27" r="11" fill="#12233a"/>
-                <path d="M19 26a13 13 0 0 1 26 0z" fill="#e5484d"/>
-                <path d="M14 58c0-12 8-18 18-18s18 6 18 18z" fill="#2ba866"/>
+                <circle cx="32" cy="32" r="32" fill="#f2d72a"/>
+                <circle cx="32" cy="27" r="11" fill="#1d2b4c"/>
+                <path d="M19 26a13 13 0 0 1 26 0z" fill="#e8721c"/>
+                <path d="M14 58c0-12 8-18 18-18s18 6 18 18z" fill="#f08a2e"/>
               </svg>
               <div><b>ฝน อายุ 27 ปี</b><span>ขับรถส่งอาหาร รายได้ไม่แน่นอน (กรณีสมมติ)</span></div>
             </div>
@@ -1173,7 +1175,7 @@ tbody tr:last-child td{border-bottom:0}
   </section>
 
   <!-- 10 CREDITS & AI DISCLOSURE -->
-  <section id="credits" class="sec tint c-sky" aria-labelledby="credits-title">
+  <section id="credits" class="sec tint c-blue" aria-labelledby="credits-title">
     <div class="wrap sec-inner">
       <header class="sec-head">
         <p class="sec-tag"><span class="sec-dot"></span><span class="sec-num">10</span><span>/ 10</span><span class="sec-kind">แคมเปญ</span><span>Credits &amp; AI Disclosure</span></p>
@@ -1338,7 +1340,7 @@ tbody tr:last-child td{border-bottom:0}
       return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
     });
     var L = 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
-    return (1.05 / (L + 0.05)) >= ((L + 0.05) / 0.0593) ? '#ffffff' : '#12233a';
+    return (1.05 / (L + 0.05)) >= ((L + 0.05) / 0.0593) ? '#ffffff' : '#1d2b4c';
   }
   var cards = [].slice.call(document.querySelectorAll('.sdg-card[data-goal]'));
   var chosen = [];
